@@ -1,0 +1,12 @@
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\bin\Debug\Registro_Alumnos-CRUD.exe.config
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\bin\Debug\Registro_Alumnos-CRUD.exe
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\bin\Debug\Registro_Alumnos-CRUD.pdb
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\obj\Debug\Registro_Alumnos-CRUD.csproj.AssemblyReference.cache
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\obj\Debug\Registro_Alumnos_CRUD.Registro_Alumnos.resources
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\obj\Debug\Registro_Alumnos_CRUD.ListadoAlumnos.resources
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\obj\Debug\Registro_Alumnos_CRUD.Properties.Resources.resources
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\obj\Debug\Registro_Alumnos_CRUD.Visualizar.resources
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\obj\Debug\Registro_Alumnos-CRUD.csproj.GenerateResource.cache
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\obj\Debug\Registro_Alumnos-CRUD.csproj.CoreCompileInputs.cache
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\obj\Debug\Registro_Alumnos-CRUD.exe
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicio3_191023\Registro_Alumnos-CRUD\Registro_Alumnos-CRUD\obj\Debug\Registro_Alumnos-CRUD.pdb

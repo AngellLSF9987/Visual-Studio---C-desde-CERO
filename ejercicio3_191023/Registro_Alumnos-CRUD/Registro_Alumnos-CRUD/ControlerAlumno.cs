@@ -6,26 +6,26 @@ namespace Registro_Alumnos_CRUD
     public class ControlerAlumno
     {
 
-        private List<Alumno> listaAlumno;
+        private List<Alumno> listadoAlumno;
 
         public ControlerAlumno()
         {
-            listaAlumno = new List<Alumno>();
+            listadoAlumno = new List<Alumno>();
         }
 
         public void añadirAlumno(Alumno alumno)
         {
-            listaAlumno.Add(alumno);
+            listadoAlumno.Add(alumno);
         }
 
         public List<Alumno> listaAlumnos()
         {
-            return listaAlumno;
+            return listadoAlumno;
         }
 
         public void borrarAlumno(Alumno alumno)
         {
-            listaAlumno.Remove(alumno);
+            listadoAlumno.Remove(alumno);
         }
 
     }

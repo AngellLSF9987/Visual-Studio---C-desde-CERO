@@ -8,18 +8,18 @@ namespace Registro_Alumnos_CRUD
     public partial class Registro_Alumnos : Form
     {
 
-        private ControlerAlumno controlerAlumno;
-        private Alumno al;
-        private List<Alumno> listaALumno;
+        private ControlerAlumno ca;
+        private Alumno alum;
+        private List<Alumno> listadoAlumno;
 
        
         public Registro_Alumnos()
         {
             InitializeComponent();
 
-            controlerAlumno = new ControlerAlumno();
-            al = new Alumno();
-            listaALumno = new List<Alumno>();
+            ca = new ControlerAlumno();
+            alum = new Alumno();
+            listadoAlumno = new List<Alumno>();
         }
 
        
@@ -32,7 +32,6 @@ namespace Registro_Alumnos_CRUD
         {
 
             Alumno alumno = new Alumno();
-            alumno.CodAlum += 1;
             alumno.CursoAlum = textCurso.Text;
             alumno.NomAlum = textNombre.Text;
             alumno.ApellAlum = textApellido.Text;
@@ -41,10 +40,10 @@ namespace Registro_Alumnos_CRUD
             alumno.MailAlum = textEmail.Text;
             alumno.FecNacAlum = dateFecNac.Value;
 
-            al = alumno;
-            controlerAlumno.añadirAlumno(alumno);
-            listaALumno = controlerAlumno.listaAlumnos();
-            MessageBox.Show("Bienvenido/a al Sistema" + textNombre.Text + " " +textApellido.Text);
+            alum = alumno;
+            ca.añadirAlumno(alumno);
+            listadoAlumno = ca.listaAlumnos();
+            MessageBox.Show("Registro creado: " + textNombre.Text + " " +textApellido.Text);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -59,24 +58,21 @@ namespace Registro_Alumnos_CRUD
         }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
-        private void dataAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnVisualizar_Click(object sender, EventArgs e)
         {
-            foreach(Alumno alumno in listaALumno) 
-            {
-                int n = dataAlumnos.Rows.Add();
-                dataAlumnos.Rows[n].Cells[0].Value = alumno.CodAlum;
-                dataAlumnos.Rows[n].Cells[1].Value = alumno.CursoAlum;
-                dataAlumnos.Rows[n].Cells[2].Value = alumno.NomAlum;
-                dataAlumnos.Rows[n].Cells[3].Value = alumno.ApellAlum;
-                dataAlumnos.Rows[n].Cells[4].Value = alumno.GeneroAlum;
-                dataAlumnos.Rows[n].Cells[5].Value = alumno.FecNacAlum;
-                dataAlumnos.Rows[n].Cells[6].Value = alumno.TelfAlum;
-                dataAlumnos.Rows[n].Cells[7].Value = alumno.MailAlum;
+            Visualizar visualizar = new Visualizar();
+            visualizar.Alum = alum;
+            visualizar.ShowDialog();
+        }
 
-            }
+        private void btnListadoAlumnos_Click(object sender, EventArgs e)
+        {
+            ListadoAlumnos listadoAlum = new ListadoAlumnos();
+            listadoAlum.ListadoAlumno = this.listadoAlumno;
+            listadoAlum.ShowDialog();
         }
     }
 }

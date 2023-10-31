@@ -45,19 +45,11 @@
             this.dateFecNac = new System.Windows.Forms.DateTimePicker();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.dataAlumnos = new System.Windows.Forms.DataGridView();
-            this.colCodAlum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNomAlum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colApellAlum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGeneroAlum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFecNac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTelfAlum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMailAlum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.cmbGenAlum = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataAlumnos)).BeginInit();
+            this.btnVisualizar = new System.Windows.Forms.Button();
+            this.btnListadoAlumnos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCurso
@@ -166,7 +158,7 @@
             this.textCurso.Location = new System.Drawing.Point(171, 44);
             this.textCurso.MaxLength = 300;
             this.textCurso.Name = "textCurso";
-            this.textCurso.Size = new System.Drawing.Size(204, 20);
+            this.textCurso.Size = new System.Drawing.Size(205, 20);
             this.textCurso.TabIndex = 7;
             // 
             // textEmail
@@ -177,7 +169,7 @@
             this.textEmail.Location = new System.Drawing.Point(548, 121);
             this.textEmail.MaxLength = 80;
             this.textEmail.Name = "textEmail";
-            this.textEmail.Size = new System.Drawing.Size(203, 20);
+            this.textEmail.Size = new System.Drawing.Size(204, 20);
             this.textEmail.TabIndex = 8;
             // 
             // textTelefono
@@ -188,7 +180,7 @@
             this.textTelefono.Location = new System.Drawing.Point(548, 90);
             this.textTelefono.MaxLength = 10;
             this.textTelefono.Name = "textTelefono";
-            this.textTelefono.Size = new System.Drawing.Size(203, 20);
+            this.textTelefono.Size = new System.Drawing.Size(204, 20);
             this.textTelefono.TabIndex = 9;
             // 
             // textApellido
@@ -199,7 +191,7 @@
             this.textApellido.Location = new System.Drawing.Point(171, 116);
             this.textApellido.MaxLength = 60;
             this.textApellido.Name = "textApellido";
-            this.textApellido.Size = new System.Drawing.Size(204, 20);
+            this.textApellido.Size = new System.Drawing.Size(205, 20);
             this.textApellido.TabIndex = 11;
             // 
             // textNombre
@@ -210,7 +202,7 @@
             this.textNombre.Location = new System.Drawing.Point(171, 90);
             this.textNombre.MaxLength = 50;
             this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(204, 20);
+            this.textNombre.Size = new System.Drawing.Size(205, 20);
             this.textNombre.TabIndex = 12;
             // 
             // textBox7
@@ -243,12 +235,10 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.Location = new System.Drawing.Point(64, 244);
+            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGuardar.Location = new System.Drawing.Point(69, 268);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(112, 30);
+            this.btnGuardar.Size = new System.Drawing.Size(112, 34);
             this.btnGuardar.TabIndex = 17;
             this.btnGuardar.Text = "Guardar / Actualizar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -256,91 +246,14 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Location = new System.Drawing.Point(639, 244);
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCerrar.Location = new System.Drawing.Point(644, 268);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(112, 30);
+            this.btnCerrar.Size = new System.Drawing.Size(112, 34);
             this.btnCerrar.TabIndex = 18;
             this.btnCerrar.Text = "Salir";
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // dataAlumnos
-            // 
-            this.dataAlumnos.AllowUserToAddRows = false;
-            this.dataAlumnos.AllowUserToDeleteRows = false;
-            this.dataAlumnos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataAlumnos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCodAlum,
-            this.colCurso,
-            this.colNomAlum,
-            this.colApellAlum,
-            this.colGeneroAlum,
-            this.colFecNac,
-            this.colTelfAlum,
-            this.colMailAlum});
-            this.dataAlumnos.Location = new System.Drawing.Point(12, 280);
-            this.dataAlumnos.Name = "dataAlumnos";
-            this.dataAlumnos.ReadOnly = true;
-            this.dataAlumnos.Size = new System.Drawing.Size(819, 338);
-            this.dataAlumnos.TabIndex = 20;
-            this.dataAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataAlumnos_CellContentClick);
-            // 
-            // colCodAlum
-            // 
-            this.colCodAlum.HeaderText = "Código Alumno";
-            this.colCodAlum.Name = "colCodAlum";
-            this.colCodAlum.ReadOnly = true;
-            // 
-            // colCurso
-            // 
-            this.colCurso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colCurso.HeaderText = "Curso / Ciclo";
-            this.colCurso.Name = "colCurso";
-            this.colCurso.ReadOnly = true;
-            this.colCurso.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // colNomAlum
-            // 
-            this.colNomAlum.HeaderText = "Nombre Alumno";
-            this.colNomAlum.Name = "colNomAlum";
-            this.colNomAlum.ReadOnly = true;
-            // 
-            // colApellAlum
-            // 
-            this.colApellAlum.HeaderText = "Apellidos";
-            this.colApellAlum.Name = "colApellAlum";
-            this.colApellAlum.ReadOnly = true;
-            // 
-            // colGeneroAlum
-            // 
-            this.colGeneroAlum.HeaderText = "Género Alumno";
-            this.colGeneroAlum.Name = "colGeneroAlum";
-            this.colGeneroAlum.ReadOnly = true;
-            // 
-            // colFecNac
-            // 
-            this.colFecNac.HeaderText = "Fecha de Nacimiento";
-            this.colFecNac.Name = "colFecNac";
-            this.colFecNac.ReadOnly = true;
-            // 
-            // colTelfAlum
-            // 
-            this.colTelfAlum.HeaderText = "Teléfono de Contacto";
-            this.colTelfAlum.Name = "colTelfAlum";
-            this.colTelfAlum.ReadOnly = true;
-            // 
-            // colMailAlum
-            // 
-            this.colMailAlum.HeaderText = "E-mail Alumno";
-            this.colMailAlum.Name = "colMailAlum";
-            this.colMailAlum.ReadOnly = true;
             // 
             // lblTitulo
             // 
@@ -354,12 +267,10 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLimpiar.Location = new System.Drawing.Point(345, 244);
+            this.btnLimpiar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLimpiar.Location = new System.Drawing.Point(211, 268);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(112, 30);
+            this.btnLimpiar.Size = new System.Drawing.Size(112, 34);
             this.btnLimpiar.TabIndex = 22;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -377,20 +288,43 @@
             "No Binario"});
             this.cmbGenAlum.Location = new System.Drawing.Point(170, 153);
             this.cmbGenAlum.Name = "cmbGenAlum";
-            this.cmbGenAlum.Size = new System.Drawing.Size(205, 21);
+            this.cmbGenAlum.Size = new System.Drawing.Size(206, 21);
             this.cmbGenAlum.TabIndex = 25;
             this.cmbGenAlum.Text = "Seleccione género";
+            // 
+            // btnVisualizar
+            // 
+            this.btnVisualizar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnVisualizar.Location = new System.Drawing.Point(352, 268);
+            this.btnVisualizar.Name = "btnVisualizar";
+            this.btnVisualizar.Size = new System.Drawing.Size(112, 34);
+            this.btnVisualizar.TabIndex = 26;
+            this.btnVisualizar.Text = "Visualizar";
+            this.btnVisualizar.UseVisualStyleBackColor = true;
+            this.btnVisualizar.Click += new System.EventHandler(this.btnVisualizar_Click);
+            // 
+            // btnListadoAlumnos
+            // 
+            this.btnListadoAlumnos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnListadoAlumnos.Location = new System.Drawing.Point(494, 268);
+            this.btnListadoAlumnos.Name = "btnListadoAlumnos";
+            this.btnListadoAlumnos.Size = new System.Drawing.Size(112, 34);
+            this.btnListadoAlumnos.TabIndex = 27;
+            this.btnListadoAlumnos.Text = "Listado Alumnos";
+            this.btnListadoAlumnos.UseVisualStyleBackColor = true;
+            this.btnListadoAlumnos.Click += new System.EventHandler(this.btnListadoAlumnos_Click);
             // 
             // Registro_Alumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(843, 630);
+            this.ClientSize = new System.Drawing.Size(844, 341);
+            this.Controls.Add(this.btnListadoAlumnos);
+            this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.cmbGenAlum);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.dataAlumnos);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dateFecNac);
@@ -413,7 +347,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro Alumnos";
             this.Load += new System.EventHandler(this.Registro_Alumnos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataAlumnos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,18 +371,11 @@
         private System.Windows.Forms.DateTimePicker dateFecNac;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.DataGridView dataAlumnos;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodAlum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCurso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNomAlum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colApellAlum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGeneroAlum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFecNac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTelfAlum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMailAlum;
         private System.Windows.Forms.ComboBox cmbGenAlum;
+        private System.Windows.Forms.Button btnVisualizar;
+        private System.Windows.Forms.Button btnListadoAlumnos;
     }
 }
 

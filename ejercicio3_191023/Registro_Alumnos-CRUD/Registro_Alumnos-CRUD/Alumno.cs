@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Registro_Alumnos_CRUD.Clases
 {
     public class Alumno
     {
-        
-            private long codAlum;
+            private static long codAlum;
             private string cursoAlum;
             private string nomAlum;
             private string apellAlum;
@@ -20,14 +13,20 @@ namespace Registro_Alumnos_CRUD.Clases
             private DateTime fecNacAlum;
             private string mailAlum;
 
-            public long CodAlum
+        public static long CodAlum
+        {
+            get
             {
-                get { return codAlum; }
-                set { codAlum = value; }
+                return codAlum;
             }
+            set
+            {
+                codAlum = value;
+            }
+        }
 
 
-            public string CursoAlum
+        public string CursoAlum
             {
                 get { return cursoAlum; }
                 set
@@ -69,5 +68,7 @@ namespace Registro_Alumnos_CRUD.Clases
                 set { mailAlum = value; }
 
             }
+
+
     }
 }
