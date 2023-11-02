@@ -4,7 +4,6 @@ namespace Registro_Alumnos_CRUD.Clases
 {
     public class Alumno
     {
-            private static long codAlum;
             private string cursoAlum;
             private string nomAlum;
             private string apellAlum;
