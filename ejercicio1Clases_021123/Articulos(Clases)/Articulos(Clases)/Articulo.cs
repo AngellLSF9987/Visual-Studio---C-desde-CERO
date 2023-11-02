@@ -27,13 +27,13 @@ namespace Articulos_Clases_
             }
 
             // Constructor con argumentos para inicializar las propiedades
-            public Articulo(int codigo, string nombre, string categoria, decimal precio, int existencias)
+            public Articulo(int codigoArticulo, string nombreArticulo, string categoriaArticulo, decimal precioArticulo, int existenciasArticulo)
             {
-                CodigoArticulo = codigo;
-                NombreArticulo = nombre;
-                CategoriaArticulo = categoria;
-                PrecioArticulo = precio;
-                ExistenciasArticulo = existencias;
+                CodigoArticulo = codigoArticulo;
+                NombreArticulo = nombreArticulo;
+                CategoriaArticulo = categoriaArticulo;
+                PrecioArticulo = precioArticulo;
+                ExistenciasArticulo = existenciasArticulo;
             }
         }
     }
