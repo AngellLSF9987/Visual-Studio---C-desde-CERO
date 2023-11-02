@@ -31,8 +31,11 @@ namespace Registro_Alumnos_CRUD
         {
             foreach (Alumno alumno in listadoAlumno)
             {
-                int n = dataAlumnos.Rows.Add();
-                dataAlumnos.Rows[n].Cells[0].Value = alumno.CodAlum + 1;
+                int n = dataAlumnos.Rows.Add();             
+                for (alumno.CodAlum = 1; alumno.CodAlum < dataAlumnos.Rows.Count; alumno.CodAlum++)
+                {
+                    dataAlumnos.Rows[n].Cells[0].Value = alumno.CodAlum;
+                }
                 dataAlumnos.Rows[n].Cells[1].Value = alumno.CursoAlum;
                 dataAlumnos.Rows[n].Cells[2].Value = alumno.NomAlum;
                 dataAlumnos.Rows[n].Cells[3].Value = alumno.ApellAlum;
@@ -40,7 +43,6 @@ namespace Registro_Alumnos_CRUD
                 dataAlumnos.Rows[n].Cells[5].Value = alumno.FecNacAlum;
                 dataAlumnos.Rows[n].Cells[6].Value = alumno.TelfAlum;
                 dataAlumnos.Rows[n].Cells[7].Value = alumno.MailAlum;
-
             }
         }
 

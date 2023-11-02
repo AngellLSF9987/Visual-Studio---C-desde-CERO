@@ -28,6 +28,14 @@ namespace Registro_Alumnos_CRUD
         {
             
             labelCursoNombre.Text = alum.CursoAlum;
+            
+            for (alum.CodAlum = 1; alum.CodAlum < alum.CodAlum; alum.CodAlum++)
+            {
+                //
+                //
+                //labelCodigoAlumno.Text = int.Parse(alum.CodAlum);
+            }
+           
             labelNombre.Text = alum.NomAlum;
             labelApellido.Text = alum.ApellAlum;
             labelGenero.Text = alum.GeneroAlum;

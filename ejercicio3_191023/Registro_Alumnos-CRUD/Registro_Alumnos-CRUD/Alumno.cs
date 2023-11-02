@@ -4,6 +4,7 @@ namespace Registro_Alumnos_CRUD.Clases
 {
     public class Alumno
     {
+            private int codAlum;
             private string cursoAlum;
             private string nomAlum;
             private string apellAlum;
@@ -12,15 +13,15 @@ namespace Registro_Alumnos_CRUD.Clases
             private DateTime fecNacAlum;
             private string mailAlum;
 
-        public static long CodAlum
+        public int CodAlum
         {
             get
             {
                 return codAlum;
             }
             set
-            {
-                codAlum = value;
+            {       
+                codAlum = value;              
             }
         }
 

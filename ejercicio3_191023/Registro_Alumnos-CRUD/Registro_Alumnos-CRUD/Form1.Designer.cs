@@ -30,7 +30,6 @@
         {
             this.lblCurso = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblMail = new System.Windows.Forms.Label();
@@ -40,7 +39,6 @@
             this.textTelefono = new System.Windows.Forms.TextBox();
             this.textApellido = new System.Windows.Forms.TextBox();
             this.textNombre = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dateFecNac = new System.Windows.Forms.DateTimePicker();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -80,20 +78,6 @@
             this.lblNombre.Text = "Nombre(s) :";
             this.lblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblPassword
-            // 
-            this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(391, 189);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(122, 15);
-            this.lblPassword.TabIndex = 2;
-            this.lblPassword.Text = "Contraseña Reg. :";
-            this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lblApellido
             // 
             this.lblApellido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -115,7 +99,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.Location = new System.Drawing.Point(443, 95);
+            this.lblTelefono.Location = new System.Drawing.Point(443, 121);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(70, 15);
             this.lblTelefono.TabIndex = 4;
@@ -129,7 +113,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMail.AutoSize = true;
             this.lblMail.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMail.Location = new System.Drawing.Point(458, 121);
+            this.lblMail.Location = new System.Drawing.Point(458, 155);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(55, 15);
             this.lblMail.TabIndex = 5;
@@ -166,7 +150,7 @@
             this.textEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEmail.Location = new System.Drawing.Point(548, 121);
+            this.textEmail.Location = new System.Drawing.Point(531, 153);
             this.textEmail.MaxLength = 80;
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(204, 20);
@@ -177,7 +161,7 @@
             this.textTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textTelefono.Location = new System.Drawing.Point(548, 90);
+            this.textTelefono.Location = new System.Drawing.Point(531, 116);
             this.textTelefono.MaxLength = 10;
             this.textTelefono.Name = "textTelefono";
             this.textTelefono.Size = new System.Drawing.Size(204, 20);
@@ -204,13 +188,6 @@
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(205, 20);
             this.textNombre.TabIndex = 12;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(548, 184);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(203, 20);
-            this.textBox7.TabIndex = 13;
             // 
             // label2
             // 
@@ -259,7 +236,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(442, 27);
+            this.lblTitulo.Location = new System.Drawing.Point(457, 44);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(309, 24);
             this.lblTitulo.TabIndex = 21;
@@ -299,7 +276,7 @@
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Size = new System.Drawing.Size(112, 34);
             this.btnVisualizar.TabIndex = 26;
-            this.btnVisualizar.Text = "Visualizar";
+            this.btnVisualizar.Text = "Consultar";
             this.btnVisualizar.UseVisualStyleBackColor = true;
             this.btnVisualizar.Click += new System.EventHandler(this.btnVisualizar_Click);
             // 
@@ -329,7 +306,6 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dateFecNac);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textNombre);
             this.Controls.Add(this.textApellido);
             this.Controls.Add(this.textTelefono);
@@ -339,7 +315,6 @@
             this.Controls.Add(this.lblMail);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.lblApellido);
-            this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCurso);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -356,7 +331,6 @@
 
         private System.Windows.Forms.Label lblCurso;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblMail;
@@ -366,7 +340,6 @@
         private System.Windows.Forms.TextBox textTelefono;
         private System.Windows.Forms.TextBox textApellido;
         private System.Windows.Forms.TextBox textNombre;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateFecNac;
         private System.Windows.Forms.Button btnGuardar;
