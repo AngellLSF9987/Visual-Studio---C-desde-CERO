@@ -43,8 +43,6 @@
             this.labelFechaNacimiento = new System.Windows.Forms.Label();
             this.labelTelefono = new System.Windows.Forms.Label();
             this.labelEmail = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelCodigoAlumno = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -54,9 +52,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(94, 145);
+            this.label2.Location = new System.Drawing.Point(125, 178);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 15);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 21;
             this.label2.Text = "Género :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -68,9 +67,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 179);
+            this.label1.Location = new System.Drawing.Point(32, 220);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 15);
+            this.label1.Size = new System.Drawing.Size(166, 20);
             this.label1.TabIndex = 20;
             this.label1.Text = "Fecha Nacimiento :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -82,9 +82,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMail.AutoSize = true;
             this.lblMail.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMail.Location = new System.Drawing.Point(100, 280);
+            this.lblMail.Location = new System.Drawing.Point(133, 345);
+            this.lblMail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(55, 15);
+            this.lblMail.Size = new System.Drawing.Size(70, 20);
             this.lblMail.TabIndex = 19;
             this.lblMail.Text = "E-mail :";
             this.lblMail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -96,9 +97,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.Location = new System.Drawing.Point(85, 237);
+            this.lblTelefono.Location = new System.Drawing.Point(113, 292);
+            this.lblTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(70, 15);
+            this.lblTelefono.Size = new System.Drawing.Size(90, 20);
             this.lblTelefono.TabIndex = 18;
             this.lblTelefono.Text = "Teléfono :";
             this.lblTelefono.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -110,9 +112,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.Location = new System.Drawing.Point(72, 111);
+            this.lblApellido.Location = new System.Drawing.Point(96, 137);
+            this.lblApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(84, 15);
+            this.lblApellido.Size = new System.Drawing.Size(108, 20);
             this.lblApellido.TabIndex = 17;
             this.lblApellido.Text = "Apellido(s) :";
             this.lblApellido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -124,9 +127,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(73, 84);
+            this.lblNombre.Location = new System.Drawing.Point(97, 103);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(83, 15);
+            this.lblNombre.Size = new System.Drawing.Size(105, 20);
             this.lblNombre.TabIndex = 16;
             this.lblNombre.Text = "Nombre(s) :";
             this.lblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -138,9 +142,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCurso.AutoSize = true;
             this.lblCurso.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurso.Location = new System.Drawing.Point(102, 31);
+            this.lblCurso.Location = new System.Drawing.Point(136, 38);
+            this.lblCurso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurso.Name = "lblCurso";
-            this.lblCurso.Size = new System.Drawing.Size(53, 15);
+            this.lblCurso.Size = new System.Drawing.Size(67, 20);
             this.lblCurso.TabIndex = 15;
             this.lblCurso.Text = "Curso :";
             this.lblCurso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -148,9 +153,10 @@
             // btnCerrar
             // 
             this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCerrar.Location = new System.Drawing.Point(383, 316);
+            this.btnCerrar.Location = new System.Drawing.Point(511, 389);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(104, 30);
+            this.btnCerrar.Size = new System.Drawing.Size(136, 39);
             this.btnCerrar.TabIndex = 22;
             this.btnCerrar.Text = "Salir";
             this.btnCerrar.UseVisualStyleBackColor = true;
@@ -160,9 +166,10 @@
             // 
             this.labelCursoNombre.AutoSize = true;
             this.labelCursoNombre.Font = new System.Drawing.Font("Arial Nova", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCursoNombre.Location = new System.Drawing.Point(205, 23);
+            this.labelCursoNombre.Location = new System.Drawing.Point(273, 28);
+            this.labelCursoNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCursoNombre.Name = "labelCursoNombre";
-            this.labelCursoNombre.Size = new System.Drawing.Size(48, 23);
+            this.labelCursoNombre.Size = new System.Drawing.Size(60, 29);
             this.labelCursoNombre.TabIndex = 23;
             this.labelCursoNombre.Text = "dato";
             // 
@@ -170,9 +177,10 @@
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Arial Nova", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(205, 77);
+            this.labelNombre.Location = new System.Drawing.Point(273, 95);
+            this.labelNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(48, 23);
+            this.labelNombre.Size = new System.Drawing.Size(60, 29);
             this.labelNombre.TabIndex = 24;
             this.labelNombre.Text = "dato";
             // 
@@ -180,9 +188,10 @@
             // 
             this.labelApellido.AutoSize = true;
             this.labelApellido.Font = new System.Drawing.Font("Arial Nova", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelApellido.Location = new System.Drawing.Point(205, 100);
+            this.labelApellido.Location = new System.Drawing.Point(273, 123);
+            this.labelApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelApellido.Name = "labelApellido";
-            this.labelApellido.Size = new System.Drawing.Size(48, 23);
+            this.labelApellido.Size = new System.Drawing.Size(60, 29);
             this.labelApellido.TabIndex = 25;
             this.labelApellido.Text = "dato";
             // 
@@ -190,9 +199,10 @@
             // 
             this.labelGenero.AutoSize = true;
             this.labelGenero.Font = new System.Drawing.Font("Arial Nova", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGenero.Location = new System.Drawing.Point(205, 137);
+            this.labelGenero.Location = new System.Drawing.Point(273, 169);
+            this.labelGenero.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGenero.Name = "labelGenero";
-            this.labelGenero.Size = new System.Drawing.Size(48, 23);
+            this.labelGenero.Size = new System.Drawing.Size(60, 29);
             this.labelGenero.TabIndex = 26;
             this.labelGenero.Text = "dato";
             // 
@@ -200,9 +210,10 @@
             // 
             this.labelFechaNacimiento.AutoSize = true;
             this.labelFechaNacimiento.Font = new System.Drawing.Font("Arial Nova", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFechaNacimiento.Location = new System.Drawing.Point(205, 171);
+            this.labelFechaNacimiento.Location = new System.Drawing.Point(273, 210);
+            this.labelFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFechaNacimiento.Name = "labelFechaNacimiento";
-            this.labelFechaNacimiento.Size = new System.Drawing.Size(48, 23);
+            this.labelFechaNacimiento.Size = new System.Drawing.Size(60, 29);
             this.labelFechaNacimiento.TabIndex = 27;
             this.labelFechaNacimiento.Text = "dato";
             // 
@@ -210,9 +221,10 @@
             // 
             this.labelTelefono.AutoSize = true;
             this.labelTelefono.Font = new System.Drawing.Font("Arial Nova", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTelefono.Location = new System.Drawing.Point(205, 230);
+            this.labelTelefono.Location = new System.Drawing.Point(273, 283);
+            this.labelTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTelefono.Name = "labelTelefono";
-            this.labelTelefono.Size = new System.Drawing.Size(48, 23);
+            this.labelTelefono.Size = new System.Drawing.Size(60, 29);
             this.labelTelefono.TabIndex = 28;
             this.labelTelefono.Text = "dato";
             // 
@@ -220,44 +232,19 @@
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Arial Nova", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.Location = new System.Drawing.Point(205, 272);
+            this.labelEmail.Location = new System.Drawing.Point(273, 335);
+            this.labelEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(48, 23);
+            this.labelEmail.Size = new System.Drawing.Size(60, 29);
             this.labelEmail.TabIndex = 30;
             this.labelEmail.Text = "dato";
             // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(60, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 15);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "Cod. Alumno :";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelCodigoAlumno
-            // 
-            this.labelCodigoAlumno.AutoSize = true;
-            this.labelCodigoAlumno.Font = new System.Drawing.Font("Arial Nova", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCodigoAlumno.Location = new System.Drawing.Point(205, 51);
-            this.labelCodigoAlumno.Name = "labelCodigoAlumno";
-            this.labelCodigoAlumno.Size = new System.Drawing.Size(48, 23);
-            this.labelCodigoAlumno.TabIndex = 32;
-            this.labelCodigoAlumno.Text = "dato";
-            // 
             // Visualizar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(525, 358);
-            this.Controls.Add(this.labelCodigoAlumno);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(700, 441);
             this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.labelTelefono);
             this.Controls.Add(this.labelFechaNacimiento);
@@ -273,6 +260,7 @@
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCurso);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Visualizar";
             this.Text = "Visualizar";
             this.Load += new System.EventHandler(this.Visualizar_Load);
@@ -298,7 +286,5 @@
         private System.Windows.Forms.Label labelFechaNacimiento;
         private System.Windows.Forms.Label labelTelefono;
         private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label labelCodigoAlumno;
     }
 }
