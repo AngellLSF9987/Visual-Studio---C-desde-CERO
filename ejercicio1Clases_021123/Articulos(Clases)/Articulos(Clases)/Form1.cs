@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Articulos_Clases_
@@ -10,62 +9,151 @@ namespace Articulos_Clases_
         public Form1()
         {
             InitializeComponent();
+            //Estas lineas eliminan los parpadeos del formulario o controles en la interfaz grafica (Pero no en un 100%)
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            this.DoubleBuffered = true;
         }
-
-        
         private void Form1_Load(object sender, EventArgs e)
         {
+            btnIni_Click(null, e);  // Incluye y muestra formulario Inicial en el arranque de programa
+        }
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
-        private List<Articulo> listaArticulos = new List<Articulo>();
-        private List<Pedido> listaPedidos = new List<Pedido>();
 
-        // Agregar un nuevo artículo
-        private void AgregarArticulo(Articulo articulo)
+        //METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO  TIEMPO DE EJECUCION ----------------------------------------------------------
+        private int tolerance = 15;
+        private const int WM_NCHITTEST = 132;
+        private const int HTBOTTOMRIGHT = 17;
+        private Rectangle sizeGripRectangle;
+        protected override void WndProc(ref Message m)
         {
-            articulo.CodigoArticulo = listaArticulos.Count + 1;
-            listaArticulos.Add(articulo);
-        }
-
-        // Actualizar un artículo existente
-        private void ActualizarArticulo(Articulo articulo)
-        {
-            var articuloExistente = listaArticulos.FirstOrDefault(a => a.CodigoArticulo == articulo.CodigoArticulo);
-            if (articuloExistente != null)
+            switch (m.Msg)
             {
-                articuloExistente.NombreArticulo = articulo.NombreArticulo;
-                articuloExistente.PrecioArticulo = articulo.PrecioArticulo;
+                case WM_NCHITTEST:
+                    base.WndProc(ref m);
+                    var hitPoint = this.PointToClient(new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16));
+                    if (sizeGripRectangle.Contains(hitPoint))
+                        m.Result = new IntPtr(HTBOTTOMRIGHT);
+                    break;
+                default:
+                    base.WndProc(ref m);
+                    break;
             }
         }
 
-        // Eliminar un artículo
-        private void EliminarArticulo(int codigoArticulo)
+        //----------------DIBUJAR RECTANGULO / EXCLUIR ESQUINA PANEL 
+        protected override void OnSizeChanged(EventArgs e)
         {
-            listaArticulos.RemoveAll(a => a.CodigoArticulo == codigoArticulo);
+            base.OnSizeChanged(e);
+            var region = new Region(new Rectangle(0, 0, this.ClientRectangle.Width, this.ClientRectangle.Height));
+            sizeGripRectangle = new Rectangle(this.ClientRectangle.Width - tolerance, this.ClientRectangle.Height - tolerance, tolerance, tolerance);
+            region.Exclude(sizeGripRectangle);
+            this.panelContenedorForm1.Region = region;
+            this.Invalidate();
+        }
+        //----------------COLOR Y GRIP DE RECTANGULO INFERIOR
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            SolidBrush blueBrush = new SolidBrush(Color.FromArgb(55, 61, 69));
+            e.Graphics.FillRectangle(blueBrush, sizeGripRectangle);
+            base.OnPaint(e);
+            ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
         }
 
-        // Agregar un nuevo pedido
-        private void AgregarPedido(Pedido pedido)
+        private void AbrirFormHijo(object formHijo)
         {
-            pedido.ID = listaPedidos.Count + 1;
-            listaPedidos.Add(pedido);
+            if (this.panelContenedorForm1.Controls.Count > 0)
+                this.panelContenedorForm1.Controls.RemoveAt(0);
+            Form fh = formHijo as Form;
+            fh.TopLevel = false;
+            fh.FormBorderStyle = FormBorderStyle.None;
+            fh.Dock = DockStyle.Fill;
+            panelContenedorForm1.Controls.Add(fh);
+            panelContenedorForm1.Tag = fh;
+            fh.Show();
         }
 
-        // Actualizar un pedido existente
-        private void ActualizarPedido(Pedido pedido)
+        Panel p = new Panel();
+       /** Panel p2 = new Panel();
+        Panel p3 = new Panel(); */
+        private void btnMouseEnter(object sender, EventArgs e)
         {
-            var pedidoExistente = listaPedidos.FirstOrDefault(p => p.ID == pedido.ID);
-            if (pedidoExistente != null)
+            // Evento visual para la transformacion de los botones del panel superior (pMenu)
+            // en cuanto a tamaño y simular una línea inferior
+            Button btn = sender as Button;
+           
+            pMenu.Controls.Add(p);
+            
+            p.BackColor = Color.GreenYellow;
+            p.ForeColor = Color.GreenYellow;
+            p.Size = new Size(140,5);
+            p.Location = new Point(btn.Location.X, btn.Location.Y+40);
+        /**    
+            pSubArt.Controls.Add(p2);
+           
+            p2.BackColor = Color.GreenYellow;
+            p2.ForeColor = Color.GreenYellow;
+            p2.Size = new Size(140, 5);
+            p2.Location = new Point(btn.Location.X, btn.Location.Y + 40);
+
+            pSubPed.Controls.Add(p3);
+
+            p3.BackColor = Color.GreenYellow;
+            p3.ForeColor = Color.GreenYellow;
+            p3.Size = new Size(140, 5);
+            p3.Location = new Point(btn.Location.X, btn.Location.Y + 40);*/
+        }
+            // Evento que finaliza la transformacion del panel superior cuando el cursor no lo está enfocando 
+        private void btnMouseLeave(object sender, EventArgs e)
+        {
+            pMenu.Controls.Remove(p);
+        /**    pSubArt.Controls.Remove(p2);
+            pSubPed.Controls.Remove(p3);*/
+        }           
+        private void btnMenuArticulos_Click(object sender, EventArgs e)
+        {
+            if(!pSubArt.Visible)
             {
-                pedidoExistente.Cliente = pedido.Cliente;
-                pedidoExistente.Articulos = pedido.Articulos;
+                pSubArt.Visible = true;
+            }
+            else 
+            {
+                pSubArt.Visible = false;
             }
         }
-
-        // Eliminar un pedido
-        private void EliminarPedido(int id)
+        private void btnMenuPedidos_Click(object sender, EventArgs e)
         {
-            listaPedidos.RemoveAll(p => p.ID == id);
+            if (!pSubPed.Visible)
+            {
+                pSubPed.Visible = true;
+            }
+            else
+            {
+                pSubPed.Visible = false;
+            }
+        }
+    
+        private void btnIni_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new Inicial());
+        }
+        private void btnConsultaPedido_Click(object sender, EventArgs e)
+        {           
+            AbrirFormHijo(new ConsultaPedidos());
+        }
+        private void btnAltas_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new AltasArticulos());
+        }
+        private void btnConsultaArticulo_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new ConsultaArticulos());
+        }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
