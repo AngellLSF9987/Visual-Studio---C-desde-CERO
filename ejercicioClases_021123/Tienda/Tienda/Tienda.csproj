@@ -33,7 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logoComGreen.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -82,6 +83,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="Properties\iconosVIsual.rar" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -99,9 +101,50 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="logoComGreen.ico" />
+    <Content Include="Properties\ajustesAzul.png" />
+    <Content Include="Properties\arrowDownBlack.png" />
+    <Content Include="Properties\arrowDownWhite.png" />
+    <Content Include="Properties\boligrafoEditar.png" />
+    <Content Include="Properties\calendario1.png" />
+    <Content Include="Properties\calendario2.png" />
+    <Content Include="Properties\calendario3.png" />
+    <Content Include="Properties\candado1.png" />
+    <Content Include="Properties\cerrar.png" />
+    <Content Include="Properties\close.png" />
+    <Content Include="Properties\close2.png" />
+    <Content Include="Properties\codigobarras1.png" />
+    <Content Include="Properties\codigobarras2.png" />
+    <Content Include="Properties\flechaAzulAbajo.png" />
+    <Content Include="Properties\flechaAzulArriba.png" />
+    <Content Include="Properties\fondoInicio.png" />
+    <Content Include="Properties\fondotierraInformaticaAzul.png" />
+    <Content Include="Properties\icoBanco1.png" />
+    <Content Include="Properties\icoInicio.png" />
+    <Content Include="Properties\icoRestaurarAz.png" />
+    <Content Include="Properties\icoRestaurarAzul.png" />
+    <Content Include="Properties\icoWWWAzul.png" />
+    <Content Include="Properties\icoWWWAzulOscuro.png" />
+    <Content Include="Properties\lapizEditar.png" />
+    <Content Include="Properties\librolistas3D.png" />
+    <Content Include="Properties\librollistas1.png" />
+    <Content Include="Properties\listaColores.png" />
+    <Content Include="Properties\logoCom.png" />
+    <Content Include="Properties\logoComGreen.ico" />
+    <Content Include="Properties\logoComGreen.png" />
+    <Content Include="Properties\logoComGreen2.png" />
+    <Content Include="Properties\logoComGreenMenu.png" />
+    <Content Include="Properties\logoComGreenStart.png" />
+    <Content Include="Properties\lupaApzul.png" />
+    <Content Include="Properties\maximizarAzul.png" />
+    <Content Include="Properties\maximizarBN.png" />
+    <Content Include="Properties\minimizarAzul.png" />
+    <Content Include="Properties\minimizarBN.png" />
+    <Content Include="Properties\okVerde.png" />
+    <Content Include="Properties\pedidos1.png" />
+    <Content Include="Properties\plumaEditar.png" />
+    <Content Include="Properties\user1.png" />
+    <Content Include="Properties\user2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
