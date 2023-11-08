@@ -8,3 +8,6 @@ C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\ob
 C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\obj\Debug\Tienda.csproj.CoreCompileInputs.cache
 C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\obj\Debug\Tienda.exe
 C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\obj\Debug\Tienda.pdb
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\obj\Debug\Tienda.FormAltaArticulo.resources
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\obj\Debug\Tienda.FormConsultaArticulo.resources
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\obj\Debug\Tienda.FormDetallePedido.resources
