@@ -91,15 +91,17 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\iconosVIsual.rar" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.cs" />
-    <Compile Include="Properties\Resources.designer.cs">
-      <DependentUpon>Resources.cs</DependentUpon>
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -114,10 +116,13 @@
     <Content Include="Properties\ajustesAzul.png" />
     <Content Include="Properties\arrowDownBlack.png" />
     <Content Include="Properties\arrowDownWhite.png" />
+    <None Include="Properties\bar-graph1.png" />
     <Content Include="Properties\boligrafoEditar.png" />
+    <None Include="Properties\calendar %281%291.png" />
     <Content Include="Properties\calendario1.png" />
     <Content Include="Properties\calendario2.png" />
     <Content Include="Properties\calendario3.png" />
+    <None Include="Properties\cancel.png" />
     <Content Include="Properties\candado1.png" />
     <Content Include="Properties\cerrar.png" />
     <Content Include="Properties\close.png" />
@@ -128,6 +133,9 @@
     <Content Include="Properties\flechaAzulArriba.png" />
     <Content Include="Properties\fondoInicio.png" />
     <Content Include="Properties\fondotierraInformaticaAzul.png" />
+    <None Include="Properties\health %281%291.png" />
+    <None Include="Properties\Health-PNG-Image.png" />
+    <None Include="Properties\Health-PNG-Image2.png" />
     <Content Include="Properties\icoBanco1.png" />
     <Content Include="Properties\icoInicio.png" />
     <Content Include="Properties\icoRestaurarAz.png" />
@@ -135,6 +143,7 @@
     <Content Include="Properties\icoWWWAzul.png" />
     <Content Include="Properties\icoWWWAzulOscuro.png" />
     <Content Include="Properties\lapizEditar.png" />
+    <None Include="Properties\left-arrow %281%29.png" />
     <Content Include="Properties\librolistas3D.png" />
     <Content Include="Properties\librollistas1.png" />
     <Content Include="Properties\listaColores.png" />
@@ -144,14 +153,28 @@
     <Content Include="Properties\logoComGreen2.png" />
     <Content Include="Properties\logoComGreenMenu.png" />
     <Content Include="Properties\logoComGreenStart.png" />
+    <None Include="Properties\logout %281%291.png" />
+    <None Include="Properties\loupe %281%29.png" />
     <Content Include="Properties\lupaApzul.png" />
     <Content Include="Properties\maximizarAzul.png" />
     <Content Include="Properties\maximizarBN.png" />
+    <None Include="Properties\maximize3.png" />
+    <None Include="Properties\menu.png" />
+    <None Include="Properties\menu2.png" />
     <Content Include="Properties\minimizarAzul.png" />
     <Content Include="Properties\minimizarBN.png" />
+    <None Include="Properties\Minimize.png" />
+    <None Include="Properties\Normal.png" />
     <Content Include="Properties\okVerde.png" />
+    <None Include="Properties\patient %281%291.png" />
+    <None Include="Properties\payment1.png" />
     <Content Include="Properties\pedidos1.png" />
+    <None Include="Properties\person-settings1.png" />
+    <None Include="Properties\phone-book %281%291.png" />
     <Content Include="Properties\plumaEditar.png" />
+    <None Include="Properties\seo1.png" />
+    <None Include="Properties\user %281%29.png" />
+    <None Include="Properties\user.png" />
     <Content Include="Properties\user1.png" />
     <Content Include="Properties\user2.png" />
   </ItemGroup>

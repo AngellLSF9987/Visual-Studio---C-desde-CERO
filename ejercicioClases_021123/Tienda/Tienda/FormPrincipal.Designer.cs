@@ -46,7 +46,7 @@
             this.btnConsultaArticulo = new System.Windows.Forms.Button();
             this.btnAltaArticulo = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.btnPedidos = new System.Windows.Forms.Button();
+            this.BtnPedidos = new System.Windows.Forms.Button();
             this.btnArticulos = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
@@ -111,7 +111,7 @@
             this.panelNavBar.Controls.Add(this.panelSubmenuPedidos);
             this.panelNavBar.Controls.Add(this.panelSubmenuArticulos);
             this.panelNavBar.Controls.Add(this.btnClientes);
-            this.panelNavBar.Controls.Add(this.btnPedidos);
+            this.panelNavBar.Controls.Add(this.BtnPedidos);
             this.panelNavBar.Controls.Add(this.btnArticulos);
             this.panelNavBar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelNavBar.Dock = System.Windows.Forms.DockStyle.Left;
@@ -266,21 +266,21 @@
             this.btnClientes.MouseEnter += new System.EventHandler(this.btnMouseEnter);
             this.btnClientes.MouseLeave += new System.EventHandler(this.btnMouseLeave);
             // 
-            // btnPedidos
+            // BtnPedidos
             // 
-            this.btnPedidos.FlatAppearance.BorderSize = 0;
-            this.btnPedidos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow;
-            this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPedidos.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnPedidos.Location = new System.Drawing.Point(25, 319);
-            this.btnPedidos.Name = "btnPedidos";
-            this.btnPedidos.Size = new System.Drawing.Size(107, 36);
-            this.btnPedidos.TabIndex = 3;
-            this.btnPedidos.Text = "Pedidos";
-            this.btnPedidos.UseVisualStyleBackColor = true;
-            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
-            this.btnPedidos.MouseEnter += new System.EventHandler(this.btnMouseEnter);
-            this.btnPedidos.MouseLeave += new System.EventHandler(this.btnMouseLeave);
+            this.BtnPedidos.FlatAppearance.BorderSize = 0;
+            this.BtnPedidos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow;
+            this.BtnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPedidos.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.BtnPedidos.Location = new System.Drawing.Point(25, 319);
+            this.BtnPedidos.Name = "BtnPedidos";
+            this.BtnPedidos.Size = new System.Drawing.Size(107, 36);
+            this.BtnPedidos.TabIndex = 3;
+            this.BtnPedidos.Text = "Pedidos";
+            this.BtnPedidos.UseVisualStyleBackColor = true;
+            this.BtnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
+            this.BtnPedidos.MouseEnter += new System.EventHandler(this.btnMouseEnter);
+            this.BtnPedidos.MouseLeave += new System.EventHandler(this.btnMouseLeave);
             // 
             // btnArticulos
             // 
@@ -404,7 +404,7 @@
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnRestaurar;
-        private System.Windows.Forms.Button btnPedidos;
+        private System.Windows.Forms.Button BtnPedidos;
         private System.Windows.Forms.Button btnConsultaArticulo;
         private System.Windows.Forms.Button btnAltaArticulo;
         private System.Windows.Forms.Button btnArticulos;
