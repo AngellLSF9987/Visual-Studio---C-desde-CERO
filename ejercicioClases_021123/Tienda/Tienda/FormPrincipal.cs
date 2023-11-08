@@ -25,7 +25,7 @@ namespace Tienda
 
         #region Funcionalidades y Estilos del formulario 
 
-        Panel p = new Panel();       
+        Panel p = new Panel();
         private void btnMouseEnter(object sender, EventArgs e)
         {
             Button btn = sender as Button;
@@ -42,7 +42,7 @@ namespace Tienda
 
         Panel pSubArt = new Panel();
         Panel pSubPed = new Panel();
-                    
+
         private void btnMouseEnterSub(object sender, EventArgs e)
         {
             Button btn = sender as Button;
