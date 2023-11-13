@@ -103,7 +103,6 @@ namespace Tienda
                     /**registro.SubItems.Add(categoria.ToString()); */
 
 
-                    ListViewDetallePedido.Items.Add(registro);
                     btnLimpiar_Click(sender, e);
 
                     MessageBox.Show("Pedido realizado con éxito! Muchas gracias por elegirnos!");
