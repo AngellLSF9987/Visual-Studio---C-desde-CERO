@@ -38,17 +38,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxSelecPago = new System.Windows.Forms.ComboBox();
-            this.comboBoxSelecArticulos = new System.Windows.Forms.ComboBox();
-            this.ListViewDetallePedido = new System.Windows.Forms.ListView();
-            this.columnHeaderCodArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderPrecioUnidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderCantidadPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderTipoPago = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderDescuento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderRecargo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderTotal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.comboBoxSelectArticulos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labelFecha = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,6 +49,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTimerTick = new System.Windows.Forms.Panel();
             this.labelHora = new System.Windows.Forms.Label();
+            this.listViewPedidos = new System.Windows.Forms.ListView();
+            this.colCodigoPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCantidadPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCodigoCliente = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTipoPago = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDescuento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colRecargo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTotalPrecio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxDetallePedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTimerTick.SuspendLayout();
@@ -73,13 +71,13 @@
             this.groupBoxDetallePedido.Controls.Add(this.label4);
             this.groupBoxDetallePedido.Controls.Add(this.label1);
             this.groupBoxDetallePedido.Controls.Add(this.comboBoxSelecPago);
-            this.groupBoxDetallePedido.Controls.Add(this.comboBoxSelecArticulos);
+            this.groupBoxDetallePedido.Controls.Add(this.comboBoxSelectArticulos);
             this.groupBoxDetallePedido.Location = new System.Drawing.Point(13, 74);
             this.groupBoxDetallePedido.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxDetallePedido.MaximumSize = new System.Drawing.Size(1198, 615);
             this.groupBoxDetallePedido.Name = "groupBoxDetallePedido";
             this.groupBoxDetallePedido.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBoxDetallePedido.Size = new System.Drawing.Size(1172, 207);
+            this.groupBoxDetallePedido.Size = new System.Drawing.Size(1172, 141);
             this.groupBoxDetallePedido.TabIndex = 3;
             this.groupBoxDetallePedido.TabStop = false;
             this.groupBoxDetallePedido.Text = "Pedidos";
@@ -130,7 +128,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(36, 104);
+            this.label4.Location = new System.Drawing.Point(36, 76);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(213, 18);
             this.label4.TabIndex = 5;
@@ -140,7 +138,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 35);
+            this.label1.Location = new System.Drawing.Point(36, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(173, 18);
             this.label1.TabIndex = 2;
@@ -158,112 +156,25 @@
             "PayPal",
             "Transferencia bancaria",
             "Efectivo"});
-            this.comboBoxSelecPago.Location = new System.Drawing.Point(39, 125);
+            this.comboBoxSelecPago.Location = new System.Drawing.Point(39, 99);
             this.comboBoxSelecPago.Name = "comboBoxSelecPago";
             this.comboBoxSelecPago.Size = new System.Drawing.Size(443, 23);
             this.comboBoxSelecPago.TabIndex = 1;
             this.comboBoxSelecPago.Text = "Pinche para elegir Artículo";
             // 
-            // comboBoxSelecArticulos
+            // comboBoxSelectArticulos
             // 
-            this.comboBoxSelecArticulos.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.comboBoxSelecArticulos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxSelecArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBoxSelecArticulos.ForeColor = System.Drawing.SystemColors.Window;
-            this.comboBoxSelecArticulos.FormattingEnabled = true;
-            this.comboBoxSelecArticulos.Items.AddRange(new object[] {
-            "Colección Smartphones",
-            "Colección PCs Sobremesa",
-            "Colección PCs Portátiles"});
-            this.comboBoxSelecArticulos.Location = new System.Drawing.Point(39, 56);
-            this.comboBoxSelecArticulos.Name = "comboBoxSelecArticulos";
-            this.comboBoxSelecArticulos.Size = new System.Drawing.Size(443, 23);
-            this.comboBoxSelecArticulos.TabIndex = 0;
-            this.comboBoxSelecArticulos.Text = "Pinche para elegir Artículo";
-            this.comboBoxSelecArticulos.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelecArticulos_SelectedIndexChanged);
-            // 
-            // ListViewDetallePedido
-            // 
-            this.ListViewDetallePedido.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
-            this.ListViewDetallePedido.BackColor = System.Drawing.Color.Silver;
-            this.ListViewDetallePedido.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeaderCodArticulo,
-            this.columnHeaderArticulo,
-            this.columnHeaderPrecioUnidad,
-            this.columnHeaderCategoria,
-            this.columnHeaderCantidadPedido,
-            this.columnHeaderTipoPago,
-            this.columnHeaderDescuento,
-            this.columnHeaderRecargo,
-            this.columnHeaderTotal});
-            this.ListViewDetallePedido.ForeColor = System.Drawing.SystemColors.Window;
-            this.ListViewDetallePedido.GridLines = true;
-            this.ListViewDetallePedido.HideSelection = false;
-            this.ListViewDetallePedido.Location = new System.Drawing.Point(12, 329);
-            this.ListViewDetallePedido.Name = "ListViewDetallePedido";
-            this.ListViewDetallePedido.Size = new System.Drawing.Size(1172, 209);
-            this.ListViewDetallePedido.TabIndex = 4;
-            this.ListViewDetallePedido.UseCompatibleStateImageBehavior = false;
-            this.ListViewDetallePedido.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeaderCodArticulo
-            // 
-            this.columnHeaderCodArticulo.Text = "Cod. Articulo";
-            this.columnHeaderCodArticulo.Width = 105;
-            // 
-            // columnHeaderArticulo
-            // 
-            this.columnHeaderArticulo.Text = "Articulo";
-            this.columnHeaderArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeaderArticulo.Width = 153;
-            // 
-            // columnHeaderPrecioUnidad
-            // 
-            this.columnHeaderPrecioUnidad.Text = "Ud./€";
-            this.columnHeaderPrecioUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeaderPrecioUnidad.Width = 70;
-            // 
-            // columnHeaderCategoria
-            // 
-            this.columnHeaderCategoria.DisplayIndex = 8;
-            this.columnHeaderCategoria.Text = "Categoría";
-            this.columnHeaderCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeaderCategoria.Width = 130;
-            // 
-            // columnHeaderCantidadPedido
-            // 
-            this.columnHeaderCantidadPedido.DisplayIndex = 3;
-            this.columnHeaderCantidadPedido.Text = "Uds./Pedido";
-            this.columnHeaderCantidadPedido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeaderCantidadPedido.Width = 110;
-            // 
-            // columnHeaderTipoPago
-            // 
-            this.columnHeaderTipoPago.DisplayIndex = 4;
-            this.columnHeaderTipoPago.Text = "Pago Elegido";
-            this.columnHeaderTipoPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeaderTipoPago.Width = 150;
-            // 
-            // columnHeaderDescuento
-            // 
-            this.columnHeaderDescuento.DisplayIndex = 5;
-            this.columnHeaderDescuento.Text = "Descuento Aplicable";
-            this.columnHeaderDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeaderDescuento.Width = 160;
-            // 
-            // columnHeaderRecargo
-            // 
-            this.columnHeaderRecargo.DisplayIndex = 6;
-            this.columnHeaderRecargo.Text = "Recargo Aplicable";
-            this.columnHeaderRecargo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeaderRecargo.Width = 150;
-            // 
-            // columnHeaderTotal
-            // 
-            this.columnHeaderTotal.DisplayIndex = 7;
-            this.columnHeaderTotal.Text = "Totalización / .€";
-            this.columnHeaderTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeaderTotal.Width = 140;
+            this.comboBoxSelectArticulos.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.comboBoxSelectArticulos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxSelectArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBoxSelectArticulos.ForeColor = System.Drawing.SystemColors.Window;
+            this.comboBoxSelectArticulos.FormattingEnabled = true;
+            this.comboBoxSelectArticulos.Location = new System.Drawing.Point(39, 40);
+            this.comboBoxSelectArticulos.Name = "comboBoxSelectArticulos";
+            this.comboBoxSelectArticulos.Size = new System.Drawing.Size(443, 23);
+            this.comboBoxSelectArticulos.TabIndex = 0;
+            this.comboBoxSelectArticulos.Text = "Pinche para elegir Artículo";
+            this.comboBoxSelectArticulos.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelecArticulos_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -310,9 +221,9 @@
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInicio.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnInicio.Location = new System.Drawing.Point(547, 566);
+            this.btnInicio.Location = new System.Drawing.Point(557, 587);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(145, 37);
+            this.btnInicio.Size = new System.Drawing.Size(117, 25);
             this.btnInicio.TabIndex = 8;
             this.btnInicio.Text = "Inicio";
             this.btnInicio.UseCompatibleTextRendering = true;
@@ -332,9 +243,9 @@
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnRegistrar.Location = new System.Drawing.Point(77, 286);
+            this.btnRegistrar.Location = new System.Drawing.Point(78, 221);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(145, 37);
+            this.btnRegistrar.Size = new System.Drawing.Size(145, 25);
             this.btnRegistrar.TabIndex = 9;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseCompatibleTextRendering = true;
@@ -354,9 +265,9 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnLimpiar.Location = new System.Drawing.Point(240, 286);
+            this.btnLimpiar.Location = new System.Drawing.Point(229, 221);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(145, 37);
+            this.btnLimpiar.Size = new System.Drawing.Size(145, 25);
             this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseCompatibleTextRendering = true;
@@ -369,7 +280,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Tienda.Properties.Resources.logoComGreen;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(253, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(68, 57);
@@ -400,18 +311,76 @@
             this.labelHora.TabIndex = 13;
             this.labelHora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // listViewPedidos
+            // 
+            this.listViewPedidos.BackColor = System.Drawing.Color.Silver;
+            this.listViewPedidos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colCodigoPedido,
+            this.colCodigoCliente,
+            this.colCantidadPedido,
+            this.colTipoPago,
+            this.colDescuento,
+            this.colRecargo,
+            this.colTotalPrecio});
+            this.listViewPedidos.FullRowSelect = true;
+            this.listViewPedidos.GridLines = true;
+            this.listViewPedidos.HideSelection = false;
+            this.listViewPedidos.Location = new System.Drawing.Point(15, 252);
+            this.listViewPedidos.Name = "listViewPedidos";
+            this.listViewPedidos.Size = new System.Drawing.Size(1170, 329);
+            this.listViewPedidos.TabIndex = 14;
+            this.listViewPedidos.UseCompatibleStateImageBehavior = false;
+            this.listViewPedidos.View = System.Windows.Forms.View.Details;
+            // 
+            // colCodigoPedido
+            // 
+            this.colCodigoPedido.Text = "Cod. Pedido";
+            this.colCodigoPedido.Width = 122;
+            // 
+            // colCantidadPedido
+            // 
+            this.colCantidadPedido.DisplayIndex = 1;
+            this.colCantidadPedido.Text = "Uds./Pedido";
+            this.colCantidadPedido.Width = 116;
+            // 
+            // colCodigoCliente
+            // 
+            this.colCodigoCliente.DisplayIndex = 2;
+            this.colCodigoCliente.Text = "Cod. Cliente";
+            this.colCodigoCliente.Width = 160;
+            // 
+            // colTipoPago
+            // 
+            this.colTipoPago.Text = "Tipo de Pago";
+            this.colTipoPago.Width = 254;
+            // 
+            // colDescuento
+            // 
+            this.colDescuento.Text = "Descuento Aplicable";
+            this.colDescuento.Width = 186;
+            // 
+            // colRecargo
+            // 
+            this.colRecargo.Text = "Recargo Aplicable";
+            this.colRecargo.Width = 152;
+            // 
+            // colTotalPrecio
+            // 
+            this.colTotalPrecio.Text = "Precio Final PVP";
+            this.colTotalPrecio.Width = 175;
+            // 
             // FormDetallePedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1198, 615);
+            this.Controls.Add(this.listViewPedidos);
             this.Controls.Add(this.panelTimerTick);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnInicio);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.ListViewDetallePedido);
             this.Controls.Add(this.groupBoxDetallePedido);
             this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.label2);
@@ -440,8 +409,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxSelecPago;
-        private System.Windows.Forms.ComboBox comboBoxSelecArticulos;
-        private System.Windows.Forms.ListView ListViewDetallePedido;
+        private System.Windows.Forms.ComboBox comboBoxSelectArticulos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.TextBox textBoxCantidad;
@@ -451,18 +419,17 @@
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.ColumnHeader columnHeaderCodArticulo;
         private System.Windows.Forms.Timer timerHoraActual;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelTimerTick;
         private System.Windows.Forms.Label labelHora;
-        private System.Windows.Forms.ColumnHeader columnHeaderArticulo;
-        private System.Windows.Forms.ColumnHeader columnHeaderPrecioUnidad;
-        private System.Windows.Forms.ColumnHeader columnHeaderCantidadPedido;
-        private System.Windows.Forms.ColumnHeader columnHeaderDescuento;
-        private System.Windows.Forms.ColumnHeader columnHeaderTipoPago;
-        private System.Windows.Forms.ColumnHeader columnHeaderRecargo;
-        private System.Windows.Forms.ColumnHeader columnHeaderTotal;
-        private System.Windows.Forms.ColumnHeader columnHeaderCategoria;
+        private System.Windows.Forms.ListView listViewPedidos;
+        private System.Windows.Forms.ColumnHeader colCodigoPedido;
+        private System.Windows.Forms.ColumnHeader colCodigoCliente;
+        private System.Windows.Forms.ColumnHeader colCantidadPedido;
+        private System.Windows.Forms.ColumnHeader colTipoPago;
+        private System.Windows.Forms.ColumnHeader colDescuento;
+        private System.Windows.Forms.ColumnHeader colRecargo;
+        private System.Windows.Forms.ColumnHeader colTotalPrecio;
     }
 }

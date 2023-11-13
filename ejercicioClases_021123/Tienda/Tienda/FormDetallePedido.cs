@@ -1,6 +1,8 @@
 ﻿using System;
-using System.Globalization;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using Tienda.Clases;
+using Tienda.Controladores;
 
 namespace Tienda
 {
@@ -9,15 +11,18 @@ namespace Tienda
         double precio = 0;
         string articulo, pago = " ";
         int cantidad = 0;
+        
+       
         public FormDetallePedido()
         {
-            InitializeComponent();
+            InitializeComponent();  
             timerHoraActual.Enabled = true;
+            List<Articulo> articulos = ControladorArticulo.ObtenerArticulos();
         }
 
         private void FormDetallePedido_Load(object sender, EventArgs e)
         {
-            labelFecha.Text = DateTime.Now.ToString("dddd, " + "dd \\de " + "MMMM \\de " + "YYYY");
+            labelFecha.Text = DateTime.Now.ToString("dddd, " + "dd \\de " + "MMMM \\de " + "yyyy").ToUpperInvariant();
             labelTotal.Text = Convert.ToString(precio + "€");
             
         }
@@ -31,7 +36,7 @@ namespace Tienda
 
         private void comboBoxSelecArticulos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            articulo = comboBoxSelecArticulos.Text;
+            articulo = comboBoxSelectArticulos.Text;
 
             if (articulo.Equals("Colección Smartphones"))
             {
@@ -53,7 +58,7 @@ namespace Tienda
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            comboBoxSelecArticulos.Text = "Seleccione Articulo...";
+            comboBoxSelectArticulos.Text = "Seleccione Articulo...";
             comboBoxSelecPago.Text = "Seleccione Tipo de Pago...";
             textBoxCantidad.Text = Convert.ToString(textBoxCantidad.Text);
             labelTotal.Text = Convert.ToString(precio + "€");
@@ -66,7 +71,7 @@ namespace Tienda
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (comboBoxSelecArticulos.SelectedIndex == -1)
+            if (comboBoxSelectArticulos.SelectedIndex == -1)
                 MessageBox.Show("Seleccione Articulo...");
             else if (textBoxCantidad.Text == " ")
                 MessageBox.Show("Defina cantidad...");
@@ -74,7 +79,7 @@ namespace Tienda
                 MessageBox.Show("Seleccione Tipo de Pago...");
             else
             {
-                articulo = comboBoxSelecArticulos.Text;
+                articulo = comboBoxSelectArticulos.Text;
                 cantidad = Convert.ToInt32(textBoxCantidad.Text);
                 pago = comboBoxSelecPago.Text;
 
@@ -90,23 +95,52 @@ namespace Tienda
                     double parcial = recargo * subTotal;
                     double total = subTotal - descuento * recargo;
 
-                    ListViewItem registro = new ListViewItem(articulo);
-                   /**registro.SubItems.Add(codArticulo.ToString());
-                    registro.SubItems.Add(nombreArticulo.ToString());
-                    registro.SubItems.Add(categoria.ToString());*/
-                    registro.SubItems.Add(precio.ToString());
-                    registro.SubItems.Add(cantidad.ToString());
-                    registro.SubItems.Add(pago);
-                    registro.SubItems.Add(descuento.ToString());
-                    registro.SubItems.Add(recargo.ToString());
-                    registro.SubItems.Add(total.ToString());
-                    /**registro.SubItems.Add(categoria.ToString()); */
+                    /**foreach (Pedido pedido in listadoPedido)
+                    {
+                       int n = dataGridViewPedidos.Rows.Add();
+                        for (pedido.CodPedido = 1; pedido.CodPedido < dataGridViewPedidos.Rows.Count; pedido.CodPedido++)
+                        {
+                            dataGridViewPedidos.Rows[n].Cells[0].Value = pedido.CodPedido;
+                        }
+                        for (pedido.CodArticulo = 1; pedido.CodArticulo < ; pedido.CodArticulo++)
+                        {
+                                dataGridViewPedidos.Rows[n].Cells[1].Value = pedido.CodArticulo;
+                        }
 
+                        dataGridViewPedidos.Rows[n].Cells[2].Value = pedido.PrecioArticulo;
+                        dataGridViewPedidos.Rows[n].Cells[3].Value = pedido.ExistenciasArticulo;
+                        pedido.CategoriaArticulo = Convert.ToString(comboBoxSelectCategoria.Items[comboBoxSelectCategoria.SelectedIndex]);
+                        dataGridViewPedidos.Rows[n].Cells[4].Value = pedido.CategoriaArticulo;*/
 
-                    btnLimpiar_Click(sender, e);
+                    //MessageBox.Show("Pedido registrado: " + comboBoxSelectArticulos.Text);
+                }
+                /**ListViewItem registro = new ListViewItem(articulo);
+               registro.SubItems.Add(codArticulo.ToString());
+                registro.SubItems.Add(nombreArticulo.ToString());
+                registro.SubItems.Add(categoria.ToString());
+                registro.SubItems.Add(precio.ToString());
+                registro.SubItems.Add(cantidad.ToString());
+                registro.SubItems.Add(pago);
+                registro.SubItems.Add(descuento.ToString());
+                registro.SubItems.Add(recargo.ToString());
+                registro.SubItems.Add(total.ToString());
+                /**registro.SubItems.Add(categoria.ToString());
+                ListViewItem articulo = new ListViewItem(articulo);
+                articulo.SubItems.Add(articulo.ToString());
+                articulo.SubItems.Add(nombreArticulo.ToString());
+                articulo.SubItems.Add(categoria.ToString());
+                articulo.SubItems.Add(precio.ToString());
+                articulo.SubItems.Add(cantidad.ToString());
+                articulo.SubItems.Add(pago);
+                articulo.SubItems.Add(descuento.ToString());
+                articulo.SubItems.Add(recargo.ToString());
+                articulo.SubItems.Add(total.ToString());
+                articulo.SubItems.Add(categoria.ToString()); */
+
+                btnLimpiar_Click(sender, e);
 
                     MessageBox.Show("Pedido realizado con éxito! Muchas gracias por elegirnos!");
-                }
+                
             }
         }
     }
