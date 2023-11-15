@@ -1,8 +1,4 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tienda.Controladores
 {
@@ -19,6 +15,11 @@ namespace Tienda.Controladores
         public static List<Articulo> ObtenerArticulos()
         {
             return Articulos;
+        }
+
+        public static List<string> ObtenerCategorias()
+        {
+            return Articulos.Select(a => a.CategoriaArticulo).Distinct().ToList();
         }
     }
 }

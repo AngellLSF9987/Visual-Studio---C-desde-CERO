@@ -8,11 +8,9 @@ namespace Tienda
 {
     public partial class FormConsultaArticulo : Form
     {
-
         public FormConsultaArticulo()
         {
             InitializeComponent();
-            List<Articulo> articulos = ControladorArticulo.ObtenerArticulos();
         }
 
         private void FormConsultaArticulo_Load(object sender, EventArgs e)

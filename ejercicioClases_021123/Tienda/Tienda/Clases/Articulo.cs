@@ -28,21 +28,6 @@ namespace Tienda
             ExistenciasArticulo = existenciasArticulo;         
         }
 
-
-        public void ActualizarExistencias(int cantidadPedido)
-        {
-            if (cantidadPedido <= ExistenciasArticulo)
-            {
-                ExistenciasArticulo -= cantidadPedido;
-                decimal importePedido = cantidadPedido * PrecioArticulo;
-                MessageBox.Show($"Pedido realizado: {cantidadPedido} unidades, Importe: {importePedido:C}, Existencias restantes: {ExistenciasArticulo}");
-            }
-            else
-            {
-                MessageBox.Show($"No hay suficientes existencias. Existencias actuales: {ExistenciasArticulo}");
-            }
-        }
-
         // Sobrescribir el método ToString para mostrar todos los datos del objeto
         public override string ToString()
         {

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
 using Tienda.Controladores;
@@ -45,14 +44,11 @@ namespace Tienda
             {
                 labelTotal.Text = preciosCategorias[categoriaSeleccionada].ToString();
             }
-        }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             // Obtener los datos ingresados en el formulario
             string nombreArticulo = textBoxNombreArticulo.Text;
-            decimal precioArticulo = decimal.Parse(labelTotal.Text);
-            string categoriaArticulo = comboBoxSelectCategoria.SelectedItem.ToString();
 
             int existenciasArticulo = int.Parse(textBoxCantidad.Text);
 
@@ -62,8 +58,6 @@ namespace Tienda
                 MessageBox.Show("Categoría no válida. Las categorías válidas son: Colección PCs Sobremesa, Colección PCs Portátiles, Colección PCs Smartphones.");
                 return;
             }
-
-           
 
             // Buscar un artículo existente con el mismo nombreArticulo
             Articulo articuloExistente = articulos.FirstOrDefault(a => a.NombreArticulo == nombreArticulo);

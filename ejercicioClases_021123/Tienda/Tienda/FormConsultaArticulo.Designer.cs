@@ -43,9 +43,6 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.textBoxBuscarCodigo = new System.Windows.Forms.TextBox();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.textBoxBuscarNombre = new System.Windows.Forms.TextBox();
-            this.labelBuscarCodigo = new System.Windows.Forms.Label();
-            this.labelBuscarNombre = new System.Windows.Forms.Label();
             this.panelTimerTick = new System.Windows.Forms.Panel();
             this.btnInicio = new System.Windows.Forms.Button();
             this.timerHoraActual = new System.Windows.Forms.Timer(this.components);
@@ -201,37 +198,6 @@
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // textBoxBuscarNombre
-            // 
-            this.textBoxBuscarNombre.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.textBoxBuscarNombre.ForeColor = System.Drawing.Color.White;
-            this.textBoxBuscarNombre.Location = new System.Drawing.Point(718, 155);
-            this.textBoxBuscarNombre.Name = "textBoxBuscarNombre";
-            this.textBoxBuscarNombre.Size = new System.Drawing.Size(308, 23);
-            this.textBoxBuscarNombre.TabIndex = 40;
-            this.textBoxBuscarNombre.Text = " Escriba aquí el Nombre del Artículo ...";
-            this.textBoxBuscarNombre.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // labelBuscarCodigo
-            // 
-            this.labelBuscarCodigo.AutoSize = true;
-            this.labelBuscarCodigo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuscarCodigo.Location = new System.Drawing.Point(88, 119);
-            this.labelBuscarCodigo.Name = "labelBuscarCodigo";
-            this.labelBuscarCodigo.Size = new System.Drawing.Size(189, 18);
-            this.labelBuscarCodigo.TabIndex = 38;
-            this.labelBuscarCodigo.Text = "Búsqueda por Código :";
-            // 
-            // labelBuscarNombre
-            // 
-            this.labelBuscarNombre.AutoSize = true;
-            this.labelBuscarNombre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuscarNombre.Location = new System.Drawing.Point(582, 119);
-            this.labelBuscarNombre.Name = "labelBuscarNombre";
-            this.labelBuscarNombre.Size = new System.Drawing.Size(263, 18);
-            this.labelBuscarNombre.TabIndex = 37;
-            this.labelBuscarNombre.Text = "Búsqueda por Nombre Articulo :";
-            // 
             // panelTimerTick
             // 
             this.panelTimerTick.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -280,9 +246,6 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.textBoxBuscarCodigo);
             this.Controls.Add(this.btnConsultar);
-            this.Controls.Add(this.textBoxBuscarNombre);
-            this.Controls.Add(this.labelBuscarCodigo);
-            this.Controls.Add(this.labelBuscarNombre);
             this.Controls.Add(this.panelTimerTick);
             this.Controls.Add(this.btnInicio);
             this.Controls.Add(this.label1);
@@ -318,9 +281,6 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.TextBox textBoxBuscarCodigo;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.TextBox textBoxBuscarNombre;
-        private System.Windows.Forms.Label labelBuscarCodigo;
-        private System.Windows.Forms.Label labelBuscarNombre;
         private System.Windows.Forms.Panel panelTimerTick;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Timer timerHoraActual;

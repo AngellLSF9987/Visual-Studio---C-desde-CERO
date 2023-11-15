@@ -51,7 +51,6 @@
             this.labelHora = new System.Windows.Forms.Label();
             this.listViewPedidos = new System.Windows.Forms.ListView();
             this.colCodigoPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colCantidadPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCodigoCliente = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colTipoPago = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colDescuento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -342,12 +341,6 @@
             this.colCantidadPedido.DisplayIndex = 1;
             this.colCantidadPedido.Text = "Uds./Pedido";
             this.colCantidadPedido.Width = 116;
-            // 
-            // colCodigoCliente
-            // 
-            this.colCodigoCliente.DisplayIndex = 2;
-            this.colCodigoCliente.Text = "Cod. Cliente";
-            this.colCodigoCliente.Width = 160;
             // 
             // colTipoPago
             // 
