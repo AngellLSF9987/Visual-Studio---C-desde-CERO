@@ -1,23 +1,34 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Tienda.Controladores;
 
 namespace Tienda
 {
     public partial class FormPrincipal : Form
     {
         public FormPrincipal()
-        {
+        {       
             InitializeComponent();
+            // Suscribir al evento FormClosing
+            this.FormClosing += new FormClosingEventHandler(this.FormPrincipal_FormClosing);
         }
-
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ControladorPedido.GuardarPedidosEnArchivo();
+        }
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            // Cargar los pedidos desde el archivo al abrir el formulario
+            ControladorPedido.CargarPedidosDesdeArchivo();
+            Console.WriteLine("Cargando pedidos desde archivo...");
+            ControladorPedido.CargarPedidosDesdeArchivo();
+            Console.WriteLine("Pedidos cargados desde archivo.");
 
         }
-
         // LA SIGUIENTE DECLARACION " #region... " ES DECLARADA CON EL FIN DE SEPARAR TODO EL CÓDIGO
         // SEGÚN SU FUNCIONALIDAD DENTRO DE UN MISMO PROGRAMA. CONTRIBUYE AL ENCAPSULADO DE CADA
         // BLOQUE DE FUNCIONALIDADES PUDIENDO CONTRAERLO Y, ASÍ TENER MÁS DESPEJADA LA INTERFAZ

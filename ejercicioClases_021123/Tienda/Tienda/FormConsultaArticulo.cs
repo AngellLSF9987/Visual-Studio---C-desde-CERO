@@ -18,7 +18,7 @@ namespace Tienda
             labelFecha.Text = DateTime.Now.ToString("dddd, " + "dd \\de " + "MMMM \\de " + "yyyy").ToUpperInvariant();
         }
 
-       
+
 
         private void timerHoraActual_Tick(object sender, EventArgs e)
         {
@@ -27,31 +27,54 @@ namespace Tienda
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            string criterioBusqueda = textBoxBuscarCodigo.Text.Trim().ToLower();
-
-            List<Articulo> articulos = ControladorArticulo.ObtenerArticulos();
-
-            // Filtra los artículos que coincidan con el criterio de búsqueda (por ejemplo, nombre o categoría)
-            List<Articulo> resultados = articulos
-                .Where(articulo =>
-                    articulo.NombreArticulo.ToLower().Contains(criterioBusqueda) || // Puedes agregar más criterios de búsqueda
-                    articulo.CodigoArticulo.Equals(criterioBusqueda))
-                .ToList();
-
-            MostrarResultadosEnListView(resultados);
+            // Lógica para realizar la consulta
+            RealizarConsulta();
         }
-        private void MostrarResultadosEnListView(List<Articulo> resultados)
+
+        private void RealizarConsulta()
         {
-            listViewArticulos.Items.Clear();
+            // Obtener el criterio de consulta y el valor desde los controles del formulario
+            string criterio = radioCodigo.Checked ? "codigo" : "nombre";
+            string consulta = textBoxBuscar.Text.Trim();
+
+            // Lógica para buscar y mostrar los resultados en listViewResultado
+            MostrarResultados(criterio, consulta);
+        }
+
+        private void MostrarResultados(string criterio, string consulta)
+        {
+            Console.WriteLine($"Criterio de consulta: {criterio}, Valor: {consulta}");
+            // ... (Código existente para mostrar resultados en listViewConsulta)
+
+            // Limpiar los resultados anteriores si los hubiera
+            listViewConsultas.Items.Clear();
+
+            // Obtener la lista de artículos desde el controlador
+            List<Articulo> listaArticulos = ControladorArticulo.ObtenerArticulos();
+
+            // Verificar el número de artículos en la lista
+            Console.WriteLine("Número de artículos: " + listaArticulos.Count);
+
+            // Realizar la consulta según el criterio seleccionado
+            List<Articulo> resultados = new List<Articulo>();
+
+            foreach (Articulo articulo in listaArticulos)
+            {
+                if ((criterio == "codigo" && articulo.CodigoArticulo.ToString() == consulta) ||
+                    (criterio == "nombre" && articulo.NombreArticulo.ToLower() == consulta.ToLower()))
+                {
+                    resultados.Add(articulo);
+                }
+            }
 
             foreach (Articulo articulo in resultados)
             {
                 ListViewItem item = new ListViewItem(articulo.CodigoArticulo.ToString());
                 item.SubItems.Add(articulo.NombreArticulo);
-                item.SubItems.Add(articulo.CategoriaArticulo);
-                item.SubItems.Add(articulo.PrecioArticulo.ToString("C"));
+                item.SubItems.Add(articulo.Categoria.NombreCategoria);
+                item.SubItems.Add(articulo.PrecioArticulo.ToString());
                 item.SubItems.Add(articulo.ExistenciasArticulo.ToString());
-                listViewArticulos.Items.Add(item);
+                listViewConsultas.Items.Add(item);
             }
         }
 
@@ -59,8 +82,22 @@ namespace Tienda
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            textBoxBuscarCodigo.Text = string.Empty;
-            textBoxBuscarNombre.Text = string.Empty;    
+            textBoxBuscar.Text = "Escriba aquí el Nombre del Artículo ...";
+        }
+
+        private void textBoxBuscar_Enter(object sender, EventArgs e)
+        {
+            // Cuando el TextBox obtiene el foco (se pincha sobre él), se limpia el texto si es el texto predeterminado
+            textBoxBuscar.Clear();
+        }
+
+        private void textBoxBuscar_Leave(object sender, EventArgs e)
+        {
+            // Cuando el TextBox pierde el foco y está vacío, se restaura el texto predeterminado
+            if (string.IsNullOrWhiteSpace(textBoxBuscar.Text))
+            {
+                textBoxBuscar.Text = "Escriba aquí el Nombre del Artículo ...";
+            }
         }
     }
 }

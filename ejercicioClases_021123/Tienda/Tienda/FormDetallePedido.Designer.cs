@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetallePedido));
             this.groupBoxDetallePedido = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxArticulos = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.textBoxCantidad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxSelecPago = new System.Windows.Forms.ComboBox();
-            this.comboBoxSelectArticulos = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategorias = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labelFecha = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,31 +46,33 @@
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.timerHoraActual = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTimerTick = new System.Windows.Forms.Panel();
             this.labelHora = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAñadir = new System.Windows.Forms.Button();
             this.listViewPedidos = new System.Windows.Forms.ListView();
-            this.colCodigoPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colCodigoCliente = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colTipoPago = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colDescuento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colRecargo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colTotalPrecio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Acciones = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CodigoPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CantidadPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CodigoCliente = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TipoPago = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.PorcentajeDescuentoRecargoTipoPago = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.PrecioFinal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBoxDetallePedido.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTimerTick.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxDetallePedido
             // 
+            this.groupBoxDetallePedido.Controls.Add(this.label3);
+            this.groupBoxDetallePedido.Controls.Add(this.comboBoxArticulos);
             this.groupBoxDetallePedido.Controls.Add(this.label7);
             this.groupBoxDetallePedido.Controls.Add(this.labelTotal);
             this.groupBoxDetallePedido.Controls.Add(this.textBoxCantidad);
             this.groupBoxDetallePedido.Controls.Add(this.label5);
-            this.groupBoxDetallePedido.Controls.Add(this.label4);
             this.groupBoxDetallePedido.Controls.Add(this.label1);
-            this.groupBoxDetallePedido.Controls.Add(this.comboBoxSelecPago);
-            this.groupBoxDetallePedido.Controls.Add(this.comboBoxSelectArticulos);
+            this.groupBoxDetallePedido.Controls.Add(this.comboBoxCategorias);
             this.groupBoxDetallePedido.Location = new System.Drawing.Point(13, 74);
             this.groupBoxDetallePedido.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxDetallePedido.MaximumSize = new System.Drawing.Size(1198, 615);
@@ -81,11 +83,35 @@
             this.groupBoxDetallePedido.TabStop = false;
             this.groupBoxDetallePedido.Text = "Pedidos";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(592, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(173, 18);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Selecciona Artículo :";
+            // 
+            // comboBoxArticulos
+            // 
+            this.comboBoxArticulos.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.comboBoxArticulos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBoxArticulos.ForeColor = System.Drawing.SystemColors.Window;
+            this.comboBoxArticulos.FormattingEnabled = true;
+            this.comboBoxArticulos.Location = new System.Drawing.Point(656, 40);
+            this.comboBoxArticulos.Name = "comboBoxArticulos";
+            this.comboBoxArticulos.Size = new System.Drawing.Size(443, 23);
+            this.comboBoxArticulos.TabIndex = 8;
+            this.comboBoxArticulos.Text = "Pinche para elegir Artículo ...";
+            this.comboBoxArticulos.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelecArticulos_SelectedIndexChanged);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(871, 56);
+            this.label7.Location = new System.Drawing.Point(767, 94);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(126, 18);
             this.label7.TabIndex = 6;
@@ -95,7 +121,7 @@
             // 
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(949, 99);
+            this.labelTotal.Location = new System.Drawing.Point(961, 94);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(86, 18);
             this.labelTotal.TabIndex = 7;
@@ -105,9 +131,9 @@
             // 
             this.textBoxCantidad.BackColor = System.Drawing.Color.DarkSlateGray;
             this.textBoxCantidad.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBoxCantidad.Location = new System.Drawing.Point(601, 99);
+            this.textBoxCantidad.Location = new System.Drawing.Point(478, 94);
             this.textBoxCantidad.Name = "textBoxCantidad";
-            this.textBoxCantidad.Size = new System.Drawing.Size(195, 23);
+            this.textBoxCantidad.Size = new System.Drawing.Size(132, 23);
             this.textBoxCantidad.TabIndex = 7;
             this.textBoxCantidad.Text = "...";
             this.textBoxCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -117,21 +143,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(541, 56);
+            this.label5.Location = new System.Drawing.Point(321, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 18);
             this.label5.TabIndex = 6;
             this.label5.Text = "Uds./Artículo :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(36, 76);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(213, 18);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Selecciona Tipo de Pago :";
             // 
             // label1
             // 
@@ -139,47 +155,29 @@
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(36, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 18);
+            this.label1.Size = new System.Drawing.Size(189, 18);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Selecciona Artículo :";
+            this.label1.Text = "Selecciona Categoría :";
             // 
-            // comboBoxSelecPago
+            // comboBoxCategorias
             // 
-            this.comboBoxSelecPago.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.comboBoxSelecPago.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxSelecPago.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBoxSelecPago.ForeColor = System.Drawing.SystemColors.Window;
-            this.comboBoxSelecPago.FormattingEnabled = true;
-            this.comboBoxSelecPago.Items.AddRange(new object[] {
-            "Tarjeta débito o crédito",
-            "PayPal",
-            "Transferencia bancaria",
-            "Efectivo"});
-            this.comboBoxSelecPago.Location = new System.Drawing.Point(39, 99);
-            this.comboBoxSelecPago.Name = "comboBoxSelecPago";
-            this.comboBoxSelecPago.Size = new System.Drawing.Size(443, 23);
-            this.comboBoxSelecPago.TabIndex = 1;
-            this.comboBoxSelecPago.Text = "Pinche para elegir Artículo";
-            // 
-            // comboBoxSelectArticulos
-            // 
-            this.comboBoxSelectArticulos.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.comboBoxSelectArticulos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxSelectArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBoxSelectArticulos.ForeColor = System.Drawing.SystemColors.Window;
-            this.comboBoxSelectArticulos.FormattingEnabled = true;
-            this.comboBoxSelectArticulos.Location = new System.Drawing.Point(39, 40);
-            this.comboBoxSelectArticulos.Name = "comboBoxSelectArticulos";
-            this.comboBoxSelectArticulos.Size = new System.Drawing.Size(443, 23);
-            this.comboBoxSelectArticulos.TabIndex = 0;
-            this.comboBoxSelectArticulos.Text = "Pinche para elegir Artículo";
-            this.comboBoxSelectArticulos.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelecArticulos_SelectedIndexChanged);
+            this.comboBoxCategorias.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.comboBoxCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBoxCategorias.ForeColor = System.Drawing.SystemColors.Window;
+            this.comboBoxCategorias.FormattingEnabled = true;
+            this.comboBoxCategorias.Location = new System.Drawing.Point(119, 40);
+            this.comboBoxCategorias.Name = "comboBoxCategorias";
+            this.comboBoxCategorias.Size = new System.Drawing.Size(443, 23);
+            this.comboBoxCategorias.TabIndex = 0;
+            this.comboBoxCategorias.Text = "Pinche para elegir Categoría ...";
+            this.comboBoxCategorias.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCategorias_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(401, 49);
+            this.label2.Location = new System.Drawing.Point(370, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 18);
             this.label2.TabIndex = 3;
@@ -189,7 +187,7 @@
             // 
             this.labelFecha.AutoSize = true;
             this.labelFecha.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha.Location = new System.Drawing.Point(533, 46);
+            this.labelFecha.Location = new System.Drawing.Point(512, 46);
             this.labelFecha.MinimumSize = new System.Drawing.Size(300, 25);
             this.labelFecha.Name = "labelFecha";
             this.labelFecha.Size = new System.Drawing.Size(300, 25);
@@ -201,7 +199,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(45, 19);
+            this.label6.Location = new System.Drawing.Point(21, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(329, 37);
             this.label6.TabIndex = 5;
@@ -242,11 +240,11 @@
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnRegistrar.Location = new System.Drawing.Point(78, 221);
+            this.btnRegistrar.Location = new System.Drawing.Point(546, 221);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(145, 25);
+            this.btnRegistrar.Size = new System.Drawing.Size(163, 36);
             this.btnRegistrar.TabIndex = 9;
-            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.Text = "Registrar Pedido";
             this.btnRegistrar.UseCompatibleTextRendering = true;
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -264,9 +262,9 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnLimpiar.Location = new System.Drawing.Point(229, 221);
+            this.btnLimpiar.Location = new System.Drawing.Point(988, 221);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(145, 25);
+            this.btnLimpiar.Size = new System.Drawing.Size(145, 36);
             this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseCompatibleTextRendering = true;
@@ -276,16 +274,6 @@
             // timerHoraActual
             // 
             this.timerHoraActual.Tick += new System.EventHandler(this.timerHoraActual_Tick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(253, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
             // 
             // panelTimerTick
             // 
@@ -310,57 +298,101 @@
             this.labelHora.TabIndex = 13;
             this.labelHora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(253, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 57);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnAñadir
+            // 
+            this.btnAñadir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAñadir.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAñadir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAñadir.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAñadir.FlatAppearance.BorderSize = 0;
+            this.btnAñadir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LawnGreen;
+            this.btnAñadir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow;
+            this.btnAñadir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAñadir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAñadir.ForeColor = System.Drawing.Color.LightCyan;
+            this.btnAñadir.Location = new System.Drawing.Point(64, 221);
+            this.btnAñadir.Name = "btnAñadir";
+            this.btnAñadir.Size = new System.Drawing.Size(145, 36);
+            this.btnAñadir.TabIndex = 15;
+            this.btnAñadir.Text = "Añadir Articulo";
+            this.btnAñadir.UseCompatibleTextRendering = true;
+            this.btnAñadir.UseVisualStyleBackColor = false;
+            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
+            // 
             // listViewPedidos
             // 
+            this.listViewPedidos.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
             this.listViewPedidos.BackColor = System.Drawing.Color.Silver;
             this.listViewPedidos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colCodigoPedido,
-            this.colCodigoCliente,
-            this.colCantidadPedido,
-            this.colTipoPago,
-            this.colDescuento,
-            this.colRecargo,
-            this.colTotalPrecio});
+            this.Acciones,
+            this.CodigoPedido,
+            this.CantidadPedido,
+            this.CodigoCliente,
+            this.TipoPago,
+            this.PorcentajeDescuentoRecargoTipoPago,
+            this.PrecioFinal});
             this.listViewPedidos.FullRowSelect = true;
             this.listViewPedidos.GridLines = true;
             this.listViewPedidos.HideSelection = false;
-            this.listViewPedidos.Location = new System.Drawing.Point(15, 252);
+            this.listViewPedidos.Location = new System.Drawing.Point(13, 305);
             this.listViewPedidos.Name = "listViewPedidos";
-            this.listViewPedidos.Size = new System.Drawing.Size(1170, 329);
-            this.listViewPedidos.TabIndex = 14;
+            this.listViewPedidos.Size = new System.Drawing.Size(1171, 237);
+            this.listViewPedidos.TabIndex = 16;
             this.listViewPedidos.UseCompatibleStateImageBehavior = false;
             this.listViewPedidos.View = System.Windows.Forms.View.Details;
+            this.listViewPedidos.VirtualMode = true;
             // 
-            // colCodigoPedido
+            // Acciones
             // 
-            this.colCodigoPedido.Text = "Cod. Pedido";
-            this.colCodigoPedido.Width = 122;
+            this.Acciones.Text = "Acciones";
+            this.Acciones.Width = 105;
             // 
-            // colCantidadPedido
+            // CodigoPedido
             // 
-            this.colCantidadPedido.DisplayIndex = 1;
-            this.colCantidadPedido.Text = "Uds./Pedido";
-            this.colCantidadPedido.Width = 116;
+            this.CodigoPedido.Text = "Cod. Pedido";
+            this.CodigoPedido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CodigoPedido.Width = 105;
             // 
-            // colTipoPago
+            // CantidadPedido
             // 
-            this.colTipoPago.Text = "Tipo de Pago";
-            this.colTipoPago.Width = 254;
+            this.CantidadPedido.Text = "Uds. / Pedido";
+            this.CantidadPedido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CantidadPedido.Width = 120;
             // 
-            // colDescuento
+            // CodigoCliente
             // 
-            this.colDescuento.Text = "Descuento Aplicable";
-            this.colDescuento.Width = 186;
+            this.CodigoCliente.Text = "Cod. Cliente";
+            this.CodigoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CodigoCliente.Width = 105;
             // 
-            // colRecargo
+            // TipoPago
             // 
-            this.colRecargo.Text = "Recargo Aplicable";
-            this.colRecargo.Width = 152;
+            this.TipoPago.Text = "Tipo de Pago";
+            this.TipoPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TipoPago.Width = 280;
             // 
-            // colTotalPrecio
+            // PorcentajeDescuentoRecargoTipoPago
             // 
-            this.colTotalPrecio.Text = "Precio Final PVP";
-            this.colTotalPrecio.Width = 175;
+            this.PorcentajeDescuentoRecargoTipoPago.Text = "Descuento o Recargo Aplicable - Tipo de Pago";
+            this.PorcentajeDescuentoRecargoTipoPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PorcentajeDescuentoRecargoTipoPago.Width = 310;
+            // 
+            // PrecioFinal
+            // 
+            this.PrecioFinal.Text = "Precio Final / PVP .€";
+            this.PrecioFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PrecioFinal.Width = 142;
             // 
             // FormDetallePedido
             // 
@@ -369,6 +401,7 @@
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1198, 615);
             this.Controls.Add(this.listViewPedidos);
+            this.Controls.Add(this.btnAñadir);
             this.Controls.Add(this.panelTimerTick);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnRegistrar);
@@ -385,12 +418,13 @@
             this.MaximumSize = new System.Drawing.Size(1597, 710);
             this.Name = "FormDetallePedido";
             this.Text = "FormDetallePedido";
+            this.Activated += new System.EventHandler(this.FormDetallePedido_Load);
             this.Load += new System.EventHandler(this.FormDetallePedido_Load);
             this.groupBoxDetallePedido.ResumeLayout(false);
             this.groupBoxDetallePedido.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTimerTick.ResumeLayout(false);
             this.panelTimerTick.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,10 +433,8 @@
         #endregion
         private System.Windows.Forms.GroupBox groupBoxDetallePedido;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxSelecPago;
-        private System.Windows.Forms.ComboBox comboBoxSelectArticulos;
+        private System.Windows.Forms.ComboBox comboBoxCategorias;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.TextBox textBoxCantidad;
@@ -416,13 +448,16 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelTimerTick;
         private System.Windows.Forms.Label labelHora;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBoxArticulos;
+        private System.Windows.Forms.Button btnAñadir;
         private System.Windows.Forms.ListView listViewPedidos;
-        private System.Windows.Forms.ColumnHeader colCodigoPedido;
-        private System.Windows.Forms.ColumnHeader colCodigoCliente;
-        private System.Windows.Forms.ColumnHeader colCantidadPedido;
-        private System.Windows.Forms.ColumnHeader colTipoPago;
-        private System.Windows.Forms.ColumnHeader colDescuento;
-        private System.Windows.Forms.ColumnHeader colRecargo;
-        private System.Windows.Forms.ColumnHeader colTotalPrecio;
+        private System.Windows.Forms.ColumnHeader Acciones;
+        private System.Windows.Forms.ColumnHeader CodigoPedido;
+        private System.Windows.Forms.ColumnHeader CantidadPedido;
+        private System.Windows.Forms.ColumnHeader CodigoCliente;
+        private System.Windows.Forms.ColumnHeader TipoPago;
+        private System.Windows.Forms.ColumnHeader PorcentajeDescuentoRecargoTipoPago;
+        private System.Windows.Forms.ColumnHeader PrecioFinal;
     }
 }

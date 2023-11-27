@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAltaArticulo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
             this.labelFecha = new System.Windows.Forms.Label();
@@ -44,7 +44,6 @@
             this.timerHoraActual = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.textBoxNombreArticulo = new System.Windows.Forms.TextBox();
             this.comboBoxSelectCategoria = new System.Windows.Forms.ComboBox();
             this.ColumnCodArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +52,6 @@
             this.ColumnExistenciasArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCategoriaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.labelTotal = new System.Windows.Forms.Label();
             this.labelCantidadArticulo = new System.Windows.Forms.Label();
             this.textBoxCantidad = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -63,6 +61,8 @@
             this.colCategoriaArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPrecioArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colExistenciasArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panelTimerTick.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -162,29 +162,19 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(364, 111);
+            this.label4.Location = new System.Drawing.Point(344, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(163, 18);
             this.label4.TabIndex = 17;
             this.label4.Text = "Categoria Articulo :";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1002, 111);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 18);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Precio (Ud./€) :";
-            // 
             // textBoxNombreArticulo
             // 
             this.textBoxNombreArticulo.BackColor = System.Drawing.Color.DarkSlateGray;
             this.textBoxNombreArticulo.ForeColor = System.Drawing.Color.White;
-            this.textBoxNombreArticulo.Location = new System.Drawing.Point(42, 144);
+            this.textBoxNombreArticulo.Location = new System.Drawing.Point(28, 144);
             this.textBoxNombreArticulo.Name = "textBoxNombreArticulo";
-            this.textBoxNombreArticulo.Size = new System.Drawing.Size(308, 23);
+            this.textBoxNombreArticulo.Size = new System.Drawing.Size(296, 23);
             this.textBoxNombreArticulo.TabIndex = 30;
             this.textBoxNombreArticulo.Text = "Escriba aquí el Nombre del Nuevo Artículo ...";
             this.textBoxNombreArticulo.Click += new System.EventHandler(this.textBoxNombreArticulo_TextChanged);
@@ -200,24 +190,23 @@
             "Colección Smartphones",
             "Colección PCs Sobremesa",
             "Colección PCs Portátiles"});
-            this.comboBoxSelectCategoria.Location = new System.Drawing.Point(378, 144);
+            this.comboBoxSelectCategoria.Location = new System.Drawing.Point(347, 144);
             this.comboBoxSelectCategoria.Name = "comboBoxSelectCategoria";
-            this.comboBoxSelectCategoria.Size = new System.Drawing.Size(312, 23);
+            this.comboBoxSelectCategoria.Size = new System.Drawing.Size(276, 23);
             this.comboBoxSelectCategoria.TabIndex = 21;
-            this.comboBoxSelectCategoria.Text = "Asocie una Categoria al Articulo ...";
             this.comboBoxSelectCategoria.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectCategoria_SelectedIndexChanged);
             // 
             // ColumnCodArticulo
             // 
             this.ColumnCodArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle21.Format = "N0";
-            dataGridViewCellStyle21.NullValue = "1";
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnCodArticulo.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "1";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnCodArticulo.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColumnCodArticulo.HeaderText = "Cod. Artículo";
             this.ColumnCodArticulo.Name = "ColumnCodArticulo";
             this.ColumnCodArticulo.ReadOnly = true;
@@ -226,13 +215,13 @@
             // ColumnNombreArticulo
             // 
             this.ColumnNombreArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.NullValue = "HP Pavilion";
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnNombreArticulo.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = "HP Pavilion";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnNombreArticulo.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnNombreArticulo.HeaderText = "Nombre";
             this.ColumnNombreArticulo.Name = "ColumnNombreArticulo";
             this.ColumnNombreArticulo.ReadOnly = true;
@@ -240,14 +229,14 @@
             // ColumnPrecioArticulo
             // 
             this.ColumnPrecioArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.Format = "C2";
-            dataGridViewCellStyle23.NullValue = "700.00€";
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnPrecioArticulo.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = "700.00€";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnPrecioArticulo.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColumnPrecioArticulo.HeaderText = "Precio(Ud./€)";
             this.ColumnPrecioArticulo.Name = "ColumnPrecioArticulo";
             this.ColumnPrecioArticulo.ReadOnly = true;
@@ -255,14 +244,14 @@
             // ColumnExistenciasArticulo
             // 
             this.ColumnExistenciasArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Format = "N0";
-            dataGridViewCellStyle24.NullValue = "1";
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnExistenciasArticulo.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = "1";
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnExistenciasArticulo.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColumnExistenciasArticulo.HeaderText = "Stock/Uds.";
             this.ColumnExistenciasArticulo.Name = "ColumnExistenciasArticulo";
             this.ColumnExistenciasArticulo.ReadOnly = true;
@@ -270,13 +259,13 @@
             // ColumnCategoriaArticulo
             // 
             this.ColumnCategoriaArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.NullValue = "Colección PCs Portátiles";
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnCategoriaArticulo.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.NullValue = "Colección PCs Portátiles";
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnCategoriaArticulo.DefaultCellStyle = dataGridViewCellStyle5;
             this.ColumnCategoriaArticulo.HeaderText = "Categoría";
             this.ColumnCategoriaArticulo.Name = "ColumnCategoriaArticulo";
             this.ColumnCategoriaArticulo.ReadOnly = true;
@@ -305,21 +294,11 @@
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // labelTotal
-            // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(1067, 144);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(86, 18);
-            this.labelTotal.TabIndex = 26;
-            this.labelTotal.Text = "labelTotal";
-            // 
             // labelCantidadArticulo
             // 
             this.labelCantidadArticulo.AutoSize = true;
             this.labelCantidadArticulo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCantidadArticulo.Location = new System.Drawing.Point(715, 111);
+            this.labelCantidadArticulo.Location = new System.Drawing.Point(643, 111);
             this.labelCantidadArticulo.Name = "labelCantidadArticulo";
             this.labelCantidadArticulo.Size = new System.Drawing.Size(208, 18);
             this.labelCantidadArticulo.TabIndex = 27;
@@ -329,11 +308,11 @@
             // 
             this.textBoxCantidad.BackColor = System.Drawing.Color.DarkSlateGray;
             this.textBoxCantidad.ForeColor = System.Drawing.Color.White;
-            this.textBoxCantidad.Location = new System.Drawing.Point(734, 144);
+            this.textBoxCantidad.Location = new System.Drawing.Point(646, 144);
             this.textBoxCantidad.Name = "textBoxCantidad";
-            this.textBoxCantidad.Size = new System.Drawing.Size(266, 23);
+            this.textBoxCantidad.Size = new System.Drawing.Size(205, 23);
             this.textBoxCantidad.TabIndex = 0;
-            this.textBoxCantidad.Text = "Define la Nueva Cantidad Disponible ...";
+            this.textBoxCantidad.Text = "Define Cantidad Disponible ...";
             this.textBoxCantidad.Click += new System.EventHandler(this.textBoxCantidad_TextChanged);
             // 
             // btnLimpiar
@@ -405,6 +384,29 @@
             this.colExistenciasArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colExistenciasArticulo.Width = 226;
             // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.labelTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelTotal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelTotal.Location = new System.Drawing.Point(870, 147);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(2, 20);
+            this.labelTotal.TabIndex = 26;
+            this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(867, 111);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 18);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Precio (Ud./€) :";
+            // 
             // FormAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -455,11 +457,9 @@
         private System.Windows.Forms.Timer timerHoraActual;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxNombreArticulo;
         private System.Windows.Forms.ComboBox comboBoxSelectCategoria;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombreArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecioArticulo;
@@ -474,5 +474,7 @@
         private System.Windows.Forms.ColumnHeader colCategoriaArticulo;
         private System.Windows.Forms.ColumnHeader colPrecioArticulo;
         private System.Windows.Forms.ColumnHeader colExistenciasArticulo;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label label6;
     }
 }

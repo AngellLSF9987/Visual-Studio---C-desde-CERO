@@ -34,18 +34,20 @@
             this.labelFecha = new System.Windows.Forms.Label();
             this.labelHora = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listViewArticulos = new System.Windows.Forms.ListView();
+            this.listViewConsultas = new System.Windows.Forms.ListView();
             this.colCodigoArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colNombreArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCategoriaArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPrecioArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colExistenciasArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.textBoxBuscarCodigo = new System.Windows.Forms.TextBox();
+            this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.panelTimerTick = new System.Windows.Forms.Panel();
             this.btnInicio = new System.Windows.Forms.Button();
             this.timerHoraActual = new System.Windows.Forms.Timer(this.components);
+            this.radioCodigo = new System.Windows.Forms.RadioButton();
+            this.radioNombre = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTimerTick.SuspendLayout();
             this.SuspendLayout();
@@ -95,24 +97,24 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // listViewArticulos
+            // listViewConsultas
             // 
-            this.listViewArticulos.BackColor = System.Drawing.Color.Silver;
-            this.listViewArticulos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewConsultas.BackColor = System.Drawing.Color.Silver;
+            this.listViewConsultas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colCodigoArticulo,
             this.colNombreArticulo,
             this.colCategoriaArticulo,
             this.colPrecioArticulo,
             this.colExistenciasArticulo});
-            this.listViewArticulos.GridLines = true;
-            this.listViewArticulos.HideSelection = false;
-            this.listViewArticulos.Location = new System.Drawing.Point(31, 308);
-            this.listViewArticulos.MultiSelect = false;
-            this.listViewArticulos.Name = "listViewArticulos";
-            this.listViewArticulos.Size = new System.Drawing.Size(1141, 65);
-            this.listViewArticulos.TabIndex = 42;
-            this.listViewArticulos.UseCompatibleStateImageBehavior = false;
-            this.listViewArticulos.View = System.Windows.Forms.View.Details;
+            this.listViewConsultas.GridLines = true;
+            this.listViewConsultas.HideSelection = false;
+            this.listViewConsultas.Location = new System.Drawing.Point(31, 308);
+            this.listViewConsultas.MultiSelect = false;
+            this.listViewConsultas.Name = "listViewConsultas";
+            this.listViewConsultas.Size = new System.Drawing.Size(1141, 65);
+            this.listViewConsultas.TabIndex = 42;
+            this.listViewConsultas.UseCompatibleStateImageBehavior = false;
+            this.listViewConsultas.View = System.Windows.Forms.View.Details;
             // 
             // colCodigoArticulo
             // 
@@ -156,7 +158,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnLimpiar.Location = new System.Drawing.Point(646, 231);
+            this.btnLimpiar.Location = new System.Drawing.Point(619, 231);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(145, 37);
             this.btnLimpiar.TabIndex = 41;
@@ -165,16 +167,18 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // textBoxBuscarCodigo
+            // textBoxBuscar
             // 
-            this.textBoxBuscarCodigo.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.textBoxBuscarCodigo.ForeColor = System.Drawing.Color.White;
-            this.textBoxBuscarCodigo.Location = new System.Drawing.Point(225, 155);
-            this.textBoxBuscarCodigo.Name = "textBoxBuscarCodigo";
-            this.textBoxBuscarCodigo.Size = new System.Drawing.Size(266, 23);
-            this.textBoxBuscarCodigo.TabIndex = 33;
-            this.textBoxBuscarCodigo.Text = "Escriba aquí el Código del Artículo ...";
-            this.textBoxBuscarCodigo.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.textBoxBuscar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.textBoxBuscar.ForeColor = System.Drawing.Color.White;
+            this.textBoxBuscar.Location = new System.Drawing.Point(365, 146);
+            this.textBoxBuscar.Name = "textBoxBuscar";
+            this.textBoxBuscar.Size = new System.Drawing.Size(456, 23);
+            this.textBoxBuscar.TabIndex = 33;
+            this.textBoxBuscar.Text = "Escriba aquí a razón de la opción de búsqueda elegida ...";
+            this.textBoxBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxBuscar.Enter += new System.EventHandler(this.textBoxBuscar_Enter);
+            this.textBoxBuscar.Leave += new System.EventHandler(this.textBoxBuscar_Leave);
             // 
             // btnConsultar
             // 
@@ -189,7 +193,7 @@
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnConsultar.Location = new System.Drawing.Point(399, 231);
+            this.btnConsultar.Location = new System.Drawing.Point(420, 231);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(145, 37);
             this.btnConsultar.TabIndex = 39;
@@ -235,16 +239,42 @@
             this.timerHoraActual.Enabled = true;
             this.timerHoraActual.Tick += new System.EventHandler(this.timerHoraActual_Tick);
             // 
+            // radioCodigo
+            // 
+            this.radioCodigo.AutoSize = true;
+            this.radioCodigo.Location = new System.Drawing.Point(132, 121);
+            this.radioCodigo.Name = "radioCodigo";
+            this.radioCodigo.Size = new System.Drawing.Size(170, 19);
+            this.radioCodigo.TabIndex = 43;
+            this.radioCodigo.TabStop = true;
+            this.radioCodigo.Text = "Búsqueda por Código :";
+            this.radioCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioCodigo.UseVisualStyleBackColor = true;
+            // 
+            // radioNombre
+            // 
+            this.radioNombre.AutoSize = true;
+            this.radioNombre.Location = new System.Drawing.Point(132, 168);
+            this.radioNombre.Name = "radioNombre";
+            this.radioNombre.Size = new System.Drawing.Size(176, 19);
+            this.radioNombre.TabIndex = 44;
+            this.radioNombre.TabStop = true;
+            this.radioNombre.Text = "Búsqueda por Nombre :";
+            this.radioNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioNombre.UseVisualStyleBackColor = true;
+            // 
             // FormConsultaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1198, 615);
+            this.Controls.Add(this.radioNombre);
+            this.Controls.Add(this.radioCodigo);
             this.Controls.Add(this.labelFecha);
-            this.Controls.Add(this.listViewArticulos);
+            this.Controls.Add(this.listViewConsultas);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.textBoxBuscarCodigo);
+            this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.panelTimerTick);
             this.Controls.Add(this.btnInicio);
@@ -272,17 +302,19 @@
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.Label labelHora;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ListView listViewArticulos;
+        private System.Windows.Forms.ListView listViewConsultas;
         private System.Windows.Forms.ColumnHeader colCodigoArticulo;
         private System.Windows.Forms.ColumnHeader colNombreArticulo;
         private System.Windows.Forms.ColumnHeader colCategoriaArticulo;
         private System.Windows.Forms.ColumnHeader colPrecioArticulo;
         private System.Windows.Forms.ColumnHeader colExistenciasArticulo;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.TextBox textBoxBuscarCodigo;
+        private System.Windows.Forms.TextBox textBoxBuscar;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Panel panelTimerTick;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Timer timerHoraActual;
+        private System.Windows.Forms.RadioButton radioCodigo;
+        private System.Windows.Forms.RadioButton radioNombre;
     }
 }

@@ -37,6 +37,12 @@
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,7 +62,12 @@
     <Compile Include="Clases\Pedido.cs" />
     <Compile Include="Clases\Rol.cs" />
     <Compile Include="Clases\Empleado.cs" />
+    <Compile Include="Clases\TipoPago.cs" />
     <Compile Include="Controladores\ControladorArticulo.cs" />
+    <Compile Include="Controladores\ControladorCategoria.cs" />
+    <Compile Include="Controladores\ControladorCliente.cs" />
+    <Compile Include="Controladores\ControladorPedido.cs" />
+    <Compile Include="Controladores\ControladorTipoPago.cs" />
     <Compile Include="FormAltaArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +79,12 @@
     </Compile>
     <Compile Include="FormConsultaArticulo.Designer.cs">
       <DependentUpon>FormConsultaArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConsultaPedidoRegistrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultaPedidoRegistrado.Designer.cs">
+      <DependentUpon>FormConsultaPedidoRegistrado.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDetallePedido.cs">
       <SubType>Form</SubType>
@@ -81,6 +98,13 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTipoPago.Designer.cs">
+      <DependentUpon>FormTipoPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilidades_Extensiones\ListViewExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Clases\Usuario.cs" />
@@ -90,17 +114,24 @@
     <EmbeddedResource Include="FormConsultaArticulo.resx">
       <DependentUpon>FormConsultaArticulo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultaPedidoRegistrado.resx">
+      <DependentUpon>FormConsultaPedidoRegistrado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDetallePedido.resx">
       <DependentUpon>FormDetallePedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTipoPago.resx">
+      <DependentUpon>FormTipoPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\iconosVIsual.rar" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

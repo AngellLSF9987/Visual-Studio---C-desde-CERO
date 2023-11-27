@@ -1,11 +1,12 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Tienda.Controladores
 {
-   
+
     internal class ControladorArticulo
     {
-        public static List<Articulo> Articulos { get; } = new List<Articulo>();
+        public static List<Articulo> Articulos { get; set; } = new List<Articulo>();
 
         public static void AgregarArticulo(Articulo articulo)
         {
@@ -19,7 +20,14 @@ namespace Tienda.Controladores
 
         public static List<string> ObtenerCategorias()
         {
-            return Articulos.Select(a => a.CategoriaArticulo).Distinct().ToList();
+            List<string> categorias = Articulos.Select(a => a.Categoria.NombreCategoria).Distinct().ToList();
+            return categorias;
+        }
+
+        public static List<Articulo> ObtenerArticulosPorCategoria(Categoria categoria)
+        {
+            return Articulos.Where(a => a.Categoria.Equals(categoria)).ToList();
         }
     }
 }
+

@@ -1,27 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Tienda.Clases
 {
     internal class Pedido
     {
-        public int NumeroPedido { get; private set; }
-        public int CodigoArticulo { get; set; }
-        public int CantidadPedido { get; set; }
-        public DateTime FechaPedido { get; set; }
+        private static int codigoPedidoBase = 1;
+        public int CodigoPedido { get; set; }
+        public int CantidadArticulos { get; set; }
+        public Cliente Cliente { get; set; }
+        public TipoPago TipoPago { get; set; }
+        public decimal PrecioFinal { get; set; }
 
-        public Pedido(int codigoArticulo, int cantidadPedido)
+
+        public Pedido()
         {
-            NumeroPedido = GenerarNumeroPedidoUnico();
-            CodigoArticulo = codigoArticulo;
-            CantidadPedido = cantidadPedido;
-            FechaPedido = DateTime.Now;
+            CodigoPedido = codigoPedidoBase++;
         }
 
-        private static int numeroPedidoBase = 1;
-
-        private static int GenerarNumeroPedidoUnico()
+        public override bool Equals(object obj)
         {
-            return numeroPedidoBase++;
+            return obj is Pedido pedido &&
+                   CodigoPedido == pedido.CodigoPedido &&
+                   CantidadArticulos == pedido.CantidadArticulos &&
+                   EqualityComparer<Cliente>.Default.Equals(Cliente, pedido.Cliente);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(CodigoPedido, CantidadArticulos, Cliente);
         }
     }
 }
+
