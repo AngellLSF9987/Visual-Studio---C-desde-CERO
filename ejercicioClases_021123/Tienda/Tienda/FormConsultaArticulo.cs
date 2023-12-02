@@ -66,38 +66,45 @@ namespace Tienda
                     resultados.Add(articulo);
                 }
             }
-
-            foreach (Articulo articulo in resultados)
+            if (resultados.Count > 0)
             {
-                ListViewItem item = new ListViewItem(articulo.CodigoArticulo.ToString());
-                item.SubItems.Add(articulo.NombreArticulo);
-                item.SubItems.Add(articulo.Categoria.NombreCategoria);
-                item.SubItems.Add(articulo.PrecioArticulo.ToString());
-                item.SubItems.Add(articulo.ExistenciasArticulo.ToString());
-                listViewConsultas.Items.Add(item);
+                foreach (Articulo articulo in resultados)
+                {
+                    ListViewItem item = new ListViewItem("Acciones");
+                    item.SubItems.Add(articulo.CodigoArticulo.ToString());
+                    item.SubItems.Add(articulo.NombreArticulo);
+                    item.SubItems.Add(articulo.Categoria.NombreCategoria);
+                    item.SubItems.Add(articulo.PrecioArticulo.ToString());
+                    item.SubItems.Add(articulo.ExistenciasArticulo.ToString());
+                    listViewConsultas.Items.Add(item);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron resultados para la búsqueda.", "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void btnInicio_Click(object sender, EventArgs e) => Close();
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            textBoxBuscar.Text = "Escriba aquí el Nombre del Artículo ...";
-        }
-
-        private void textBoxBuscar_Enter(object sender, EventArgs e)
-        {
-            // Cuando el TextBox obtiene el foco (se pincha sobre él), se limpia el texto si es el texto predeterminado
-            textBoxBuscar.Clear();
-        }
-
-        private void textBoxBuscar_Leave(object sender, EventArgs e)
-        {
-            // Cuando el TextBox pierde el foco y está vacío, se restaura el texto predeterminado
-            if (string.IsNullOrWhiteSpace(textBoxBuscar.Text))
+            private void btnLimpiar_Click(object sender, EventArgs e)
             {
                 textBoxBuscar.Text = "Escriba aquí el Nombre del Artículo ...";
             }
+
+            private void textBoxBuscar_Enter(object sender, EventArgs e)
+            {
+                // Cuando el TextBox obtiene el foco (se pincha sobre él), se limpia el texto si es el texto predeterminado
+                textBoxBuscar.Clear();
+            }
+
+            private void textBoxBuscar_Leave(object sender, EventArgs e)
+            {
+                // Cuando el TextBox pierde el foco y está vacío, se restaura el texto predeterminado
+                if (string.IsNullOrWhiteSpace(textBoxBuscar.Text))
+                {
+                    textBoxBuscar.Text = "Escriba aquí el Nombre del Artículo ...";
+                }
+            }
         }
     }
-}

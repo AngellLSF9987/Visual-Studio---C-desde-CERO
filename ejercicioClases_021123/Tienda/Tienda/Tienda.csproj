@@ -92,6 +92,12 @@
     <Compile Include="FormDetallePedido.Designer.cs">
       <DependentUpon>FormDetallePedido.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditarArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarArticulo.Designer.cs">
+      <DependentUpon>FormEditarArticulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,13 @@
     <Compile Include="FormTipoPago.Designer.cs">
       <DependentUpon>FormTipoPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="MsgBoxEliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsgBoxEliminar.Designer.cs">
+      <DependentUpon>MsgBoxEliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilidades_Extensiones\ListViewEmbeddedControl.cs" />
     <Compile Include="Utilidades_Extensiones\ListViewExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDetallePedido.resx">
       <DependentUpon>FormDetallePedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarArticulo.resx">
+      <DependentUpon>FormEditarArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
@@ -155,6 +171,8 @@
     <Content Include="Properties\ajustesAzul.png" />
     <Content Include="Properties\arrowDownBlack.png" />
     <Content Include="Properties\arrowDownWhite.png" />
+    <Content Include="Properties\error1.png" />
+    <Content Include="Properties\warning1.png" />
     <None Include="Properties\bar-graph1.png" />
     <Content Include="Properties\boligrafoEditar.png" />
     <None Include="Properties\calendar %281%291.png" />
@@ -168,6 +186,10 @@
     <Content Include="Properties\close2.png" />
     <Content Include="Properties\codigobarras1.png" />
     <Content Include="Properties\codigobarras2.png" />
+    <Content Include="Properties\deleRoj.png" />
+    <Content Include="Properties\DeleteIco.png" />
+    <Content Include="Properties\EditIco.png" />
+    <Content Include="Properties\editVer.png" />
     <Content Include="Properties\flechaAzulAbajo.png" />
     <Content Include="Properties\flechaAzulArriba.png" />
     <Content Include="Properties\fondoInicio.png" />
@@ -214,6 +236,7 @@
     <None Include="Properties\seo1.png" />
     <None Include="Properties\user %281%29.png" />
     <None Include="Properties\user.png" />
+    <Content Include="Properties\question.png" />
     <Content Include="Properties\user1.png" />
     <Content Include="Properties\user2.png" />
   </ItemGroup>

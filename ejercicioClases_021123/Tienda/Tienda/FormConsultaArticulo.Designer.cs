@@ -48,6 +48,7 @@
             this.timerHoraActual = new System.Windows.Forms.Timer(this.components);
             this.radioCodigo = new System.Windows.Forms.RadioButton();
             this.radioNombre = new System.Windows.Forms.RadioButton();
+            this.colAcciones = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTimerTick.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +102,7 @@
             // 
             this.listViewConsultas.BackColor = System.Drawing.Color.Silver;
             this.listViewConsultas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colAcciones,
             this.colCodigoArticulo,
             this.colNombreArticulo,
             this.colCategoriaArticulo,
@@ -108,10 +110,10 @@
             this.colExistenciasArticulo});
             this.listViewConsultas.GridLines = true;
             this.listViewConsultas.HideSelection = false;
-            this.listViewConsultas.Location = new System.Drawing.Point(31, 308);
+            this.listViewConsultas.Location = new System.Drawing.Point(31, 252);
             this.listViewConsultas.MultiSelect = false;
             this.listViewConsultas.Name = "listViewConsultas";
-            this.listViewConsultas.Size = new System.Drawing.Size(1141, 65);
+            this.listViewConsultas.Size = new System.Drawing.Size(1141, 296);
             this.listViewConsultas.TabIndex = 42;
             this.listViewConsultas.UseCompatibleStateImageBehavior = false;
             this.listViewConsultas.View = System.Windows.Forms.View.Details;
@@ -119,25 +121,25 @@
             // colCodigoArticulo
             // 
             this.colCodigoArticulo.Text = "Cod. Artículo";
-            this.colCodigoArticulo.Width = 117;
+            this.colCodigoArticulo.Width = 105;
             // 
             // colNombreArticulo
             // 
             this.colNombreArticulo.Text = "Nombre Articulo";
             this.colNombreArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colNombreArticulo.Width = 258;
+            this.colNombreArticulo.Width = 262;
             // 
             // colCategoriaArticulo
             // 
             this.colCategoriaArticulo.Text = "Categoría";
             this.colCategoriaArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colCategoriaArticulo.Width = 348;
+            this.colCategoriaArticulo.Width = 312;
             // 
             // colPrecioArticulo
             // 
             this.colPrecioArticulo.Text = "Precio (Ud./€)";
             this.colPrecioArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colPrecioArticulo.Width = 194;
+            this.colPrecioArticulo.Width = 150;
             // 
             // colExistenciasArticulo
             // 
@@ -158,7 +160,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnLimpiar.Location = new System.Drawing.Point(619, 231);
+            this.btnLimpiar.Location = new System.Drawing.Point(607, 198);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(145, 37);
             this.btnLimpiar.TabIndex = 41;
@@ -193,7 +195,7 @@
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnConsultar.Location = new System.Drawing.Point(420, 231);
+            this.btnConsultar.Location = new System.Drawing.Point(424, 198);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(145, 37);
             this.btnConsultar.TabIndex = 39;
@@ -225,7 +227,7 @@
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInicio.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnInicio.Location = new System.Drawing.Point(518, 526);
+            this.btnInicio.Location = new System.Drawing.Point(516, 554);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(145, 37);
             this.btnInicio.TabIndex = 34;
@@ -262,6 +264,11 @@
             this.radioNombre.Text = "Búsqueda por Nombre :";
             this.radioNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioNombre.UseVisualStyleBackColor = true;
+            // 
+            // colAcciones
+            // 
+            this.colAcciones.Text = "Acciones";
+            this.colAcciones.Width = 80;
             // 
             // FormConsultaArticulo
             // 
@@ -316,5 +323,6 @@
         private System.Windows.Forms.Timer timerHoraActual;
         private System.Windows.Forms.RadioButton radioCodigo;
         private System.Windows.Forms.RadioButton radioNombre;
+        private System.Windows.Forms.ColumnHeader colAcciones;
     }
 }

@@ -18,3 +18,4 @@ C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\bi
 C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\obj\Debug\Tienda.csproj.CopyComplete
 C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\obj\Debug\Tienda.exe
 C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\obj\Debug\Tienda.pdb
+C:\Users\alsao\source\repos\DAM_DI_23-24\ejercicioClases_021123\Tienda\Tienda\obj\Debug\Tienda.FormEditarArticulo.resources

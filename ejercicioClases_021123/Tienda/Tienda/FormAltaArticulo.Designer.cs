@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAltaArticulo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
             this.labelFecha = new System.Windows.Forms.Label();
@@ -55,16 +55,12 @@
             this.labelCantidadArticulo = new System.Windows.Forms.Label();
             this.textBoxCantidad = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.listViewArticulos = new System.Windows.Forms.ListView();
-            this.colCodigoArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colNombreArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colCategoriaArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPrecioArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colExistenciasArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelTotal = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
             this.panelTimerTick.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -199,14 +195,14 @@
             // ColumnCodArticulo
             // 
             this.ColumnCodArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = "1";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnCodArticulo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle21.Format = "N0";
+            dataGridViewCellStyle21.NullValue = "1";
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnCodArticulo.DefaultCellStyle = dataGridViewCellStyle21;
             this.ColumnCodArticulo.HeaderText = "Cod. Artículo";
             this.ColumnCodArticulo.Name = "ColumnCodArticulo";
             this.ColumnCodArticulo.ReadOnly = true;
@@ -215,13 +211,13 @@
             // ColumnNombreArticulo
             // 
             this.ColumnNombreArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = "HP Pavilion";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnNombreArticulo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.NullValue = "HP Pavilion";
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnNombreArticulo.DefaultCellStyle = dataGridViewCellStyle22;
             this.ColumnNombreArticulo.HeaderText = "Nombre";
             this.ColumnNombreArticulo.Name = "ColumnNombreArticulo";
             this.ColumnNombreArticulo.ReadOnly = true;
@@ -229,14 +225,14 @@
             // ColumnPrecioArticulo
             // 
             this.ColumnPrecioArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = "700.00€";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnPrecioArticulo.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Format = "C2";
+            dataGridViewCellStyle23.NullValue = "700.00€";
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnPrecioArticulo.DefaultCellStyle = dataGridViewCellStyle23;
             this.ColumnPrecioArticulo.HeaderText = "Precio(Ud./€)";
             this.ColumnPrecioArticulo.Name = "ColumnPrecioArticulo";
             this.ColumnPrecioArticulo.ReadOnly = true;
@@ -244,14 +240,14 @@
             // ColumnExistenciasArticulo
             // 
             this.ColumnExistenciasArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = "1";
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnExistenciasArticulo.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Format = "N0";
+            dataGridViewCellStyle24.NullValue = "1";
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnExistenciasArticulo.DefaultCellStyle = dataGridViewCellStyle24;
             this.ColumnExistenciasArticulo.HeaderText = "Stock/Uds.";
             this.ColumnExistenciasArticulo.Name = "ColumnExistenciasArticulo";
             this.ColumnExistenciasArticulo.ReadOnly = true;
@@ -259,13 +255,13 @@
             // ColumnCategoriaArticulo
             // 
             this.ColumnCategoriaArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.NullValue = "Colección PCs Portátiles";
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnCategoriaArticulo.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.NullValue = "Colección PCs Portátiles";
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnCategoriaArticulo.DefaultCellStyle = dataGridViewCellStyle25;
             this.ColumnCategoriaArticulo.HeaderText = "Categoría";
             this.ColumnCategoriaArticulo.Name = "ColumnCategoriaArticulo";
             this.ColumnCategoriaArticulo.ReadOnly = true;
@@ -336,54 +332,6 @@
             this.btnLimpiar.UseCompatibleTextRendering = true;
             this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
-            // listViewArticulos
-            // 
-            this.listViewArticulos.BackColor = System.Drawing.Color.Silver;
-            this.listViewArticulos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colCodigoArticulo,
-            this.colNombreArticulo,
-            this.colCategoriaArticulo,
-            this.colPrecioArticulo,
-            this.colExistenciasArticulo});
-            this.listViewArticulos.GridLines = true;
-            this.listViewArticulos.HideSelection = false;
-            this.listViewArticulos.Location = new System.Drawing.Point(27, 185);
-            this.listViewArticulos.MultiSelect = false;
-            this.listViewArticulos.Name = "listViewArticulos";
-            this.listViewArticulos.Size = new System.Drawing.Size(1141, 375);
-            this.listViewArticulos.TabIndex = 32;
-            this.listViewArticulos.UseCompatibleStateImageBehavior = false;
-            this.listViewArticulos.View = System.Windows.Forms.View.Details;
-            // 
-            // colCodigoArticulo
-            // 
-            this.colCodigoArticulo.Text = "Cod. Artículo";
-            this.colCodigoArticulo.Width = 117;
-            // 
-            // colNombreArticulo
-            // 
-            this.colNombreArticulo.Text = "Nombre Articulo";
-            this.colNombreArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colNombreArticulo.Width = 258;
-            // 
-            // colCategoriaArticulo
-            // 
-            this.colCategoriaArticulo.Text = "Categoría";
-            this.colCategoriaArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colCategoriaArticulo.Width = 348;
-            // 
-            // colPrecioArticulo
-            // 
-            this.colPrecioArticulo.Text = "Precio (Ud./€)";
-            this.colPrecioArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colPrecioArticulo.Width = 194;
-            // 
-            // colExistenciasArticulo
-            // 
-            this.colExistenciasArticulo.Text = "Existencias Disponibles (Stock)";
-            this.colExistenciasArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colExistenciasArticulo.Width = 226;
-            // 
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
@@ -407,13 +355,22 @@
             this.label6.TabIndex = 19;
             this.label6.Text = "Precio (Ud./€) :";
             // 
+            // dataGridViewArticulos
+            // 
+            this.dataGridViewArticulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewArticulos.Location = new System.Drawing.Point(28, 173);
+            this.dataGridViewArticulos.Name = "dataGridViewArticulos";
+            this.dataGridViewArticulos.Size = new System.Drawing.Size(1147, 387);
+            this.dataGridViewArticulos.TabIndex = 32;
+            // 
             // FormAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1198, 615);
-            this.Controls.Add(this.listViewArticulos);
+            this.Controls.Add(this.dataGridViewArticulos);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.textBoxCantidad);
             this.Controls.Add(this.labelCantidadArticulo);
@@ -441,6 +398,7 @@
             this.panelTimerTick.ResumeLayout(false);
             this.panelTimerTick.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,13 +426,8 @@
         private System.Windows.Forms.Label labelCantidadArticulo;
         private System.Windows.Forms.TextBox textBoxCantidad;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.ListView listViewArticulos;
-        private System.Windows.Forms.ColumnHeader colCodigoArticulo;
-        private System.Windows.Forms.ColumnHeader colNombreArticulo;
-        private System.Windows.Forms.ColumnHeader colCategoriaArticulo;
-        private System.Windows.Forms.ColumnHeader colPrecioArticulo;
-        private System.Windows.Forms.ColumnHeader colExistenciasArticulo;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dataGridViewArticulos;
     }
 }
