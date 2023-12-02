@@ -29,18 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAltaArticulo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
             this.labelFecha = new System.Windows.Forms.Label();
             this.labelHora = new System.Windows.Forms.Label();
             this.panelTimerTick = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timerHoraActual = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,9 +57,10 @@
             this.labelTotal = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTimerTick.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -130,16 +130,6 @@
             this.panelTimerTick.Size = new System.Drawing.Size(328, 67);
             this.panelTimerTick.TabIndex = 15;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(253, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
             // timerHoraActual
             // 
             this.timerHoraActual.Tick += new System.EventHandler(this.timerHoraActual_Tick);
@@ -195,14 +185,14 @@
             // ColumnCodArticulo
             // 
             this.ColumnCodArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle21.Format = "N0";
-            dataGridViewCellStyle21.NullValue = "1";
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnCodArticulo.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "1";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnCodArticulo.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColumnCodArticulo.HeaderText = "Cod. Artículo";
             this.ColumnCodArticulo.Name = "ColumnCodArticulo";
             this.ColumnCodArticulo.ReadOnly = true;
@@ -211,13 +201,13 @@
             // ColumnNombreArticulo
             // 
             this.ColumnNombreArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.NullValue = "HP Pavilion";
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnNombreArticulo.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = "HP Pavilion";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnNombreArticulo.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnNombreArticulo.HeaderText = "Nombre";
             this.ColumnNombreArticulo.Name = "ColumnNombreArticulo";
             this.ColumnNombreArticulo.ReadOnly = true;
@@ -225,14 +215,14 @@
             // ColumnPrecioArticulo
             // 
             this.ColumnPrecioArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.Format = "C2";
-            dataGridViewCellStyle23.NullValue = "700.00€";
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnPrecioArticulo.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = "700.00€";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnPrecioArticulo.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColumnPrecioArticulo.HeaderText = "Precio(Ud./€)";
             this.ColumnPrecioArticulo.Name = "ColumnPrecioArticulo";
             this.ColumnPrecioArticulo.ReadOnly = true;
@@ -240,14 +230,14 @@
             // ColumnExistenciasArticulo
             // 
             this.ColumnExistenciasArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Format = "N0";
-            dataGridViewCellStyle24.NullValue = "1";
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnExistenciasArticulo.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = "1";
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnExistenciasArticulo.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColumnExistenciasArticulo.HeaderText = "Stock/Uds.";
             this.ColumnExistenciasArticulo.Name = "ColumnExistenciasArticulo";
             this.ColumnExistenciasArticulo.ReadOnly = true;
@@ -255,13 +245,13 @@
             // ColumnCategoriaArticulo
             // 
             this.ColumnCategoriaArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.NullValue = "Colección PCs Portátiles";
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnCategoriaArticulo.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.NullValue = "Colección PCs Portátiles";
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.GreenYellow;
+            this.ColumnCategoriaArticulo.DefaultCellStyle = dataGridViewCellStyle5;
             this.ColumnCategoriaArticulo.HeaderText = "Categoría";
             this.ColumnCategoriaArticulo.Name = "ColumnCategoriaArticulo";
             this.ColumnCategoriaArticulo.ReadOnly = true;
@@ -357,12 +347,24 @@
             // 
             // dataGridViewArticulos
             // 
+            this.dataGridViewArticulos.AllowUserToDeleteRows = false;
             this.dataGridViewArticulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewArticulos.Location = new System.Drawing.Point(28, 173);
             this.dataGridViewArticulos.Name = "dataGridViewArticulos";
+            this.dataGridViewArticulos.ReadOnly = true;
             this.dataGridViewArticulos.Size = new System.Drawing.Size(1147, 387);
             this.dataGridViewArticulos.TabIndex = 32;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Tienda.Properties.Resources.logoComGreen;
+            this.pictureBox1.Location = new System.Drawing.Point(253, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 57);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // FormAltaArticulo
             // 
@@ -397,8 +399,8 @@
             this.Load += new System.EventHandler(this.FormAltaArticulo_Load);
             this.panelTimerTick.ResumeLayout(false);
             this.panelTimerTick.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

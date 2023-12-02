@@ -61,16 +61,16 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(68, 25);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(62, 23);
+            this.lblTitulo.Size = new System.Drawing.Size(66, 24);
             this.lblTitulo.TabIndex = 2;
             this.lblTitulo.Text = "label1";
             // 
             // lblMsg
             // 
-            this.lblMsg.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMsg.ForeColor = System.Drawing.Color.White;
             this.lblMsg.Location = new System.Drawing.Point(12, 80);
             this.lblMsg.Name = "lblMsg";
@@ -80,7 +80,7 @@
             // 
             // pbError
             // 
-            this.pbError.Image = global::Tienda.Properties.Resources.lapizEditar;
+            this.pbError.Image = global::Tienda.Properties.Resources.error1;
             this.pbError.Location = new System.Drawing.Point(12, 12);
             this.pbError.Name = "pbError";
             this.pbError.Size = new System.Drawing.Size(50, 50);
@@ -91,7 +91,7 @@
             // 
             // pbWar
             // 
-            this.pbWar.Image = global::Tienda.Properties.Resources.;
+            this.pbWar.Image = global::Tienda.Properties.Resources.warning1;
             this.pbWar.Location = new System.Drawing.Point(12, 12);
             this.pbWar.Name = "pbWar";
             this.pbWar.Size = new System.Drawing.Size(50, 50);
@@ -102,7 +102,7 @@
             // 
             // pbQue
             // 
-            this.pbQue.Image = global::Tienda.Properties.Resources.;
+            this.pbQue.Image = global::Tienda.Properties.Resources.question;
             this.pbQue.Location = new System.Drawing.Point(12, 12);
             this.pbQue.Name = "pbQue";
             this.pbQue.Size = new System.Drawing.Size(50, 50);
@@ -116,7 +116,7 @@
             this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(230)))));
             this.btnOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(230)))));
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOk.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.ForeColor = System.Drawing.Color.White;
             this.btnOk.Location = new System.Drawing.Point(243, 165);
             this.btnOk.Name = "btnOk";
@@ -133,7 +133,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(230)))));
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(111)))), ((int)(((byte)(230)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(328, 165);
             this.btnCancel.Name = "btnCancel";
@@ -145,7 +145,7 @@
             this.btnCancel.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnCancel.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
-            // MsgBox
+            // MsgBoxEliminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,7 +161,7 @@
             this.Controls.Add(this.pL2);
             this.Controls.Add(this.pL1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MsgBox";
+            this.Name = "MsgBoxEliminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MsgBox";
             ((System.ComponentModel.ISupportInitialize)(this.pbError)).EndInit();

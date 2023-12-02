@@ -142,6 +142,9 @@
     <EmbeddedResource Include="FormTipoPago.resx">
       <DependentUpon>FormTipoPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MsgBoxEliminar.resx">
+      <DependentUpon>MsgBoxEliminar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -173,6 +176,10 @@
     <Content Include="Properties\arrowDownWhite.png" />
     <Content Include="Properties\error1.png" />
     <Content Include="Properties\warning1.png" />
+    <None Include="Resources\editVer.png" />
+    <None Include="Resources\EditIco.png" />
+    <None Include="Resources\DeleteIco.png" />
+    <None Include="Resources\deleRoj.png" />
     <None Include="Properties\bar-graph1.png" />
     <Content Include="Properties\boligrafoEditar.png" />
     <None Include="Properties\calendar %281%291.png" />
@@ -186,10 +193,6 @@
     <Content Include="Properties\close2.png" />
     <Content Include="Properties\codigobarras1.png" />
     <Content Include="Properties\codigobarras2.png" />
-    <Content Include="Properties\deleRoj.png" />
-    <Content Include="Properties\DeleteIco.png" />
-    <Content Include="Properties\EditIco.png" />
-    <Content Include="Properties\editVer.png" />
     <Content Include="Properties\flechaAzulAbajo.png" />
     <Content Include="Properties\flechaAzulArriba.png" />
     <Content Include="Properties\fondoInicio.png" />

@@ -46,37 +46,43 @@ namespace Tienda
             if (dataGridViewArticulos.Columns.Count == 0)
             {
                 DataGridViewTextBoxColumn codigoColumn = new DataGridViewTextBoxColumn();
+                codigoColumn.DisplayIndex = 0;
                 codigoColumn.DataPropertyName = "CodigoArticulo";
-                codigoColumn.HeaderText = "IdArtículo";
+                codigoColumn.HeaderText = "Cod. Artículo";
                 dataGridViewArticulos.Columns.Add(codigoColumn);
 
                 DataGridViewTextBoxColumn nombreColumn = new DataGridViewTextBoxColumn();
+                nombreColumn.DisplayIndex = 1;
                 nombreColumn.DataPropertyName = "NombreArticulo";
                 nombreColumn.HeaderText = "Nombre";
                 dataGridViewArticulos.Columns.Add(nombreColumn);
 
                 DataGridViewTextBoxColumn categoriaColumn = new DataGridViewTextBoxColumn();
+                categoriaColumn.DisplayIndex = 2;
                 categoriaColumn.DataPropertyName = "Categoria";
                 categoriaColumn.HeaderText = "Categoria";
                 dataGridViewArticulos.Columns.Add(categoriaColumn);
 
                 DataGridViewTextBoxColumn precioColumn = new DataGridViewTextBoxColumn();
+                precioColumn.DisplayIndex = 3;
                 precioColumn.DataPropertyName = "PrecioArticulo";
                 precioColumn.HeaderText = "PVP Ud./€";
                 dataGridViewArticulos.Columns.Add(precioColumn);
 
                 DataGridViewTextBoxColumn existenciasColumn = new DataGridViewTextBoxColumn();
+                existenciasColumn.DisplayIndex = 4;
                 existenciasColumn.DataPropertyName = "ExistenciasArticulo";
                 existenciasColumn.HeaderText = "Stock Disponible";
                 dataGridViewArticulos.Columns.Add(existenciasColumn);
 
-                DataGridTextBoxColumn editarColumn = new DataGridTextBoxColumn();
+                DataGridViewImageColumn editarColumn = new DataGridViewImageColumn();
+                editarColumn.DisplayIndex = 5;
                 editarColumn.HeaderText = "Editar";
-                editarColumn.Alignment = HorizontalAlignment.Center;
 
-                DataGridTextBoxColumn eliminarColumn = new DataGridTextBoxColumn();
+                DataGridViewImageColumn eliminarColumn = new DataGridViewImageColumn();
+                eliminarColumn.DisplayIndex = 6;
                 eliminarColumn.HeaderText = "Eliminar";
-                eliminarColumn.Alignment = HorizontalAlignment.Center;
+
 
                 // Configurar el evento CellContentClick
                 dataGridViewArticulos.CellContentClick += dataGridViewArticulos_CellContentClick;
@@ -102,7 +108,6 @@ namespace Tienda
                 Console.WriteLine($"=====================");
             }
         }
-        int Id;
         private void dataGridViewArticulos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             string columnName = "Categoria"; // La variable debe coincidir con el nombre correcto de la columna
@@ -136,17 +141,25 @@ namespace Tienda
                 // Obtener el artículo seleccionado
                 Articulo articulo = (Articulo)dataGridViewArticulos.Rows[e.RowIndex].DataBoundItem;
 
-                MessageBox.Show("Se eliminará de forma permanente");
-
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un artículo antes de intentar editarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBoxEliminar msgBoxEliminar = new MsgBoxEliminar("question",
+                    "Desea eliminar?\nSe eliminará de forma permanente");
+                msgBoxEliminar.ShowDialog();
+                if (msgBoxEliminar.DialogResult == DialogResult.OK)
+                {
+                    //EliminarArticulo(articulo);
+                    // Actualizar la lista si es necesario
+                    ActualizarListaArticulos();
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un artículo antes de intentar editarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
                 MessageBox.Show("No se encontró la columna 'Acciones'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
 
