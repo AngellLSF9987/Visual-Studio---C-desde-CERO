@@ -58,6 +58,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ColCodigoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPrecioArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColExistenciasArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColEliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelTimerTick.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -348,12 +355,20 @@
             // dataGridViewArticulos
             // 
             this.dataGridViewArticulos.AllowUserToDeleteRows = false;
-            this.dataGridViewArticulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewArticulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridViewArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColCodigoArticulo,
+            this.ColNombreArticulo,
+            this.ColCategoria,
+            this.ColPrecioArticulo,
+            this.ColExistenciasArticulo,
+            this.ColEditar,
+            this.ColEliminar});
+            this.dataGridViewArticulos.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dataGridViewArticulos.Location = new System.Drawing.Point(28, 173);
             this.dataGridViewArticulos.Name = "dataGridViewArticulos";
-            this.dataGridViewArticulos.ReadOnly = true;
-            this.dataGridViewArticulos.Size = new System.Drawing.Size(1147, 387);
+            this.dataGridViewArticulos.Size = new System.Drawing.Size(1153, 387);
             this.dataGridViewArticulos.TabIndex = 32;
             // 
             // pictureBox1
@@ -365,6 +380,54 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
+            // 
+            // ColCodigoArticulo
+            // 
+            this.ColCodigoArticulo.HeaderText = "Cod. Articulo";
+            this.ColCodigoArticulo.Name = "ColCodigoArticulo";
+            this.ColCodigoArticulo.ReadOnly = true;
+            // 
+            // ColNombreArticulo
+            // 
+            this.ColNombreArticulo.HeaderText = "Nombre Artículo";
+            this.ColNombreArticulo.Name = "ColNombreArticulo";
+            this.ColNombreArticulo.ReadOnly = true;
+            this.ColNombreArticulo.Width = 280;
+            // 
+            // ColCategoria
+            // 
+            this.ColCategoria.HeaderText = "Categoría";
+            this.ColCategoria.Name = "ColCategoria";
+            this.ColCategoria.ReadOnly = true;
+            this.ColCategoria.Width = 270;
+            // 
+            // ColPrecioArticulo
+            // 
+            this.ColPrecioArticulo.HeaderText = "PVP Ud./€";
+            this.ColPrecioArticulo.Name = "ColPrecioArticulo";
+            this.ColPrecioArticulo.ReadOnly = true;
+            this.ColPrecioArticulo.Width = 110;
+            // 
+            // ColExistenciasArticulo
+            // 
+            this.ColExistenciasArticulo.HeaderText = "Stock - Existencias";
+            this.ColExistenciasArticulo.Name = "ColExistenciasArticulo";
+            this.ColExistenciasArticulo.ReadOnly = true;
+            this.ColExistenciasArticulo.Width = 149;
+            // 
+            // ColEditar
+            // 
+            this.ColEditar.HeaderText = "Editar";
+            this.ColEditar.Image = global::Tienda.Properties.Resources.lapizEditar;
+            this.ColEditar.Name = "ColEditar";
+            this.ColEditar.ReadOnly = true;
+            // 
+            // ColEliminar
+            // 
+            this.ColEliminar.HeaderText = "Eliminar";
+            this.ColEliminar.Image = global::Tienda.Properties.Resources.deleRoj;
+            this.ColEliminar.Name = "ColEliminar";
+            this.ColEliminar.ReadOnly = true;
             // 
             // FormAltaArticulo
             // 
@@ -431,5 +494,12 @@
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridViewArticulos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCodigoArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNombreArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPrecioArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColExistenciasArticulo;
+        private System.Windows.Forms.DataGridViewImageColumn ColEditar;
+        private System.Windows.Forms.DataGridViewImageColumn ColEliminar;
     }
 }

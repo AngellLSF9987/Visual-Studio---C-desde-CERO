@@ -42,58 +42,13 @@ namespace Tienda
 
             dataGridViewArticulos.CellFormatting += dataGridViewArticulos_CellFormatting;
 
-            // Configurar las columnas solo si no se han configurado previamente
-            if (dataGridViewArticulos.Columns.Count == 0)
-            {
-                DataGridViewTextBoxColumn codigoColumn = new DataGridViewTextBoxColumn();
-                codigoColumn.DisplayIndex = 0;
-                codigoColumn.DataPropertyName = "CodigoArticulo";
-                codigoColumn.HeaderText = "Cod. Artículo";
-                dataGridViewArticulos.Columns.Add(codigoColumn);
+            // Configurar el evento CellContentClick
+            dataGridViewArticulos.CellContentClick += dataGridViewArticulos_CellContentClick;
 
-                DataGridViewTextBoxColumn nombreColumn = new DataGridViewTextBoxColumn();
-                nombreColumn.DisplayIndex = 1;
-                nombreColumn.DataPropertyName = "NombreArticulo";
-                nombreColumn.HeaderText = "Nombre";
-                dataGridViewArticulos.Columns.Add(nombreColumn);
+            // Establecer la fuente de datos del DataGridView
+            bindingSourceArticulos.DataSource = ControladorArticulo.ObtenerArticulos();
+            dataGridViewArticulos.DataSource = bindingSourceArticulos;
 
-                DataGridViewTextBoxColumn categoriaColumn = new DataGridViewTextBoxColumn();
-                categoriaColumn.DisplayIndex = 2;
-                categoriaColumn.DataPropertyName = "Categoria";
-                categoriaColumn.HeaderText = "Categoria";
-                dataGridViewArticulos.Columns.Add(categoriaColumn);
-
-                DataGridViewTextBoxColumn precioColumn = new DataGridViewTextBoxColumn();
-                precioColumn.DisplayIndex = 3;
-                precioColumn.DataPropertyName = "PrecioArticulo";
-                precioColumn.HeaderText = "PVP Ud./€";
-                dataGridViewArticulos.Columns.Add(precioColumn);
-
-                DataGridViewTextBoxColumn existenciasColumn = new DataGridViewTextBoxColumn();
-                existenciasColumn.DisplayIndex = 4;
-                existenciasColumn.DataPropertyName = "ExistenciasArticulo";
-                existenciasColumn.HeaderText = "Stock Disponible";
-                dataGridViewArticulos.Columns.Add(existenciasColumn);
-
-                DataGridViewImageColumn editarColumn = new DataGridViewImageColumn();
-                editarColumn.DisplayIndex = 5;
-                editarColumn.HeaderText = "Editar";
-
-                DataGridViewImageColumn eliminarColumn = new DataGridViewImageColumn();
-                eliminarColumn.DisplayIndex = 6;
-                eliminarColumn.HeaderText = "Eliminar";
-
-
-                // Configurar el evento CellContentClick
-                dataGridViewArticulos.CellContentClick += dataGridViewArticulos_CellContentClick;
-
-                // Establecer la fuente de datos del DataGridView
-                bindingSourceArticulos.DataSource = ControladorArticulo.ObtenerArticulos();
-                dataGridViewArticulos.DataSource = bindingSourceArticulos;
-
-                dataGridViewArticulos.AutoResizeColumns();
-                dataGridViewArticulos.AutoResizeRows();
-            }
             // Imprimir los nombres de las columnas en la consola
             foreach (DataGridViewColumn column in dataGridViewArticulos.Columns)
             {

@@ -116,8 +116,6 @@
     <Compile Include="MsgBoxEliminar.Designer.cs">
       <DependentUpon>MsgBoxEliminar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utilidades_Extensiones\ListViewEmbeddedControl.cs" />
-    <Compile Include="Utilidades_Extensiones\ListViewExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Clases\Usuario.cs" />
