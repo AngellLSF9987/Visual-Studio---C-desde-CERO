@@ -3,7 +3,7 @@ using System.Security.Policy;
 
 namespace Tienda
 {
-    internal class Categoria
+    public class Categoria
     {
         private int codCategoria;
         private string nombreCategoria;

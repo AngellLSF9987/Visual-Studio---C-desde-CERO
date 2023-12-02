@@ -40,17 +40,17 @@ namespace Tienda
             // Verifica que la lista de artículos en FormAltaArticulo esté actualizada
             Console.WriteLine($"Número de artículos en FormAltaArticulo: {ControladorArticulo.ObtenerArticulos().Count}");
 
-            dataGridViewArticulos.CellFormatting += dataGridViewArticulos_CellFormatting;
+            // DataGridViewArticulos.CellFormatting += dataGridViewArticulos_CellFormatting;
 
             // Configurar el evento CellContentClick
-            dataGridViewArticulos.CellContentClick += dataGridViewArticulos_CellContentClick;
+            DataGridViewArticulos.CellContentClick += dataGridViewArticulos_CellContentClick;
 
             // Establecer la fuente de datos del DataGridView
             bindingSourceArticulos.DataSource = ControladorArticulo.ObtenerArticulos();
-            dataGridViewArticulos.DataSource = bindingSourceArticulos;
+            DataGridViewArticulos.DataSource = bindingSourceArticulos;
 
             // Imprimir los nombres de las columnas en la consola
-            foreach (DataGridViewColumn column in dataGridViewArticulos.Columns)
+            foreach (DataGridViewColumn column in DataGridViewArticulos.Columns)
             {
                 Console.WriteLine($"Nombre de la columna: {column.Name}");
                 Console.WriteLine($"Tipo de Celda: {column.CellType}");
@@ -63,60 +63,56 @@ namespace Tienda
                 Console.WriteLine($"=====================");
             }
         }
-        private void dataGridViewArticulos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            string columnName = "Categoria"; // La variable debe coincidir con el nombre correcto de la columna
-            if (dataGridViewArticulos.Columns.Contains(columnName) && e.RowIndex >= 0)
-            {
-                if (dataGridViewArticulos.Rows[e.RowIndex].DataBoundItem is Articulo articulo)
-                {
-                    e.Value = articulo.Categoria.NombreCategoria;
-                    e.FormattingApplied = true;
-                }
-            }
-        }
+
         private void dataGridViewArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verificar si la celda en la que hiciste clic es una celda de botón
-            if (dataGridViewArticulos.Columns[e.ColumnIndex].Name == "Editar")
+            if (e.RowIndex >= 0)
             {
-                // Obtener el artículo seleccionado
-                Articulo articulo = (Articulo)dataGridViewArticulos.Rows[e.RowIndex].DataBoundItem;
-
-                FormEditarArticulo formEditar = new FormEditarArticulo(articulo);
-                var result = formEditar.ShowDialog();
-                if (result == DialogResult.OK)
+                DataGridViewRow row = DataGridViewArticulos.Rows[e.RowIndex];
+                // Verificar si la celda en la que hiciste clic es una celda de botón
+                if (e.ColumnIndex == DataGridViewArticulos.Columns["Editar"].Index)
                 {
-                    // Actualizar la lista si es necesario
-                    ActualizarListaArticulos();
+                    // Obtener el artículo seleccionado
+                    Articulo articulo = (Articulo)row.DataBoundItem;
+
+                    FormEditarArticulo formEditar = new FormEditarArticulo();
+                    var result = formEditar.ShowDialog();
+                    
+                    if (result == DialogResult.OK)
+                    {
+                        // Obtener los nuevos datos del formulario de edición
+                        string nuevoNombre = formEditar.NuevoNombre;
+                        Categoria nuevaCategoria = formEditar.NuevaCategoria;
+                        decimal nuevoPrecio = formEditar.NuevoPrecio;
+                        int nuevasExistencias = formEditar.NuevasExistencias;
+
+                        // Llamar al método de edición en el controlador
+                        ControladorArticulo.EditarArticulo(articulo, nuevoNombre, nuevaCategoria, nuevoPrecio, nuevasExistencias);
+                        
+                        // Actualizar la lista si es necesario
+                        ActualizarListaArticulos();
+                    }
+                }
+                else if (e.ColumnIndex == DataGridViewArticulos.Columns["Eliminar"].Index)
+                {
+                    // Obtener el artículo seleccionado
+                    Articulo articulo = (Articulo)row.DataBoundItem;
+
+                    MsgBoxEliminar msgBoxEliminar = new MsgBoxEliminar("question",
+                        "Desea eliminar?\nSe eliminará de forma permanente");
+                    msgBoxEliminar.ShowDialog();
+                    
+                    if (msgBoxEliminar.DialogResult == DialogResult.OK)
+                    {
+                        // Eliminar el artículo
+                        ControladorArticulo.EliminarArticulo(articulo);
+
+                        // Actualizar la lista si es necesario
+                        ActualizarListaArticulos();
+                    }
                 }
             }
-            if (dataGridViewArticulos.Columns[e.ColumnIndex].Name == "Eliminar")
-            {
-                // Obtener el artículo seleccionado
-                Articulo articulo = (Articulo)dataGridViewArticulos.Rows[e.RowIndex].DataBoundItem;
-
-                MsgBoxEliminar msgBoxEliminar = new MsgBoxEliminar("question",
-                    "Desea eliminar?\nSe eliminará de forma permanente");
-                msgBoxEliminar.ShowDialog();
-                if (msgBoxEliminar.DialogResult == DialogResult.OK)
-                {
-                    //EliminarArticulo(articulo);
-                    // Actualizar la lista si es necesario
-                    ActualizarListaArticulos();
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, seleccione un artículo antes de intentar editarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("No se encontró la columna 'Acciones'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
-
 
         // Método para actualizar la lista de artículos en FormAltaArticulo
         public void ActualizarListaArticulos()
@@ -125,15 +121,17 @@ namespace Tienda
             this.BeginInvoke((MethodInvoker)delegate
             {
                 bindingSourceArticulos.DataSource = ControladorArticulo.ObtenerArticulos();
-                dataGridViewArticulos.Refresh();
+                DataGridViewArticulos.Refresh();
 
                 // Recorrer las filas del DataGridView y asignar el botón "Editar"
-                foreach (DataGridViewRow row in dataGridViewArticulos.Rows)
+                foreach (DataGridViewRow row in DataGridViewArticulos.Rows)
                 {
                     if (row.DataBoundItem is Articulo articulo)
                     {
-                        DataGridViewButtonCell buttonCell = (DataGridViewButtonCell)row.Cells["Acciones"];
+                        DataGridViewButtonCell buttonCell = (DataGridViewButtonCell)row.Cells["Editar"];
                         buttonCell.Value = "Editar";
+
+                        // Puedes hacer lo mismo para la columna "Eliminar" si es necesario
                     }
                 }
             });
@@ -188,7 +186,7 @@ namespace Tienda
                 MessageBox.Show("Se han añadido nuevas existencias para el artículo existente.");
 
                 // Recorrer las filas del DataGridView y actualizar la cantidad de existencias en esa fila.
-                foreach (DataGridViewRow row in dataGridViewArticulos.Rows)
+                foreach (DataGridViewRow row in DataGridViewArticulos.Rows)
                 {
                     if (row.DataBoundItem is Articulo articulo && articulo == articuloExistente)
                     {
@@ -217,7 +215,7 @@ namespace Tienda
                 // Actualizar la vista del DataGridView en el hilo principal
                 this.BeginInvoke((MethodInvoker)delegate
                 {
-                    ActualizarListaArticulos();
+                    //ActualizarListaArticulos();
                 });
 
                 MessageBox.Show("Artículo creado con éxito.");

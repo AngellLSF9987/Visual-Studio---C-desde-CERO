@@ -28,6 +28,24 @@ namespace Tienda.Controladores
         {
             return Articulos.Where(a => a.Categoria.Equals(categoria)).ToList();
         }
+
+        public static void EditarArticulo(Articulo articuloExistente, string nuevoNombre, Categoria nuevaCategoria, decimal nuevoPrecio, int nuevasExistencias)
+        {
+            // Verificar si el artículo existe en la lista
+            if (Articulos.Contains(articuloExistente))
+            {
+                // Actualizar las propiedades del artículo
+                articuloExistente.NombreArticulo = nuevoNombre;
+                articuloExistente.Categoria = nuevaCategoria;
+                articuloExistente.PrecioArticulo = nuevoPrecio;
+                articuloExistente.ExistenciasArticulo = nuevasExistencias;
+            }
+        }
+
+        public static void EliminarArticulo(Articulo articulo)
+        {
+            Articulos.Remove(articulo);
+        }
     }
 }
 

@@ -36,9 +36,9 @@
             this.labelFecha = new System.Windows.Forms.Label();
             this.labelHora = new System.Windows.Forms.Label();
             this.panelTimerTick = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.timerHoraActual = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTimerTick.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -117,6 +117,17 @@
             this.panelTimerTick.Size = new System.Drawing.Size(436, 76);
             this.panelTimerTick.TabIndex = 18;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(337, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(90, 66);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnConfirmar
             // 
             this.btnConfirmar.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -135,17 +146,6 @@
             // 
             this.timerHoraActual.Tick += new System.EventHandler(this.timerHoraActual_Tick);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(337, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(90, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
             // FormTipoPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -163,6 +163,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.MaximumSize = new System.Drawing.Size(746, 451);
+            this.MinimumSize = new System.Drawing.Size(650, 400);
             this.Name = "FormTipoPago";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormTipoPago";

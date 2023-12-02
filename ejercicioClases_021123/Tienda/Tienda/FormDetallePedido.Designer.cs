@@ -39,7 +39,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxCategorias = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.labelFecha = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
@@ -173,21 +172,11 @@
             this.comboBoxCategorias.Text = "Pinche para elegir Categoría ...";
             this.comboBoxCategorias.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCategorias_SelectedIndexChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(370, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 18);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Fecha Pedido :";
-            // 
             // labelFecha
             // 
             this.labelFecha.AutoSize = true;
             this.labelFecha.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha.Location = new System.Drawing.Point(512, 46);
+            this.labelFecha.Location = new System.Drawing.Point(429, 44);
             this.labelFecha.MinimumSize = new System.Drawing.Size(300, 25);
             this.labelFecha.Name = "labelFecha";
             this.labelFecha.Size = new System.Drawing.Size(300, 25);
@@ -409,7 +398,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBoxDetallePedido);
             this.Controls.Add(this.labelFecha);
-            this.Controls.Add(this.label2);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -435,7 +423,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxCategorias;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.TextBox textBoxCantidad;
         private System.Windows.Forms.Label label6;
