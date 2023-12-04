@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tienda.Clases;
 using Tienda.Controladores;
@@ -78,6 +72,6 @@ namespace Tienda
             TipoPagoSeleccionado = comboBoxSelecPago.SelectedItem?.ToString();
             ConfirmarClick?.Invoke(this, EventArgs.Empty);
             Close();
-        }      
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Tienda
 {
-    internal class Articulo
+    public class Articulo
     {
         private static int codigoBase = 1; // Para llevar un seguimiento del código automáticamente generado
         private const int StockMinimo = 10; // Cantidad mínima en existencias para considerar en mínimos
@@ -73,7 +73,7 @@ namespace Tienda
                 return false;
             }
 
-            Articulo otroArticulo = ( Articulo) obj;
+            Articulo otroArticulo = (Articulo)obj;
 
             return CodigoArticulo == otroArticulo.CodigoArticulo &&
                     NombreArticulo == otroArticulo.NombreArticulo &&

@@ -43,7 +43,7 @@ namespace Tienda
         }
         public string ApellidoUsuario
         {
-            get { return apellidoUsuario;}
+            get { return apellidoUsuario; }
             set
             {
                 if (value.Length < 0)
@@ -59,7 +59,7 @@ namespace Tienda
         public string DireccionUsuario
         {
             get { return direccionUsuario; }
-            set 
+            set
             {
                 if (value.Length < 0)
                 {
@@ -74,7 +74,7 @@ namespace Tienda
         public int TelefonoUsuario
         {
             get { return (int)telefonoUsuario; }
-            set 
+            set
             {
                 if (value < 9)
                 {
@@ -86,12 +86,12 @@ namespace Tienda
                 }
             }
         }
-        public bool RolUsuario 
+        public bool RolUsuario
         {
             get { return rolUsuario; }
             set
             {
-               
+
             }
         }
     }

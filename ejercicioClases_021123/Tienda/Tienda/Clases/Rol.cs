@@ -11,7 +11,7 @@
             this.nombreRol = nombreRol;
         }
 
-        public int CodRol {  get { return codRol; } set {  codRol = value; } }
-        public string NombreRol { get { return nombreRol; } set {nombreRol = value; } }
+        public int CodRol { get { return codRol; } set { codRol = value; } }
+        public string NombreRol { get { return nombreRol; } set { nombreRol = value; } }
     }
 }

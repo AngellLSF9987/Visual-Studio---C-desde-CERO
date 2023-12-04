@@ -16,8 +16,8 @@ namespace Tienda
         private int codigoPedidoActual = 0;
 
         private List<Articulo> articulos = new List<Articulo>();
-        private List<Pedido> pedidos = new List<Pedido>();
-
+        private BindingSource bindingSourcePedidos = new BindingSource();
+        
         //Lista interna donde irán almacenándose artículos añadidos en un mismo pedido
         private List<Articulo> articulosPedido = new List<Articulo>();
 
@@ -60,26 +60,63 @@ namespace Tienda
             labelFecha.Text = DateTime.Now.ToString("dddd, " + "dd \\de " + "MMMM \\de " + "yyyy").ToUpperInvariant();
             labelTotal.Text = Convert.ToString(precio + "€");
 
-            // Deshabilitar el modo virtual
-            listViewPedidos.VirtualMode = false;
+            List<Pedido> pedidos = ControladorPedido.ObtenerPedidos();
 
-            // Configurar el evento RetrieveVirtualItem
-            listViewPedidos.VirtualMode = true;
-            listViewPedidos.RetrieveVirtualItem += listViewPedidos_RetrieveVirtualItem;
+            // Configurar el evento CellContentClick
+            DataGridViewPedidos.CellContentClick += dataGridViewPedidos_CellContentClick;
+            // Establecer la fuente de datos del DataGridView
+            bindingSourcePedidos.DataSource = pedidos;
+            DataGridViewPedidos.DataSource = bindingSourcePedidos;
+        }
 
-            // Actualizar el ListView con la nueva información
-            ActualizarListViewPedidos();
+        private void dataGridViewPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = DataGridViewPedidos.Rows[e.RowIndex];
+                // Verificar si la celda en la que hiciste clic es una celda de botón
+                if (e.ColumnIndex == DataGridViewPedidos.Columns["Consultar"].Index)
+                {
+                    // Obtener el artículo seleccionado
+                    Pedido pedido = (Pedido)row.DataBoundItem;
 
-            //
-            /** Añadir las columnas necesarias
-            listViewPedidos.Columns.Add("Acciones", 105);
-            listViewPedidos.Columns.Add("Cod. Pedido", 105);
-            listViewPedidos.Columns.Add("Uds./Pedido", 120);
-            listViewPedidos.Columns.Add("Cod. Cliente", 105);
-            listViewPedidos.Columns.Add("Tipo de Pago", 280);
-            listViewPedidos.Columns.Add("Descuento o Recargo Aplicable - Tipo de Pago", 310);
-            listViewPedidos.Columns.Add("Precio Final / PVP .€", 142);
-            */
+                    FormConsultaPedidoRegistrado formConsultar = new FormConsultaPedidoRegistrado(pedido.CodigoPedido);
+                    var result = formConsultar.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        // Obtener los datos del formulario de consulta
+                       // string nuevoNombre = formConsultar.NuevoNombre;
+                       // Categoria nuevaCategoria = formConsultar.NuevaCategoria;
+                       // decimal nuevoPrecio = formConsultar.NuevoPrecio;
+                       // int nuevasExistencias = formConsultar.NuevasExistencias;
+
+                        // Llamar al método de edición en el controlador
+                        ControladorPedido.ObtenerPedidoPorCodigo(pedido.CodigoPedido);
+
+                        // Actualizar la lista si es necesario
+                        ActualizarListaPedidos();
+                    }
+                }
+                else if (e.ColumnIndex == DataGridViewPedidos.Columns["Eliminar"].Index)
+                {
+                    // Obtener el artículo seleccionado
+                    Articulo articulo = (Articulo)row.DataBoundItem;
+
+                    MsgBoxEliminar msgBoxEliminar = new MsgBoxEliminar("question",
+                        "Desea eliminar?\nSe eliminará de forma permanente");
+                    msgBoxEliminar.ShowDialog();
+
+                    if (msgBoxEliminar.DialogResult == DialogResult.OK)
+                    {
+                        // Eliminar el artículo
+                        ControladorArticulo.EliminarArticulo(articulo);
+
+                        // Actualizar la lista si es necesario
+                        ActualizarListaPedidos();
+                    }
+                }
+            }
         }
 
         private void timerHoraActual_Tick(object sender, EventArgs e)
@@ -88,7 +125,6 @@ namespace Tienda
         }
 
         // Método para obtener categorías únicas de la lista de artículos
-
         private void CargarCategoriasEnComboBox()
         {
             // Agrega un elemento por defecto
@@ -171,18 +207,6 @@ namespace Tienda
         {
             comboBoxArticulos.Text = "Seleccione Articulo...";
         }
-        private void CalcularPrecioTotal()
-        {
-            // Verificar si hay artículos en el pedido
-            if (articulosPedido.Count > 0)
-            {
-                // Calcular el precio total sin aplicar descuento o recargo
-                decimal precioTotalSinDescuentoRecargo = CalcularPrecioTotalSinDescuentoRecargo(articulosPedido);
-
-                // Mostrar el precio total sin descuento o recargo en el label
-                labelTotal.Text = precioTotalSinDescuentoRecargo.ToString("C");
-            }
-        }
         private void btnAñadir_Click(object sender, EventArgs e)
         {
             // Verificar si se ha seleccionado al menos un artículo y si se ha ingresado una cantidad
@@ -212,6 +236,20 @@ namespace Tienda
                 MessageBox.Show("Seleccione al menos un artículo y especifique la cantidad para añadir al pedido.");
             }
         }
+        private decimal CalcularPrecioTotal()
+        {
+            decimal precioTotal = 0;
+
+            foreach (Articulo articulo in articulosPedido)
+            {
+                precioTotal += articulo.Categoria.PrecioPorDefecto;
+            }
+
+            // Mostrar el precio total provisional del pedido
+            labelTotal.Text = precioTotal.ToString("C");
+
+            return precioTotal;
+        }
         private Pedido CrearPedido()
         {
             string tipoPagoSeleccionadoNombre;
@@ -230,7 +268,7 @@ namespace Tienda
                     if (tipoPagoSeleccionado != null)
                     {
                         // Calcular el precio final del pedido según el tipo de pago
-                        decimal precioFinal = CalcularPrecioFinal(articulosPedido, tipoPagoSeleccionado);
+                        decimal precioFinal = CalcularPrecioFinal(tipoPagoSeleccionado);
 
                         Pedido nuevoPedido = new Pedido
                         {
@@ -264,25 +302,11 @@ namespace Tienda
                 return null; // o manejar según la lógica
             }
         }
-        private decimal CalcularPrecioTotalSinDescuentoRecargo(List<Articulo> articulos)
+        private decimal CalcularPrecioFinal(TipoPago tipoPago)
         {
-            decimal precioTotal = 0;
+            // Calcular el precio final sumando los precios de todos los artículos en la lista
+            decimal precioTotal = CalcularPrecioTotal();
 
-            foreach (Articulo articulo in articulos)
-            {
-                precioTotal += articulo.Categoria.PrecioPorDefecto;
-            }
-
-            return precioTotal;
-        }
-        private decimal CalcularPrecioFinal(List<Articulo> articulos, TipoPago tipoPago)
-        {
-            decimal precioTotal = 0;
-
-            foreach (Articulo articulo in articulos)
-            {
-                precioTotal += articulo.Categoria.PrecioPorDefecto;
-            }
             // Verificar si tipoPago no es null antes de acceder a la propiedad
             if (tipoPago != null)
             {
@@ -329,7 +353,7 @@ namespace Tienda
                         articulosPedido = new List<Articulo>();
 
                         // Mostrar el ListView con la nueva información
-                        ActualizarListViewPedidos();
+                        ActualizarListaPedidos();
 
                         // Limpiar los controles de entrada en el formulario
                         btnLimpiar_Click(sender, e);
@@ -357,28 +381,6 @@ namespace Tienda
             {
                 MessageBox.Show("Añada al menos un artículo al pedido antes de registrar.");
             }
-
-        }
-        private void listViewPedidos_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e)
-        {
-            // Verificar si el índice está dentro del rango
-            if (e.ItemIndex >= 0 && e.ItemIndex < ControladorPedido.ObtenerPedidos().Count)
-            {
-                // Obtener el pedido correspondiente al índice
-                Pedido nuevoPedido = ControladorPedido.ObtenerPedidos()[e.ItemIndex];
-
-                // Crear el ListViewItem con los detalles del pedido
-                ListViewItem pedidoItem = new ListViewItem("Acciones");
-                pedidoItem.SubItems.Add(nuevoPedido.CodigoPedido.ToString());
-                pedidoItem.SubItems.Add(nuevoPedido.CantidadArticulos.ToString()); // Número de artículos en el pedido
-                pedidoItem.SubItems.Add("CodigoCliente"); // Reemplaza "CódigoCliente" con el código real
-                pedidoItem.SubItems.Add(nuevoPedido.TipoPago.NombreTipoPago); // Tipo de pago  
-                pedidoItem.SubItems.Add(nuevoPedido.TipoPago?.PorcentajeDescuentoRecargo.ToString() ?? "0"); // Obtén el descuento según tu lógica
-                pedidoItem.SubItems.Add(nuevoPedido.PrecioFinal.ToString("C")); // Precio final del pedido en formato de moneda
-
-
-                e.Item = pedidoItem; // Asignar el ListViewItem al ítem virtual
-            }
         }
         private void FormDetallePedido_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -387,63 +389,21 @@ namespace Tienda
             ControladorPedido.GuardarPedidosEnArchivo();
             Console.WriteLine("Pedidos guardados en archivo.");
         }
-        private void ActualizarListViewPedidos()
+        private void ActualizarListaPedidos()
         {
-            // Desactivar el modo virtual
-            listViewPedidos.VirtualMode = false;
-
-            // Limpiar la lista
-            listViewPedidos.Items.Clear();
-
-            // Verifica si hay datos en la lista de pedidos
-            Console.WriteLine($"Número total de pedidos: {ControladorPedido.ObtenerPedidos().Count}");
-
-            /** Agregar elementos al ListView
-            foreach (Pedido pedido in ControladorPedido.ObtenerPedidos())
+            if (DataGridViewPedidos.InvokeRequired)
             {
-                ListViewItem pedidoItem = new ListViewItem("Acciones");
-                pedidoItem.SubItems.Add(pedido.CodigoPedido.ToString());
-                pedidoItem.SubItems.Add(pedido.CantidadArticulos.ToString());
-                pedidoItem.SubItems.Add("CódigoCliente"); // Reemplaza con el código real si es necesario
-                pedidoItem.SubItems.Add(pedido.TipoPago.NombreTipoPago);
-                pedidoItem.SubItems.Add(pedido.TipoPago?.PorcentajeDescuentoRecargo.ToString() ?? "0");
-                pedidoItem.SubItems.Add(pedido.PrecioFinal.ToString("C"));
-
-                listViewPedidos.Items.Add(pedidoItem);
+                // Utilizar Invoke para actualizar la interfaz de usuario desde el hilo principal
+                DataGridViewPedidos.Invoke((MethodInvoker)delegate
+                {
+                    bindingSourcePedidos.ResetBindings(false);
+                });
             }
-            */
-            // Actualizar el tamaño virtual
-            listViewPedidos.VirtualListSize = ControladorPedido.ObtenerPedidos().Count;
-
-            // Volver a habilitar el modo virtual si es necesario
-            listViewPedidos.VirtualMode = true;
-
-            // Redibujar los elementos del ListView
-            // listViewPedidos.RedrawItems(0, listViewPedidos.Items.Count - 1, true);
-
-            // Forzar un repintado del ListView
-            listViewPedidos.Refresh();
-
-        }
-        private void AbrirFormularioConsulta(int codigoPedido)
-        {
-            // Obtener el código de pedido desde la fila seleccionada
-            //int codigoPedido = int.Parse(item.SubItems[1].Text);  // Suponiendo que el código de pedido está en la segunda columna
-
-            // Abrir el formulario de consulta con el código de pedido
-            FormConsultaPedidoRegistrado formConsulta = new FormConsultaPedidoRegistrado(codigoPedido);
-
-            formConsulta.ShowDialog();
-        }
-        private void BorrarPedido(int codigoPedido)
-        {
-            // Lógica para borrar el pedido según el código de pedido
-            // Puedes implementar la lógica para borrar el pedido o simplemente marcarlo como borrado
-            MessageBox.Show($"Borrar pedido {codigoPedido}");
-            // También puedes actualizar tu lista interna de pedidos o base de datos según sea necesario
-            // ControladorPedido.BorrarPedido(codigoPedido);
-            // Actualizar la interfaz
-            // ActualizarListViewPedidos();
+            else
+            {
+                // Si ya estamos en el hilo principal, actualizar directamente
+                bindingSourcePedidos.ResetBindings(false);
+            }
         }
         private void btnInicio_Click(object sender, EventArgs e) => Close();
     }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -11,7 +10,7 @@ namespace Tienda
     public partial class FormPrincipal : Form
     {
         public FormPrincipal()
-        {       
+        {
             InitializeComponent();
             // Suscribir al evento FormClosing
             this.FormClosing += new FormClosingEventHandler(this.FormPrincipal_FormClosing);

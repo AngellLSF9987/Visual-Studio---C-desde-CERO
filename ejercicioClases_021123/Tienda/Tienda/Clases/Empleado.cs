@@ -6,8 +6,8 @@
 
         public int CodEmpleado
         {
-            get { return codEmpleado;}
-            set { codEmpleado = value;}
+            get { return codEmpleado; }
+            set { codEmpleado = value; }
         }
     }
 }

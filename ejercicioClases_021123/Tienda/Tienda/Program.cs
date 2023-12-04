@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 using Tienda.Controladores;
 
@@ -73,7 +72,7 @@ namespace Tienda
                 }
                 // Actualizar la lista de artículos en FormAltaArticulo
                 FormAltaArticulo formAltaArticulo = new FormAltaArticulo();
-                //formAltaArticulo.ActualizarListaArticulos();
+                //formAltaArticulo?.ActualizarListaArticulos();
             }
         }
     }

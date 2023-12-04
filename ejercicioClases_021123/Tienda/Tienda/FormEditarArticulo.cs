@@ -1,46 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using Tienda.Controladores;
 
 namespace Tienda
 {
     public partial class FormEditarArticulo : Form
     {
         private List<Categoria> Categorias = new List<Categoria>();
-
-        public string NuevoNombre { get; set; }
-
-        public Categoria NuevaCategoria
-        {
-            get { return (Categoria)ComboBoxNuevaCategoria.SelectedItem; }
-            set { ComboBoxNuevaCategoria.SelectedItem = value; }
-        }
-
-        public decimal NuevoPrecio
-        {
-            get { return ((Categoria)ComboBoxNuevaCategoria.SelectedItem).PrecioPorDefecto; }
-            set { /** Puedes establecer el precio por defecto si es necesario */ }
-        }
-
-        public int NuevasExistencias
-        {
-            get
-            {
-                if (int.TryParse(TextBoxCantidad.Text, out int existencias))
-                {
-                    return existencias;
-                }
-                return 0; // Otra opción podría ser lanzar una excepción aquí si lo prefieres
-            }
-            set { TextBoxCantidad.Text = value.ToString(); }
-        }
-
         private Articulo articuloOriginal;
 
-       
+        public int CodigoArticulo { get; set; }
+        public string NuevoNombre { get; set; }
+        public Categoria NuevaCategoria { get; set; }
+        public decimal NuevoPrecio { get; set; }
+        public int NuevasExistencias { get; set; }
 
+        public FormEditarArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+
+            // Verificar si el objeto articulo es null
+            if (articulo == null)
+            {
+                MessageBox.Show("El artículo proporcionado es nulo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Puedes decidir cerrar el formulario en este punto si el artículo es nulo
+                Close();
+                return;
+            }
+
+            // Almacenar el artículo para su posterior edición
+            articuloOriginal = articulo;
+
+            // Llenar los campos del formulario con los datos del artículo
+            TextBoxNuevoNombre.Text = articulo.NombreArticulo;
+            ComboBoxNuevaCategoria.SelectedItem = articulo.Categoria;
+            TextBoxCantidad.Text = articulo.ExistenciasArticulo.ToString();
+            LabelTotal.Text = $"{articulo.Categoria.PrecioPorDefecto}€";
+        }
         private void FormEditarArticulo_Load(object sender, EventArgs e)
         {
             labelFecha.Text = DateTime.Now.ToString("dddd, " + "dd \\de " + "MMMM \\de " + "yyyy").ToUpperInvariant();

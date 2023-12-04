@@ -30,6 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetallePedido));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBoxDetallePedido = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxArticulos = new System.Windows.Forms.ComboBox();
@@ -49,17 +57,19 @@
             this.labelHora = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAñadir = new System.Windows.Forms.Button();
-            this.listViewPedidos = new System.Windows.Forms.ListView();
-            this.Acciones = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CodigoPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CantidadPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CodigoCliente = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TipoPago = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PorcentajeDescuentoRecargoTipoPago = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PrecioFinal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DataGridViewPedidos = new System.Windows.Forms.DataGridView();
+            this.CodigoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PorcentajeDescuentoRecargoTipoPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Consultar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBoxDetallePedido.SuspendLayout();
             this.panelTimerTick.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPedidos)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxDetallePedido
@@ -319,69 +329,115 @@
             this.btnAñadir.UseVisualStyleBackColor = false;
             this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
             // 
-            // listViewPedidos
+            // DataGridViewPedidos
             // 
-            this.listViewPedidos.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
-            this.listViewPedidos.BackColor = System.Drawing.Color.Silver;
-            this.listViewPedidos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Acciones,
+            this.DataGridViewPedidos.AllowUserToAddRows = false;
+            this.DataGridViewPedidos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.DataGridViewPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DataGridViewPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodigoPedido,
             this.CantidadPedido,
             this.CodigoCliente,
             this.TipoPago,
             this.PorcentajeDescuentoRecargoTipoPago,
-            this.PrecioFinal});
-            this.listViewPedidos.FullRowSelect = true;
-            this.listViewPedidos.GridLines = true;
-            this.listViewPedidos.HideSelection = false;
-            this.listViewPedidos.Location = new System.Drawing.Point(13, 305);
-            this.listViewPedidos.Name = "listViewPedidos";
-            this.listViewPedidos.Size = new System.Drawing.Size(1171, 237);
-            this.listViewPedidos.TabIndex = 16;
-            this.listViewPedidos.UseCompatibleStateImageBehavior = false;
-            this.listViewPedidos.View = System.Windows.Forms.View.Details;
-            this.listViewPedidos.VirtualMode = true;
-            // 
-            // Acciones
-            // 
-            this.Acciones.Text = "Acciones";
-            this.Acciones.Width = 105;
+            this.PrecioFinal,
+            this.Consultar,
+            this.Eliminar});
+            this.DataGridViewPedidos.Location = new System.Drawing.Point(13, 263);
+            this.DataGridViewPedidos.Name = "DataGridViewPedidos";
+            this.DataGridViewPedidos.Size = new System.Drawing.Size(1173, 318);
+            this.DataGridViewPedidos.TabIndex = 17;
             // 
             // CodigoPedido
             // 
-            this.CodigoPedido.Text = "Cod. Pedido";
-            this.CodigoPedido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.CodigoPedido.Width = 105;
+            this.CodigoPedido.DataPropertyName = "CodigoPedido";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "null";
+            this.CodigoPedido.DefaultCellStyle = dataGridViewCellStyle1;
+            this.CodigoPedido.HeaderText = "Cod. Pedido";
+            this.CodigoPedido.Name = "CodigoPedido";
+            this.CodigoPedido.ReadOnly = true;
             // 
             // CantidadPedido
             // 
-            this.CantidadPedido.Text = "Uds. / Pedido";
-            this.CantidadPedido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.CantidadPedido.Width = 120;
+            this.CantidadPedido.DataPropertyName = "CantidadPedido";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = "null";
+            this.CantidadPedido.DefaultCellStyle = dataGridViewCellStyle2;
+            this.CantidadPedido.HeaderText = "Uds. / Pedido";
+            this.CantidadPedido.Name = "CantidadPedido";
+            this.CantidadPedido.ReadOnly = true;
             // 
             // CodigoCliente
             // 
-            this.CodigoCliente.Text = "Cod. Cliente";
-            this.CodigoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.CodigoCliente.Width = 105;
+            this.CodigoCliente.DataPropertyName = "CodigoCliente";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = "null";
+            this.CodigoCliente.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CodigoCliente.HeaderText = "Cod. Cliente";
+            this.CodigoCliente.Name = "CodigoCliente";
+            this.CodigoCliente.ReadOnly = true;
             // 
             // TipoPago
             // 
-            this.TipoPago.Text = "Tipo de Pago";
-            this.TipoPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TipoPago.Width = 280;
+            this.TipoPago.DataPropertyName = "TipoPago";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = "null";
+            this.TipoPago.DefaultCellStyle = dataGridViewCellStyle4;
+            this.TipoPago.HeaderText = "                             Tipo de Pago";
+            this.TipoPago.Name = "TipoPago";
+            this.TipoPago.ReadOnly = true;
+            this.TipoPago.Width = 255;
             // 
             // PorcentajeDescuentoRecargoTipoPago
             // 
-            this.PorcentajeDescuentoRecargoTipoPago.Text = "Descuento o Recargo Aplicable - Tipo de Pago";
-            this.PorcentajeDescuentoRecargoTipoPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.PorcentajeDescuentoRecargoTipoPago.Width = 310;
+            this.PorcentajeDescuentoRecargoTipoPago.DataPropertyName = "PorcentajeDescuentoRecargoTipoPago";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = "0,00";
+            this.PorcentajeDescuentoRecargoTipoPago.DefaultCellStyle = dataGridViewCellStyle5;
+            this.PorcentajeDescuentoRecargoTipoPago.HeaderText = "Descuento o Recargo Aplicable - Tipo de Pago";
+            this.PorcentajeDescuentoRecargoTipoPago.Name = "PorcentajeDescuentoRecargoTipoPago";
+            this.PorcentajeDescuentoRecargoTipoPago.ReadOnly = true;
+            this.PorcentajeDescuentoRecargoTipoPago.Width = 265;
             // 
             // PrecioFinal
             // 
-            this.PrecioFinal.Text = "Precio Final / PVP .€";
-            this.PrecioFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.PrecioFinal.Width = 142;
+            this.PrecioFinal.DataPropertyName = "PrecioFinal";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = "0,00";
+            this.PrecioFinal.DefaultCellStyle = dataGridViewCellStyle6;
+            this.PrecioFinal.HeaderText = "Precio Final / PVP .€";
+            this.PrecioFinal.Name = "PrecioFinal";
+            this.PrecioFinal.ReadOnly = true;
+            this.PrecioFinal.Width = 150;
+            // 
+            // Consultar
+            // 
+            this.Consultar.DataPropertyName = "Consultar";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = "Consutar";
+            this.Consultar.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Consultar.HeaderText = "Consultar";
+            this.Consultar.Image = global::Tienda.Properties.Resources.lupaApzul;
+            this.Consultar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Consultar.Name = "Consultar";
+            this.Consultar.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.DataPropertyName = "Eliminar";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.NullValue = "Eliminar";
+            this.Eliminar.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = global::Tienda.Properties.Resources.deleRoj;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
             // 
             // FormDetallePedido
             // 
@@ -389,7 +445,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1198, 615);
-            this.Controls.Add(this.listViewPedidos);
+            this.Controls.Add(this.DataGridViewPedidos);
             this.Controls.Add(this.btnAñadir);
             this.Controls.Add(this.panelTimerTick);
             this.Controls.Add(this.btnLimpiar);
@@ -413,6 +469,7 @@
             this.panelTimerTick.ResumeLayout(false);
             this.panelTimerTick.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPedidos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,13 +495,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxArticulos;
         private System.Windows.Forms.Button btnAñadir;
-        private System.Windows.Forms.ListView listViewPedidos;
-        private System.Windows.Forms.ColumnHeader Acciones;
-        private System.Windows.Forms.ColumnHeader CodigoPedido;
-        private System.Windows.Forms.ColumnHeader CantidadPedido;
-        private System.Windows.Forms.ColumnHeader CodigoCliente;
-        private System.Windows.Forms.ColumnHeader TipoPago;
-        private System.Windows.Forms.ColumnHeader PorcentajeDescuentoRecargoTipoPago;
-        private System.Windows.Forms.ColumnHeader PrecioFinal;
+        private System.Windows.Forms.DataGridView DataGridViewPedidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PorcentajeDescuentoRecargoTipoPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioFinal;
+        private System.Windows.Forms.DataGridViewImageColumn Consultar;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
 }

@@ -81,7 +81,12 @@ namespace Tienda.Controladores
             string nombreArchivo = ObtenerRutaArchivoPedidos();
 
             File.WriteAllText(nombreArchivo, jsonPedidos);
-        }       
+        }
+
+        public static void ElininarPedido(Pedido pedido)
+        {
+            Pedidos.Remove(pedido);
+        }
     }
 }
 

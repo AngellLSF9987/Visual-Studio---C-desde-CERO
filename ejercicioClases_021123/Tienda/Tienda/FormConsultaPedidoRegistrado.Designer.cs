@@ -59,6 +59,7 @@
             this.colNombreCategoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colPrecioUnidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCantidadUnidadesPrecioFinal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.panelTimerTick.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -157,7 +158,7 @@
             // labelListaDetalleArticulosPedido
             // 
             this.labelListaDetalleArticulosPedido.AutoSize = true;
-            this.labelListaDetalleArticulosPedido.Location = new System.Drawing.Point(22, 396);
+            this.labelListaDetalleArticulosPedido.Location = new System.Drawing.Point(22, 350);
             this.labelListaDetalleArticulosPedido.Name = "labelListaDetalleArticulosPedido";
             this.labelListaDetalleArticulosPedido.Size = new System.Drawing.Size(213, 15);
             this.labelListaDetalleArticulosPedido.TabIndex = 25;
@@ -166,7 +167,7 @@
             // labelTipoPago
             // 
             this.labelTipoPago.AutoSize = true;
-            this.labelTipoPago.Location = new System.Drawing.Point(22, 319);
+            this.labelTipoPago.Location = new System.Drawing.Point(22, 300);
             this.labelTipoPago.Name = "labelTipoPago";
             this.labelTipoPago.Size = new System.Drawing.Size(306, 15);
             this.labelTipoPago.TabIndex = 26;
@@ -175,7 +176,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 274);
+            this.label7.Location = new System.Drawing.Point(23, 257);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 15);
             this.label7.TabIndex = 27;
@@ -202,7 +203,7 @@
             // labelPrecioFinal
             // 
             this.labelPrecioFinal.AutoSize = true;
-            this.labelPrecioFinal.Location = new System.Drawing.Point(429, 357);
+            this.labelPrecioFinal.Location = new System.Drawing.Point(487, 300);
             this.labelPrecioFinal.Name = "labelPrecioFinal";
             this.labelPrecioFinal.Size = new System.Drawing.Size(144, 15);
             this.labelPrecioFinal.TabIndex = 30;
@@ -247,7 +248,7 @@
             // lblTipoPago
             // 
             this.lblTipoPago.AutoSize = true;
-            this.lblTipoPago.Location = new System.Drawing.Point(159, 274);
+            this.lblTipoPago.Location = new System.Drawing.Point(159, 257);
             this.lblTipoPago.Name = "lblTipoPago";
             this.lblTipoPago.Size = new System.Drawing.Size(19, 15);
             this.lblTipoPago.TabIndex = 35;
@@ -256,7 +257,7 @@
             // lblPorcentajeDescuentoRecargo
             // 
             this.lblPorcentajeDescuentoRecargo.AutoSize = true;
-            this.lblPorcentajeDescuentoRecargo.Location = new System.Drawing.Point(334, 319);
+            this.lblPorcentajeDescuentoRecargo.Location = new System.Drawing.Point(334, 300);
             this.lblPorcentajeDescuentoRecargo.Name = "lblPorcentajeDescuentoRecargo";
             this.lblPorcentajeDescuentoRecargo.Size = new System.Drawing.Size(19, 15);
             this.lblPorcentajeDescuentoRecargo.TabIndex = 36;
@@ -274,7 +275,7 @@
             // lblPrecioFinal
             // 
             this.lblPrecioFinal.AutoSize = true;
-            this.lblPrecioFinal.Location = new System.Drawing.Point(646, 357);
+            this.lblPrecioFinal.Location = new System.Drawing.Point(646, 300);
             this.lblPrecioFinal.Name = "lblPrecioFinal";
             this.lblPrecioFinal.Size = new System.Drawing.Size(19, 15);
             this.lblPrecioFinal.TabIndex = 38;
@@ -293,9 +294,9 @@
             this.listViewArticulosPedido.FullRowSelect = true;
             this.listViewArticulosPedido.GridLines = true;
             this.listViewArticulosPedido.HideSelection = false;
-            this.listViewArticulosPedido.Location = new System.Drawing.Point(25, 423);
+            this.listViewArticulosPedido.Location = new System.Drawing.Point(25, 377);
             this.listViewArticulosPedido.Name = "listViewArticulosPedido";
-            this.listViewArticulosPedido.Size = new System.Drawing.Size(725, 164);
+            this.listViewArticulosPedido.Size = new System.Drawing.Size(725, 195);
             this.listViewArticulosPedido.TabIndex = 39;
             this.listViewArticulosPedido.UseCompatibleStateImageBehavior = false;
             this.listViewArticulosPedido.View = System.Windows.Forms.View.Details;
@@ -329,12 +330,35 @@
             this.colCantidadUnidadesPrecioFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colCantidadUnidadesPrecioFinal.Width = 100;
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LawnGreen;
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.LightCyan;
+            this.btnCerrar.Location = new System.Drawing.Point(324, 588);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(117, 25);
+            this.btnCerrar.TabIndex = 40;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseCompatibleTextRendering = true;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // FormConsultaPedidoRegistrado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(781, 625);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.listViewArticulosPedido);
             this.Controls.Add(this.lblPrecioFinal);
             this.Controls.Add(this.lblPrecioSinDescuentoRecargo);
@@ -404,5 +428,6 @@
         private System.Windows.Forms.ColumnHeader colNombreCategoria;
         private System.Windows.Forms.ColumnHeader colPrecioUnidad;
         private System.Windows.Forms.ColumnHeader colCantidadUnidadesPrecioFinal;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

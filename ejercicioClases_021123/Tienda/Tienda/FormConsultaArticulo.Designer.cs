@@ -30,16 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConsultaArticulo));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.labelFecha = new System.Windows.Forms.Label();
             this.labelHora = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listViewConsultas = new System.Windows.Forms.ListView();
-            this.colCodigoArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colNombreArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colCategoriaArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPrecioArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colExistenciasArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.btnConsultar = new System.Windows.Forms.Button();
@@ -48,9 +49,17 @@
             this.timerHoraActual = new System.Windows.Forms.Timer(this.components);
             this.radioCodigo = new System.Windows.Forms.RadioButton();
             this.radioNombre = new System.Windows.Forms.RadioButton();
-            this.colAcciones = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DataGridViewResultados = new System.Windows.Forms.DataGridView();
+            this.CodigoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExistenciasArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTimerTick.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewResultados)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -97,55 +106,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
-            // 
-            // listViewConsultas
-            // 
-            this.listViewConsultas.BackColor = System.Drawing.Color.Silver;
-            this.listViewConsultas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colAcciones,
-            this.colCodigoArticulo,
-            this.colNombreArticulo,
-            this.colCategoriaArticulo,
-            this.colPrecioArticulo,
-            this.colExistenciasArticulo});
-            this.listViewConsultas.GridLines = true;
-            this.listViewConsultas.HideSelection = false;
-            this.listViewConsultas.Location = new System.Drawing.Point(31, 252);
-            this.listViewConsultas.MultiSelect = false;
-            this.listViewConsultas.Name = "listViewConsultas";
-            this.listViewConsultas.Size = new System.Drawing.Size(1141, 296);
-            this.listViewConsultas.TabIndex = 42;
-            this.listViewConsultas.UseCompatibleStateImageBehavior = false;
-            this.listViewConsultas.View = System.Windows.Forms.View.Details;
-            // 
-            // colCodigoArticulo
-            // 
-            this.colCodigoArticulo.Text = "Cod. Artículo";
-            this.colCodigoArticulo.Width = 105;
-            // 
-            // colNombreArticulo
-            // 
-            this.colNombreArticulo.Text = "Nombre Articulo";
-            this.colNombreArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colNombreArticulo.Width = 262;
-            // 
-            // colCategoriaArticulo
-            // 
-            this.colCategoriaArticulo.Text = "Categoría";
-            this.colCategoriaArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colCategoriaArticulo.Width = 312;
-            // 
-            // colPrecioArticulo
-            // 
-            this.colPrecioArticulo.Text = "Precio (Ud./€)";
-            this.colPrecioArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colPrecioArticulo.Width = 150;
-            // 
-            // colExistenciasArticulo
-            // 
-            this.colExistenciasArticulo.Text = "Existencias Disponibles (Stock)";
-            this.colExistenciasArticulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colExistenciasArticulo.Width = 226;
             // 
             // btnLimpiar
             // 
@@ -265,10 +225,108 @@
             this.radioNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioNombre.UseVisualStyleBackColor = true;
             // 
-            // colAcciones
+            // DataGridViewResultados
             // 
-            this.colAcciones.Text = "Acciones";
-            this.colAcciones.Width = 80;
+            this.DataGridViewResultados.AllowUserToAddRows = false;
+            this.DataGridViewResultados.AllowUserToDeleteRows = false;
+            this.DataGridViewResultados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.DataGridViewResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DataGridViewResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CodigoArticulo,
+            this.NombreArticulo,
+            this.Categoria,
+            this.PrecioArticulo,
+            this.ExistenciasArticulo,
+            this.Editar,
+            this.Eliminar});
+            this.DataGridViewResultados.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.DataGridViewResultados.Location = new System.Drawing.Point(24, 241);
+            this.DataGridViewResultados.Name = "DataGridViewResultados";
+            this.DataGridViewResultados.Size = new System.Drawing.Size(1153, 307);
+            this.DataGridViewResultados.TabIndex = 45;
+            // 
+            // CodigoArticulo
+            // 
+            this.CodigoArticulo.DataPropertyName = "CodigoArticulo";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "null";
+            this.CodigoArticulo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.CodigoArticulo.HeaderText = "Cod. Articulo";
+            this.CodigoArticulo.Name = "CodigoArticulo";
+            this.CodigoArticulo.ReadOnly = true;
+            // 
+            // NombreArticulo
+            // 
+            this.NombreArticulo.DataPropertyName = "NombreArticulo";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "null";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NombreArticulo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.NombreArticulo.HeaderText = "Nombre Artículo";
+            this.NombreArticulo.Name = "NombreArticulo";
+            this.NombreArticulo.ReadOnly = true;
+            this.NombreArticulo.Width = 280;
+            // 
+            // Categoria
+            // 
+            this.Categoria.DataPropertyName = "Categoria";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "null";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Categoria.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Categoria.HeaderText = "Categoría";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 270;
+            // 
+            // PrecioArticulo
+            // 
+            this.PrecioArticulo.DataPropertyName = "PrecioArticulo";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = "0,00";
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PrecioArticulo.DefaultCellStyle = dataGridViewCellStyle4;
+            this.PrecioArticulo.HeaderText = "PVP Ud./€";
+            this.PrecioArticulo.Name = "PrecioArticulo";
+            this.PrecioArticulo.ReadOnly = true;
+            this.PrecioArticulo.Width = 110;
+            // 
+            // ExistenciasArticulo
+            // 
+            this.ExistenciasArticulo.DataPropertyName = "ExistenciasArticulo";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = "0";
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ExistenciasArticulo.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ExistenciasArticulo.HeaderText = "Stock - Existencias";
+            this.ExistenciasArticulo.Name = "ExistenciasArticulo";
+            this.ExistenciasArticulo.ReadOnly = true;
+            this.ExistenciasArticulo.Width = 149;
+            // 
+            // Editar
+            // 
+            this.Editar.DataPropertyName = "Editar";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
+            this.Editar.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::Tienda.Properties.Resources.editVer;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.DataPropertyName = "Eliminar";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle7.NullValue")));
+            this.Eliminar.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = global::Tienda.Properties.Resources.deleRoj;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
             // 
             // FormConsultaArticulo
             // 
@@ -276,10 +334,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1198, 615);
+            this.Controls.Add(this.DataGridViewResultados);
             this.Controls.Add(this.radioNombre);
             this.Controls.Add(this.radioCodigo);
             this.Controls.Add(this.labelFecha);
-            this.Controls.Add(this.listViewConsultas);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.btnConsultar);
@@ -298,6 +356,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTimerTick.ResumeLayout(false);
             this.panelTimerTick.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewResultados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,12 +368,6 @@
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.Label labelHora;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ListView listViewConsultas;
-        private System.Windows.Forms.ColumnHeader colCodigoArticulo;
-        private System.Windows.Forms.ColumnHeader colNombreArticulo;
-        private System.Windows.Forms.ColumnHeader colCategoriaArticulo;
-        private System.Windows.Forms.ColumnHeader colPrecioArticulo;
-        private System.Windows.Forms.ColumnHeader colExistenciasArticulo;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.TextBox textBoxBuscar;
         private System.Windows.Forms.Button btnConsultar;
@@ -323,6 +376,13 @@
         private System.Windows.Forms.Timer timerHoraActual;
         private System.Windows.Forms.RadioButton radioCodigo;
         private System.Windows.Forms.RadioButton radioNombre;
-        private System.Windows.Forms.ColumnHeader colAcciones;
+        private System.Windows.Forms.DataGridView DataGridViewResultados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExistenciasArticulo;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
 }

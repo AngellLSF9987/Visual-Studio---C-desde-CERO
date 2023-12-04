@@ -34,7 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAltaArticulo));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
             this.labelFecha = new System.Windows.Forms.Label();
@@ -46,11 +48,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxNombreArticulo = new System.Windows.Forms.TextBox();
             this.comboBoxSelectCategoria = new System.Windows.Forms.ComboBox();
-            this.ColumnCodArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPrecioArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnExistenciasArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCategoriaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.labelCantidadArticulo = new System.Windows.Forms.Label();
             this.textBoxCantidad = new System.Windows.Forms.TextBox();
@@ -199,82 +196,6 @@
             this.comboBoxSelectCategoria.TabIndex = 21;
             this.comboBoxSelectCategoria.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectCategoria_SelectedIndexChanged);
             // 
-            // ColumnCodArticulo
-            // 
-            this.ColumnCodArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = "1";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnCodArticulo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnCodArticulo.HeaderText = "Cod. Artículo";
-            this.ColumnCodArticulo.Name = "ColumnCodArticulo";
-            this.ColumnCodArticulo.ReadOnly = true;
-            this.ColumnCodArticulo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnNombreArticulo
-            // 
-            this.ColumnNombreArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = "HP Pavilion";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnNombreArticulo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnNombreArticulo.HeaderText = "Nombre";
-            this.ColumnNombreArticulo.Name = "ColumnNombreArticulo";
-            this.ColumnNombreArticulo.ReadOnly = true;
-            // 
-            // ColumnPrecioArticulo
-            // 
-            this.ColumnPrecioArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = "700.00€";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnPrecioArticulo.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnPrecioArticulo.HeaderText = "Precio(Ud./€)";
-            this.ColumnPrecioArticulo.Name = "ColumnPrecioArticulo";
-            this.ColumnPrecioArticulo.ReadOnly = true;
-            // 
-            // ColumnExistenciasArticulo
-            // 
-            this.ColumnExistenciasArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = "1";
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnExistenciasArticulo.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumnExistenciasArticulo.HeaderText = "Stock/Uds.";
-            this.ColumnExistenciasArticulo.Name = "ColumnExistenciasArticulo";
-            this.ColumnExistenciasArticulo.ReadOnly = true;
-            // 
-            // ColumnCategoriaArticulo
-            // 
-            this.ColumnCategoriaArticulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.NullValue = "Colección PCs Portátiles";
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.GreenYellow;
-            this.ColumnCategoriaArticulo.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColumnCategoriaArticulo.HeaderText = "Categoría";
-            this.ColumnCategoriaArticulo.Name = "ColumnCategoriaArticulo";
-            this.ColumnCategoriaArticulo.ReadOnly = true;
-            this.ColumnCategoriaArticulo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnCategoriaArticulo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // btnRegistrar
             // 
             this.btnRegistrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -364,6 +285,7 @@
             // 
             // DataGridViewArticulos
             // 
+            this.DataGridViewArticulos.AllowUserToAddRows = false;
             this.DataGridViewArticulos.AllowUserToDeleteRows = false;
             this.DataGridViewArticulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.DataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -383,12 +305,21 @@
             // 
             // CodigoArticulo
             // 
+            this.CodigoArticulo.DataPropertyName = "CodigoArticulo";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "null";
+            this.CodigoArticulo.DefaultCellStyle = dataGridViewCellStyle1;
             this.CodigoArticulo.HeaderText = "Cod. Articulo";
             this.CodigoArticulo.Name = "CodigoArticulo";
             this.CodigoArticulo.ReadOnly = true;
             // 
             // NombreArticulo
             // 
+            this.NombreArticulo.DataPropertyName = "NombreArticulo";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "null";
+            this.NombreArticulo.DefaultCellStyle = dataGridViewCellStyle2;
             this.NombreArticulo.HeaderText = "Nombre Artículo";
             this.NombreArticulo.Name = "NombreArticulo";
             this.NombreArticulo.ReadOnly = true;
@@ -396,6 +327,10 @@
             // 
             // Categoria
             // 
+            this.Categoria.DataPropertyName = "Categoria";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "null";
+            this.Categoria.DefaultCellStyle = dataGridViewCellStyle3;
             this.Categoria.HeaderText = "Categoría";
             this.Categoria.Name = "Categoria";
             this.Categoria.ReadOnly = true;
@@ -403,6 +338,11 @@
             // 
             // PrecioArticulo
             // 
+            this.PrecioArticulo.DataPropertyName = "PrecioArticulo";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = "0,00";
+            this.PrecioArticulo.DefaultCellStyle = dataGridViewCellStyle4;
             this.PrecioArticulo.HeaderText = "PVP Ud./€";
             this.PrecioArticulo.Name = "PrecioArticulo";
             this.PrecioArticulo.ReadOnly = true;
@@ -410,6 +350,11 @@
             // 
             // ExistenciasArticulo
             // 
+            this.ExistenciasArticulo.DataPropertyName = "ExistenciasArticulo";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = "0";
+            this.ExistenciasArticulo.DefaultCellStyle = dataGridViewCellStyle5;
             this.ExistenciasArticulo.HeaderText = "Stock - Existencias";
             this.ExistenciasArticulo.Name = "ExistenciasArticulo";
             this.ExistenciasArticulo.ReadOnly = true;
@@ -417,6 +362,10 @@
             // 
             // Editar
             // 
+            this.Editar.DataPropertyName = "Editar";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
+            this.Editar.DefaultCellStyle = dataGridViewCellStyle6;
             this.Editar.HeaderText = "Editar";
             this.Editar.Image = global::Tienda.Properties.Resources.editVer;
             this.Editar.Name = "Editar";
@@ -424,6 +373,10 @@
             // 
             // Eliminar
             // 
+            this.Eliminar.DataPropertyName = "Eliminar";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle7.NullValue")));
+            this.Eliminar.DefaultCellStyle = dataGridViewCellStyle7;
             this.Eliminar.HeaderText = "Eliminar";
             this.Eliminar.Image = global::Tienda.Properties.Resources.deleRoj;
             this.Eliminar.Name = "Eliminar";
@@ -483,11 +436,6 @@
         private System.Windows.Forms.TextBox textBoxNombreArticulo;
         private System.Windows.Forms.ComboBox comboBoxSelectCategoria;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombreArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecioArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnExistenciasArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCategoriaArticulo;
         private System.Windows.Forms.Label labelCantidadArticulo;
         private System.Windows.Forms.TextBox textBoxCantidad;
         private System.Windows.Forms.Button btnLimpiar;

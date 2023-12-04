@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Tienda.Clases;
 
 namespace Tienda.Controladores
@@ -21,11 +17,11 @@ namespace Tienda.Controladores
             return tipoPagos;
         }
 
-       /** public static List<string> ObtenerNombresTipoPagos()
-        {
-            return tipoPagos.Select(t => t.NombreTipoPago).ToList();
-        }
-       */
+        /** public static List<string> ObtenerNombresTipoPagos()
+         {
+             return tipoPagos.Select(t => t.NombreTipoPago).ToList();
+         }
+        */
         public static void InicializarTipoPago()
         {
             tipoPagos = new List<TipoPago>

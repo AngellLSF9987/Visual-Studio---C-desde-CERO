@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Tienda.Controladores;
@@ -22,6 +23,73 @@ namespace Tienda
             comboBoxSelectCategoria.SelectedIndexChanged += new EventHandler(comboBoxSelectCategoria_SelectedIndexChanged);
         }
 
+        private void dataGridViewArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Verificar que se hizo clic en una fila válida
+            {
+                DataGridViewRow row = DataGridViewArticulos.Rows[e.RowIndex];
+                // Obtener el código del artículo seleccionado
+                int codigoArticulo = ControladorArticulo.ObtenerCodigoArticuloSeleccionado(DataGridViewArticulos);
+
+                // Llamar al método de obtener artículo por código con el código obtenido
+                Articulo articulo = ControladorArticulo.ObtenerArticuloPorCodigo(codigoArticulo);
+
+                // Declarar variables fuera del bloque if
+                string nuevoNombre = string.Empty;
+                Categoria nuevaCategoria = null;
+                decimal nuevoPrecio = 0;
+                int nuevasExistencias = 0;
+
+                if (e.ColumnIndex == DataGridViewArticulos.Columns["Editar"].Index)
+                {
+                    FormEditarArticulo formEditar = new FormEditarArticulo(articulo);
+                    var result = formEditar.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        // Obtener los nuevos datos del formulario de edición
+                        nuevoNombre = formEditar.NuevoNombre;
+                        nuevaCategoria = formEditar.NuevaCategoria;
+                        nuevoPrecio = formEditar.NuevoPrecio;
+                        nuevasExistencias = formEditar.NuevasExistencias;
+
+                        // Llamar al método de edición en el controlador
+                        ControladorArticulo.EditarArticulo(articulo, nuevoNombre, nuevaCategoria, nuevoPrecio, nuevasExistencias);
+
+                        // Actualizar la lista si es necesario
+                        ActualizarListaArticulos();
+                    }
+                }
+                else if (e.ColumnIndex == DataGridViewArticulos.Columns["Eliminar"].Index)
+                {
+                    // Obtener el artículo seleccionado
+                    Articulo articuloSeleccionado = (Articulo)row.DataBoundItem;
+
+                    MsgBoxEliminar msgBoxEliminar = new MsgBoxEliminar("question",
+                        "Desea eliminar?\nSe eliminará de forma permanente");
+                    msgBoxEliminar.ShowDialog();
+
+                    if (msgBoxEliminar.DialogResult == DialogResult.OK)
+                    {
+                        // Eliminar el artículo
+                        ControladorArticulo.EliminarArticulo(articuloSeleccionado);
+
+                        // Actualizar la lista si es necesario
+                        ActualizarListaArticulos();
+                    }
+                }
+            }
+        }
+        private void DataGridViewResultados_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Establecer el formato de las celdas de imagen (Editar y Eliminar)
+            if (e.ColumnIndex == DataGridViewArticulos.Columns["Editar"].Index ||
+                e.ColumnIndex == DataGridViewArticulos.Columns["Eliminar"].Index)
+            {
+                e.Value = new Bitmap((Image)e.Value, new Size(24, 24));
+            }
+        }
+
         private void FormAltaArticulo_Load(object sender, EventArgs e)
         {
             labelFecha.Text = DateTime.Now.ToString("dddd, " + "dd \\de " + "MMMM \\de " + "yyyy").ToUpperInvariant();
@@ -37,106 +105,19 @@ namespace Tienda
             // Establecer el texto predeterminado que deseas mostrar en labelTotal
             labelTotal.Text = "Elija categoría para ver el precio...";
 
+            // Inicializar la lista de artículos
+            List<Articulo> articulos = ControladorArticulo.ObtenerArticulos();
+
             // Verifica que la lista de artículos en FormAltaArticulo esté actualizada
             Console.WriteLine($"Número de artículos en FormAltaArticulo: {ControladorArticulo.ObtenerArticulos().Count}");
 
-            // DataGridViewArticulos.CellFormatting += dataGridViewArticulos_CellFormatting;
-
             // Configurar el evento CellContentClick
             DataGridViewArticulos.CellContentClick += dataGridViewArticulos_CellContentClick;
-
+            DataGridViewArticulos.CellFormatting += DataGridViewResultados_CellFormatting;
             // Establecer la fuente de datos del DataGridView
-            bindingSourceArticulos.DataSource = ControladorArticulo.ObtenerArticulos();
+            bindingSourceArticulos.DataSource = articulos;
             DataGridViewArticulos.DataSource = bindingSourceArticulos;
-
-            // Imprimir los nombres de las columnas en la consola
-            foreach (DataGridViewColumn column in DataGridViewArticulos.Columns)
-            {
-                Console.WriteLine($"Nombre de la columna: {column.Name}");
-                Console.WriteLine($"Tipo de Celda: {column.CellType}");
-                Console.WriteLine($"Tipo de Valor: {column.ValueType}");
-                Console.WriteLine($"Índice de Columna: {column.Index}");
-                Console.WriteLine($"Índice de Visualización: {column.DisplayIndex}");
-                Console.WriteLine($"Ancho de Columna: {column.Width}");
-                Console.WriteLine($"ReadOnly: {column.ReadOnly}");
-                Console.WriteLine($"Visible: {column.Visible}");
-                Console.WriteLine($"=====================");
-            }
         }
-
-        private void dataGridViewArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = DataGridViewArticulos.Rows[e.RowIndex];
-                // Verificar si la celda en la que hiciste clic es una celda de botón
-                if (e.ColumnIndex == DataGridViewArticulos.Columns["Editar"].Index)
-                {
-                    // Obtener el artículo seleccionado
-                    Articulo articulo = (Articulo)row.DataBoundItem;
-
-                    FormEditarArticulo formEditar = new FormEditarArticulo();
-                    var result = formEditar.ShowDialog();
-                    
-                    if (result == DialogResult.OK)
-                    {
-                        // Obtener los nuevos datos del formulario de edición
-                        string nuevoNombre = formEditar.NuevoNombre;
-                        Categoria nuevaCategoria = formEditar.NuevaCategoria;
-                        decimal nuevoPrecio = formEditar.NuevoPrecio;
-                        int nuevasExistencias = formEditar.NuevasExistencias;
-
-                        // Llamar al método de edición en el controlador
-                        ControladorArticulo.EditarArticulo(articulo, nuevoNombre, nuevaCategoria, nuevoPrecio, nuevasExistencias);
-                        
-                        // Actualizar la lista si es necesario
-                        ActualizarListaArticulos();
-                    }
-                }
-                else if (e.ColumnIndex == DataGridViewArticulos.Columns["Eliminar"].Index)
-                {
-                    // Obtener el artículo seleccionado
-                    Articulo articulo = (Articulo)row.DataBoundItem;
-
-                    MsgBoxEliminar msgBoxEliminar = new MsgBoxEliminar("question",
-                        "Desea eliminar?\nSe eliminará de forma permanente");
-                    msgBoxEliminar.ShowDialog();
-                    
-                    if (msgBoxEliminar.DialogResult == DialogResult.OK)
-                    {
-                        // Eliminar el artículo
-                        ControladorArticulo.EliminarArticulo(articulo);
-
-                        // Actualizar la lista si es necesario
-                        ActualizarListaArticulos();
-                    }
-                }
-            }
-        }
-
-        // Método para actualizar la lista de artículos en FormAltaArticulo
-        public void ActualizarListaArticulos()
-        {
-            // Actualizar la fuente de datos del DataGridView en el hilo principal
-            this.BeginInvoke((MethodInvoker)delegate
-            {
-                bindingSourceArticulos.DataSource = ControladorArticulo.ObtenerArticulos();
-                DataGridViewArticulos.Refresh();
-
-                // Recorrer las filas del DataGridView y asignar el botón "Editar"
-                foreach (DataGridViewRow row in DataGridViewArticulos.Rows)
-                {
-                    if (row.DataBoundItem is Articulo articulo)
-                    {
-                        DataGridViewButtonCell buttonCell = (DataGridViewButtonCell)row.Cells["Editar"];
-                        buttonCell.Value = "Editar";
-
-                        // Puedes hacer lo mismo para la columna "Eliminar" si es necesario
-                    }
-                }
-            });
-        }
-
         private void btnInicio_Click(object sender, EventArgs e) => Close();
 
         private void timerHoraActual_Tick(object sender, EventArgs e)
@@ -152,75 +133,103 @@ namespace Tienda
         }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            // Obtener la categoría seleccionada del comboBoxSelectCategoria
-            Categoria categoria = comboBoxSelectCategoria.SelectedItem as Categoria;
-
-            // Validar la categoría
-            if (categoria == null || !Articulo.CategoriaValida(categoria))
+            try
             {
-                MessageBox.Show("Categoría no válida. Las categorías válidas son: Colección Smartphones, Colección PCs Sobremesa, Colección PCs Portátiles.");
-                return;
-            }
+                // Obtener la categoría seleccionada del comboBoxSelectCategoria
+                Categoria categoria = comboBoxSelectCategoria.SelectedItem as Categoria;
 
-            // Asegurarse de que la propiedad Categoria no sea null
-            if (categoria.NombreCategoria == null)
-            {
-                MessageBox.Show("La categoría del artículo no está definida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Obtener el precio por defecto de la categoría
-            decimal precioPorDefecto = categoria.PrecioPorDefecto;
-            // Obtener los datos ingresados en el formulario
-
-            string nombreArticulo = textBoxNombreArticulo.Text;
-            int existenciasArticulo = int.Parse(textBoxCantidad.Text);
-
-            // Buscar un artículo existente con el mismo nombreArticulo
-            Articulo articuloExistente = ControladorArticulo.ObtenerArticulos().FirstOrDefault(a => a.NombreArticulo == nombreArticulo && a.Categoria.Equals(categoria));
-
-            if (articuloExistente != null)
-            {
-                // Si se encuentra un artículo con el mismo nombre, aumentar las existencias
-                articuloExistente.ActualizarExistencias(existenciasArticulo);
-                MessageBox.Show("Se han añadido nuevas existencias para el artículo existente.");
-
-                // Recorrer las filas del DataGridView y actualizar la cantidad de existencias en esa fila.
-                foreach (DataGridViewRow row in DataGridViewArticulos.Rows)
+                // Validar la categoría
+                if (categoria == null || categoria.NombreCategoria == null || !Articulo.CategoriaValida(categoria))
                 {
-                    if (row.DataBoundItem is Articulo articulo && articulo == articuloExistente)
-                    {
-                        row.Cells["Existencias"].Value = articuloExistente.ExistenciasArticulo;
-                        break;
-                    }
+                    MessageBox.Show("Categoría no válida. Las categorías válidas son: Colección Smartphones, Colección PCs Sobremesa, Colección PCs Portátiles.");
+                    return;
                 }
+
+                // Asegurarse de que la propiedad Categoria no sea null
+                if (categoria.NombreCategoria == null)
+                {
+                    MessageBox.Show("La categoría del artículo no está definida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Validar la conversión de la cantidad a int
+                if (!int.TryParse(textBoxCantidad.Text, out int existenciasArticulo))
+                {
+                    MessageBox.Show("La cantidad ingresada no es un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                existenciasArticulo = int.Parse(textBoxCantidad.Text);
+
+                // Obtener el precio por defecto de la categoría
+                decimal precioPorDefecto = categoria.PrecioPorDefecto;
+                // Obtener los datos ingresados en el formulario
+
+                string nombreArticulo = textBoxNombreArticulo.Text;
+
+                // Validar el nombre del artículo
+                if (string.IsNullOrWhiteSpace(nombreArticulo) || nombreArticulo == "Escriba aquí el Nombre del Nuevo Artículo ...")
+                {
+                    MessageBox.Show("Por favor, ingrese un nombre de artículo válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Buscar un artículo existente con el mismo nombreArticulo
+                Articulo articuloExistente = ControladorArticulo.ObtenerArticulos().FirstOrDefault(a => a.NombreArticulo == nombreArticulo && a.Categoria.Equals(categoria));
+
+                /** Verificaciones InvokeRequired para asegurarme de que las operaciones que interactúan 
+                 * con la interfaz de usuario se realicen en el hilo principal. 
+                 */
+
+                if (articuloExistente != null)
+                {
+                    // Si se encuentra un artículo con el mismo nombre, aumentar las existencias
+                    articuloExistente.ActualizarExistencias(existenciasArticulo);
+                    MessageBox.Show("Se han añadido nuevas existencias para el artículo existente.");
+
+                    ActualizarListaArticulos();
+                }
+                else
+                {
+                    // Crear un nuevo artículo con los datos ingresados
+                    Articulo articulo = new Articulo(nombreArticulo, categoria, precioPorDefecto, existenciasArticulo);
+
+                    // Mostrar el precio por defecto en el labelTotal
+                    labelTotal.Text = $"{precioPorDefecto}€";
+
+                    // Agregar el nuevo artículo a la lista de artículos
+                    ControladorArticulo.AgregarArticulo(articulo);
+
+                    // bindingSourceArticulos.Add(articulo);
+                    ActualizarListaArticulos();
+
+                    MessageBox.Show("Artículo creado con éxito.");
+                }
+                btnLimpiar_Click(sender, e);
+            }
+            catch
+            {
+                // Manejo de excepciones
+                MessageBox.Show($"Se ha producido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Método para actualizar la lista de artículos en FormAltaArticulo
+        public void ActualizarListaArticulos()
+        {
+            if (DataGridViewArticulos.InvokeRequired)
+            {
+                // Utilizar Invoke para actualizar la interfaz de usuario desde el hilo principal
+                DataGridViewArticulos.Invoke((MethodInvoker)delegate
+                {
+                    bindingSourceArticulos.ResetBindings(false);
+                });
             }
             else
             {
-                // Crear un nuevo artículo con los datos ingresados
-                Articulo articulo = new Articulo(nombreArticulo, categoria, precioPorDefecto, existenciasArticulo);
-
-                // Mostrar el precio por defecto en el labelTotal
-                labelTotal.Text = $"{precioPorDefecto}€";
-
-                // Agregar el nuevo artículo a la lista de artículos
-                ControladorArticulo.AgregarArticulo(articulo);
-
-                // Agregar el nuevo artículo a la fuente de datos en el hilo principal
-                this.BeginInvoke((MethodInvoker)delegate
-                {
-                    bindingSourceArticulos.Add(articulo);
-                });
-
-                // Actualizar la vista del DataGridView en el hilo principal
-                this.BeginInvoke((MethodInvoker)delegate
-                {
-                    //ActualizarListaArticulos();
-                });
-
-                MessageBox.Show("Artículo creado con éxito.");
+                // Si ya estamos en el hilo principal, actualizar directamente
+                bindingSourceArticulos.ResetBindings(false);
             }
-            btnLimpiar_Click(sender, e);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
